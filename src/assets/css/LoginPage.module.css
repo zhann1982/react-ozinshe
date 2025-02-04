@@ -1,0 +1,113 @@
+.formOverlay {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 100px;
+}
+
+.formBox {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    width: 360px;
+    border-radius: var(--border-radius-5);
+    padding: 32px 40px;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.title {
+    text-align: center;
+    font-size: var(--font-size-22);
+    font-weight: var(--font-weight-700);
+    margin-bottom: 12px;
+}
+
+.info {
+    text-align: center;
+    font-size: var(--font-size-14);
+    font-weight: var(--font-weight-400);
+    color: var(--gray-text-color);
+    margin-bottom: 32px;
+}
+
+.inputEmail {
+    margin-bottom: 12px;
+    border: 0px;
+    width: 296px;
+    height: 46px;
+    background-color: var(--bg-light-gray-color-transparent);
+    border-radius: var(--border-radius-3);
+    padding-inline: 24px;
+    color: var(--gray-text-color);
+    font-size: var(--font-size-14);
+    font-weight: var(--font-weight-500);
+
+    &::placeholder {
+        color: var(--gray-text-color);
+        font-size: var(--font-size-14);
+        font-weight: var(--font-weight-500);
+    }
+
+    &:focus {
+        outline: 1px solid var(--light-gray-text-color);
+    }
+}
+
+.inputPassword {
+    margin-bottom: 32px;
+    border: 0px;
+    width: 296px;
+    height: 46px;
+    background-color: var(--bg-light-gray-color-transparent);
+    border-radius: var(--border-radius-3);
+    padding-inline: 24px;
+    color: var(--gray-text-color);
+    font-size: var(--font-size-14);
+    font-weight: var(--font-weight-500);
+    
+    &::placeholder {
+        color: var(--gray-text-color);
+        font-size: var(--font-size-14);
+        font-weight: var(--font-weight-500);
+    }
+
+    &:focus {
+        outline: 1px solid var(--light-gray-text-color);
+    }
+}
+
+.buttonSubmit {
+    background-color: var(--color-purple);
+    color: #fff;
+    outline: 0;
+    border: 0px;
+    border-radius: var(--border-radius-3);
+    padding: 8px 24px;
+    width: 296px;
+    font-size: var(--font-size-16);
+    font-weight: var(--font-weight-700);
+    margin-bottom: 24px;
+
+    &:hover {
+        opacity: 0.8;
+        cursor: pointer;
+    }
+}
+
+.resetInfo {
+    font-size: var(--font-size-13);
+    font-weight: var(--font-weight-700);
+    color: var(--gray-text-color);
+}
+
+.reserLink {
+    color: var(--primary-color);
+    margin-left: 5px;
+
+    &:hover {
+        opacity: 0.8;
+    }
+}

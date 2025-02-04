@@ -1,0 +1,7 @@
+.radius {
+    border-radius: var(--border-radius-4);
+    width: 80px;
+    height: 80px;
+    display: block;
+    margin: 64PX auto;
+}

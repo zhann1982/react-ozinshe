@@ -1,0 +1,71 @@
+@font-face {
+  font-family: 'Roboto';
+  src: url(./assets/fonts/Roboto/static/Roboto-Regular.ttf);
+}
+
+:root {
+  /* main color for main icon and buttons */
+  --color-purple: #7E2DFC;
+  /* background color for body (outside app) */
+  --bg-color-transparent: rgba(0, 82, 204, 0.1);
+  /* main font color */
+  --main-text-color: #171717;
+  /* secondary font color */
+  --gray-text-color: #8F92A1;
+  /* light gray font color, slightly lighter then secondary color
+  use it as gray text color in cards (under title)*/
+  --light-gray-text-color: #9CA3AF;
+  /* blue color for active menu links, links in modals, 
+  and also bg color for icons in user cards*/
+  --primary-color: #0052cc;
+  /* red color for exit button(icon) in header */
+  --exit-color: #ff494d;
+  /* red color for delete button, also bg for exit button(5% opacity) */
+  --delete-color: #DE350B;
+  /* green color for success icon im modal */
+  --success-color: #1FBF79;
+
+  /* transparent gray color for background, for components
+  also for inputs */
+  --bg-light-gray-color-transparent: rgba(143, 146, 161, 0.05);
+
+  /* transparent gray color for screenshot placeholder background */
+  --bg-screenshot: rgba(143, 146, 161, 0.2);
+  --bg-screenshot-hover: rgba(143, 146, 161, 0.3);
+  --bg-screenshot-active: rgba(143, 146, 161, 0.4);
+
+  /* transparent gray color for modal overlay background */
+  --bg-modal-overlay: rgba(23, 23, 23, 0.8);
+
+  /* border-radius sizes */
+  --border-radius-1: 4px;
+  --border-radius-2: 8px;
+  --border-radius-3: 16px;
+  --border-radius-4: 24px;
+  --border-radius-5: 48px;
+
+  /* font-sizes */
+  --font-size-22: 22px; /* mostly used for headers */
+  --font-size-16: 16px; /* mostly used for buttons */
+  --font-size-14: 14px; /* mostly used for regular text */
+  --font-size-13: 13px; /* mostly used for small info text */
+  --font-size-12: 12px; /* mostly used for tiny info text */
+
+  /* font-weights */
+  --font-weight-700: 700;
+  --font-weight-500: 500;
+  --font-weight-400: 400;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: var(--main-text-color);
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  background-color: var(--bg-color-transparent);
+
+}
