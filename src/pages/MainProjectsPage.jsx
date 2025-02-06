@@ -1,12 +1,12 @@
 import React from 'react'
 import MainLayout from '../layouts/MainLayout'
 
-const ProjectsPage = () => {
+const MainProjectsPage = () => {
   return (
     <MainLayout>
-    <div>Projects Page</div>
+    <div>Main Projects Page</div>
     </MainLayout>
   )
 }
 
-export default ProjectsPage
+export default MainProjectsPage
