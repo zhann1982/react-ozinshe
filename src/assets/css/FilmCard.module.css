@@ -1,0 +1,80 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    width: 260px;
+    background-color: #fff;
+    padding: 16px;
+    border-radius: var(--border-radius-3);
+}
+
+.imageBox {
+    width: 228px;
+    height: 334px;
+    background-position: center center;
+    background-size: cover;
+    border-radius: var(--border-radius-2);
+    padding: 12px;
+    display: flex;
+    align-items: start;
+}
+
+.seriesCount {
+    background-color: #171717D0;
+    margin-right: auto;
+    color: #fff;
+    display: block;
+    padding: 4px 10px;
+    font-size: var(--font-size-14);
+    font-weight: var(--font-weight-500);
+    border-radius: var(--border-radius-2);
+}
+
+.title {
+    margin-top: 16px;
+    font-size: var(--font-size-16);
+    font-weight: var(--font-weight-700);
+}
+
+.category {
+    margin-top: 8px;
+    font-size: var(--font-size-12);
+    font-weight: var(--font-weight-400);
+    color: var(--light-gray-text-color);
+}
+
+.actionBox {
+    margin-top: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.views {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    p {
+        font-size: var(--font-size-12);
+        font-weight: var(--font-weight-400);
+        color: #9CA3AF;
+    }
+}
+
+.actions {
+    display: flex;
+    gap: 16px;
+    button {
+        outline: 0px;
+        border: 0px;
+        background-color: transparent;
+        cursor: pointer;
+    }
+}
+
+.card:hover .title {
+    color: var(--primary-color);
+}
+
+.card:hover {
+    cursor: pointer;
+}

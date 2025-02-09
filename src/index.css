@@ -55,6 +55,13 @@
   --font-weight-700: 700;
   --font-weight-500: 500;
   --font-weight-400: 400;
+
+  /* Linear gradients instead of placeholder images in cards */
+  --bg-gradient-1: linear-gradient(135deg, #01DCBA 0%, #7F30CB 100%);
+  --bg-gradient-2: linear-gradient(225.4deg, #FEDC2A 0%, #DD5789 48.12%, #7A2C9E 93.59%);
+  --bg-gradient-3: linear-gradient(224.86deg, #73CCD8 4.87%, #3087CE 96.04%);
+  --bg-gradient-4: linear-gradient(224.86deg, #169074 4.87%, #30CE8C 96.04%);
+  --bg-gradient-5: linear-gradient(224.86deg, #165590 4.87%, #9915A5 96.04%);
 }
 
 * {
@@ -67,5 +74,4 @@
 
 body {
   background-color: var(--bg-color-transparent);
-
 }

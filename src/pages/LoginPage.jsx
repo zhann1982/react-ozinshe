@@ -4,7 +4,7 @@ import MainIcon from '../components/icons/MainIcon'
 
 const LoginPage = () => {
   return (
-    <div className="formOverlay">
+    <div className={styles.formOverlay}>
         <MainIcon width={80} height={80} />
         <form className={styles.formBox}>
             <h2 className={styles.title}>Добро пожаловать</h2>

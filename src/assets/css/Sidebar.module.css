@@ -3,9 +3,11 @@
     flex-direction: column;
     background-color: #fff;
     padding-bottom: 50px;
+    width: 250px;
 }
 
 .navItem {
+    width: 250px;
     display: flex;
     text-decoration: none;
     align-items: center;
@@ -18,7 +20,7 @@
     }
 
     svg {
-        fill: var(--gray-text-color)
+        fill: var(--gray-text-color);
     }
     
 }
@@ -37,7 +39,7 @@
         margin-left: 15px;
     }
     svg {
-        fill: var(--color-purple)
+        fill: var(--color-purple);
     }
     
 }

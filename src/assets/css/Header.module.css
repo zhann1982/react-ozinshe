@@ -1,0 +1,76 @@
+.header {
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    padding-block: 22px 56px;
+}
+
+.logoBox {
+    width: 250px;
+    padding-left: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.inputBox {
+    width: 449px;
+    height: 56px;
+    border-radius: 12px;
+    background-color: var(--bg-light-gray-color-transparent);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 12px;
+
+    svg {
+        cursor: pointer;
+        path {
+            fill: var(--gray-text-color);
+        }
+    }
+}
+
+.input {
+    background-color:  transparent;
+    height: 24px;
+    flex-grow: 1;
+    outline: 0px;
+    margin: 16px 0px 16px 16px;
+    border: 0px;
+    font-size: var(--font-size-14);
+
+    &::placeholder {
+        color: var(--gray-text-color);
+        font-size: var(--font-size-14);
+        font-weight: var(--font-weight-500);
+    }
+}
+
+.routerLink {
+    color: var(--gray-text-color);
+    font-size: var(--font-size-14);
+    text-decoration: none;
+    display: flex;  
+    align-items: center;
+    gap: 8px;
+    font-weight: var(--font-weight-500);
+    flex-grow: 1;
+    justify-content: end;
+    padding-right: 32px;
+}
+
+.exitBox {
+    width: 32px;
+    height: 32px;
+    border-radius: var(--border-radius-2);
+    background-color: #DE350B0D;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    svg {
+        path {
+            fill:var(--exit-color);
+        }
+    }
+}

@@ -12,9 +12,7 @@ import GenresIcon from './icons/GenresIcon'
 import AgesIcon from './icons/AgesIcon'
 
 const Sidebar = () => {
-  const handleColor = (isActive) => {
-    return isActive ? "#7E2DFC":"#8F92A1"
-  }
+
   return (
     <section className={styles.sidebar}>
       <NavLink to={'/'} className={({ isActive }) => (isActive ? styles.active : styles.navItem)}>

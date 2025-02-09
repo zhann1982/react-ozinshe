@@ -1,4 +1,6 @@
 .app {
     max-width: 1440px;
-    background-color: #fff;
+    background-color: transparent;
+    display: block;
+    margin: 0 auto;
 }
