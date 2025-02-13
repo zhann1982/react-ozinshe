@@ -28,6 +28,8 @@
   /* transparent gray color for background, for components
   also for inputs */
   --bg-light-gray-color-transparent: rgba(143, 146, 161, 0.05);
+  --bg-light-gray-color-transparent-1: rgba(143, 146, 161, 0.1);
+
 
   /* transparent gray color for screenshot placeholder background */
   --bg-screenshot: rgba(143, 146, 161, 0.2);

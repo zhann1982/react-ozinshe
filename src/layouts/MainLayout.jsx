@@ -11,7 +11,7 @@ const MainLayout = ({ children }) => {
             <Header />
             <div className={styles.flexRowBox}>
                 <Sidebar />
-                {children}
+                { children }
             </div>
         </div>
     );

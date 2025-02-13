@@ -9,6 +9,7 @@ import RolesPage from './pages/RolesPage'
 import GenresPage from './pages/GenresPage'
 import AgesPage from './pages/AgesPage'
 import NotFoundPage from './pages/NotFoundPage'
+import ProjectDetails from './pages/ProjectDetails'
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/" element={<ProjectsPage />} />
           <Route path='login' element={<LoginPage />} />
           <Route path='projects' element={<ProjectsPage />} />
+          <Route path='details/:id' element={<ProjectDetails />} />
           <Route path='main-projects' element={<MainProjectsPage />} />
           <Route path='categories' element={<CategoriesPage />} />
           <Route path='users' element={<UsersPage />} />

@@ -22,7 +22,7 @@ const FilmCard = ({title, category, views, seriesCount, imageSrc}) => {
                     <EditIcon width={16} height={16} />
                 </button>
                 <button>
-                    <TrashIcon width={16} height={16} />
+                    <TrashIcon width={16} height={16} viewBox={'0 0 16 16'}/>
                 </button>
             </div>
         </div>

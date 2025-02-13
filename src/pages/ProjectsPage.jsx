@@ -1,5 +1,6 @@
 import React from 'react'
 import MainLayout from '../layouts/MainLayout'
+import { Link } from 'react-router-dom'
 
 import styles from '../assets/css/ProjectsPage.module.css'
 import { 
@@ -59,14 +60,15 @@ const ProjectsPage = () => {
         </div>
         <div className={styles.cardBox}>
           {filmCards.map(film=>(
-            <FilmCard 
-              key={film.id}
-              title={film.title}
-              category={film.category}
-              views={film.viewsCount}
-              seriesCount={film.seasons[0]}
-              imageSrc={`url(/src/assets/images/${film.thumbnail})`}
-            />
+            <Link key={film.id} to={`details/${film.id}`}>
+              <FilmCard 
+                title={film.title}
+                category={film.category}
+                views={film.viewsCount}
+                seriesCount={film.lastSerieAdded}
+                imageSrc={`url(/src/assets/images/${film.thumbnail})`}
+              />
+            </Link>
           ))}
         </div>
       </section>
