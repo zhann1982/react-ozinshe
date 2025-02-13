@@ -8,8 +8,12 @@
 
 .main {
     background-color: var(--bg-light-gray-color-transparent);
-    width: 100%;
+    /* width: 100%; */
+    max-width: 872px;
     border-top-left-radius: var(--border-radius-4);
+    border-top-right-radius: var(--border-radius-4);
+    padding-bottom: 32px;
+    
 }
 
 .pagePath {

@@ -9,7 +9,8 @@ import StarIcon from '../components/icons/StarIcon'
 import ExportIcon from '../components/icons/ExportIcon'
 import TrashIcon from '../components/icons/TrashIcon'
 import PlayButtonIcon from '../components/icons/PlayButtonIcon'
-import SeasonsPage from '../components/SeasonsPage'
+import SeasonsSection from '../components/SeasonsSection'
+import FilmSection from '../components/FilmSection'
 
 const ProjectDetails = () => {
   const params = useParams();
@@ -54,12 +55,16 @@ const ProjectDetails = () => {
               <div className={styles.playButtonPlaceholder}>
                 <PlayButtonIcon width={30} height={36} />
               </div>
-              <iframe src="https://www.youtube.com/watch?v=vPQy7H-i3ww&list=PLm8b4TrIR2AeB1dr738AYXmu28m3gEQpd"></iframe>
+              <iframe src="#"></iframe>
             </div>
-            <SeasonsPage seasons={[project.seasons]} />
+            {(project.seasons.length == 0)
+            ?  <FilmSection project={project} />
+            :  <SeasonsSection project={project} />}
           </div>
         </div> 
-        <div className={styles.aside}></div>      
+        <div className={styles.aside}>
+          
+        </div>      
       </section>
     </MainLayout>
   )
