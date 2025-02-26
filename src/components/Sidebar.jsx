@@ -12,20 +12,11 @@ import GenresIcon from './icons/GenresIcon'
 import AgesIcon from './icons/AgesIcon'
 
 const Sidebar = () => {
-  const [mainLinkPath, setMainLinkPath] = useState('/projects')
-  const location = useLocation()
-  const navigate = useNavigate()
-
-  useEffect(() => {
-    if (location.pathname === '/projects' || location.pathname.includes('/details')) {
-      setMainLinkPath(location.pathname)
-    } 
-  }, [])  
 
   return (
     <section className={styles.sidebar}>
       <NavLink 
-        to={mainLinkPath} 
+        to={'/projects'} 
         className={({ isActive }) => (isActive ? styles.active : styles.navItem)}
       >
         <ProjectsIcon width={24} height={24} color={"#7E2DFC"} />

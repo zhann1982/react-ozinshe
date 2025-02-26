@@ -1,6 +1,6 @@
 import React from 'react'
 import MainLayout from '../layouts/MainLayout'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 import styles from '../assets/css/ProjectsPage.module.css'
 import { 
@@ -17,6 +17,7 @@ import DropDownYear from '../components/DropDownYear'
 import FilmCard from '../components/filmCard'
 
 const ProjectsPage = () => {
+  const navigate = useNavigate()
   const projectsCount = 113  // will be replaced with server response data
 
   const handleSelect1 = (option) => {
@@ -45,6 +46,7 @@ const ProjectsPage = () => {
           
           <button
             className={styles.buttonAdd}
+            onClick={()=>navigate('/add-project')}
           >
             <Plusicon width={24} height={24}/>
             <p>Добавить</p>

@@ -10,22 +10,24 @@ import GenresPage from './pages/GenresPage'
 import AgesPage from './pages/AgesPage'
 import NotFoundPage from './pages/NotFoundPage'
 import ProjectDetails from './pages/ProjectDetails'
+import AddProjectPage from './pages/AddProjectPage'
 
 function App() {
   return (
     <div className="app">
       <BrowserRouter>
         <Routes>
-          <Route path='/' exact element={<LoginPage />} />
-          <Route path='projects' element={<ProjectsPage />} />
-          <Route path='details/:id' element={<ProjectDetails />} />
-          <Route path='main-projects' element={<MainProjectsPage />} />
-          <Route path='categories' element={<CategoriesPage />} />
-          <Route path='users' element={<UsersPage />} />
-          <Route path='roles' element={<RolesPage />} />
-          <Route path='genres' element={<GenresPage />} />
-          <Route path='ages' element={<AgesPage />} />
-          <Route path='*' element={<NotFoundPage />} />
+          <Route path='/' exact       element={<LoginPage />}         />
+          <Route path='projects'      element={<ProjectsPage />}      />
+          <Route path='details/:id'   element={<ProjectDetails />}    />
+          <Route path='add-project'   element={<AddProjectPage />}    />
+          <Route path='main-projects' element={<MainProjectsPage />}  />
+          <Route path='categories'    element={<CategoriesPage />}    />
+          <Route path='users'         element={<UsersPage />}         />
+          <Route path='roles'         element={<RolesPage />}         />
+          <Route path='genres'        element={<GenresPage />}        />
+          <Route path='ages'          element={<AgesPage />}          />
+          <Route path='*'             element={<NotFoundPage />}      />
         </Routes>
       </BrowserRouter>
     </div>

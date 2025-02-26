@@ -16,11 +16,13 @@ const LoginPage = () => {
                 className={styles.inputEmail} 
                 type="email" 
                 placeholder='Email'
+                autoComplete = 'off'
             />
             <input 
                 className={styles.inputPassword} 
                 type="password" 
                 placeholder='Пароль'
+                autoComplete = 'off'
             />
             <button 
                 className={styles.buttonSubmit}

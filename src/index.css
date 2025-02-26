@@ -29,6 +29,8 @@
   also for inputs */
   --bg-light-gray-color-transparent: rgba(143, 146, 161, 0.05);
   --bg-light-gray-color-transparent-1: rgba(143, 146, 161, 0.1);
+  --bg-light-gray-color-transparent-2: rgba(143, 146, 161, 0.2);
+  --bg-light-gray-color-transparent-3: rgba(143, 146, 161, 0.3);
 
 
   /* transparent gray color for screenshot placeholder background */

@@ -278,7 +278,6 @@ export const filmCards = [
                 ]           
             },
         ],
-        seasons: [4],
         chosenFavoriteCount: 9,
         downloadCount: 79,
         screenshots: [
@@ -499,7 +498,6 @@ export const filmCards = [
                 ]           
             },
         ],
-        seasons: [4],
         chosenFavoriteCount: 9,
         downloadCount: 79,
         screenshots: [
