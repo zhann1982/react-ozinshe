@@ -60,7 +60,7 @@ const ProjectsPage = () => {
         </div>
         <div className={styles.cardBox}>
           {filmCards.map(film=>(
-            <Link key={film.id} to={`details/${film.id}`}>
+            <Link key={film.id} to={`/details/${film.id}`}>
               <FilmCard 
                 title={film.title}
                 category={film.category}

@@ -21,7 +21,7 @@ const ProjectDetails = () => {
       <section className={styles.section}>
         <div className={styles.main}>
           <div className={styles.pagePath}>
-            <Link to={'/'}>Проекты</Link>
+            <Link to={'/projects'}>Проекты</Link>
             <ChevronRight width={16} height={16} />
             <p>{project.title}</p>
           </div>
