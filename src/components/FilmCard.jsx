@@ -19,12 +19,23 @@ const FilmCard = ({id, title, category, views, seriesCount, imageSrc}) => {
         setIsModalOpen2(true)
         console.log('openModal2')
     }
-    const closeModal2 = () => setIsModalOpen2(false);
+    const closeModal2 = (e) => {
+        e.preventDefault();
+        setIsModalOpen2(false);
+    }
   
-    const handleDeleteProject = () => {
-      const index = filmCards.findIndex(item => item.id == id)
-      filmCards.splice(index, 1)
-      navigate('/projects')
+    const handleDeleteProject = (e) => {
+        e.preventDefault()
+        const index = filmCards.findIndex(item => item.id == id)
+        filmCards.splice(index, 1)
+        console.log(filmCards.length)
+        closeModal2()
+        navigate('/projects')
+    }
+
+    const handleEditProject = (e) => {
+        e.preventDefault()
+        navigate(`/edit-project/${id}`)
     }
 
   return (
@@ -40,7 +51,7 @@ const FilmCard = ({id, title, category, views, seriesCount, imageSrc}) => {
                 <p>{views}</p>
             </div>
             <div className={styles.actions}>
-                <button>
+                <button onClick={e=>handleEditProject(e)}>
                     <EditIcon width={16} height={16} />
                 </button>
                 <button  onClick={e => openModal2(e)}>

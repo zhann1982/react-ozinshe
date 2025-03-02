@@ -14,7 +14,7 @@ import { filmCards } from '../sevices/filmCardBase'
 import Plusicon from '../components/icons/PlusIcon'
 import DropDown from '../components/DropDown'
 import DropDownYear from '../components/DropDownYear'
-import FilmCard from '../components/filmCard'
+import FilmCard from '../components/FilmCard'
 
 const ProjectsPage = () => {
   const navigate = useNavigate()

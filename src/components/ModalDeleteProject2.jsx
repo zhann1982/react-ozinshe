@@ -16,8 +16,8 @@ const ModalDeleteProject = ({ isOpen, onClose, confirmDeleteProject,title }) => 
                 </div>
                 <p>Вы действительно хотите удалить проект?</p>
                 <div className={styles.buttonBox}>
-                    <button className={styles.buttonYes} onClick={confirmDeleteProject}>Да, удалить</button> 
-                    <button className={styles.buttonCancel} onClick={onClose}>Отмена</button>   
+                    <button className={styles.buttonYes} onClick={e=>confirmDeleteProject(e)}>Да, удалить</button> 
+                    <button className={styles.buttonCancel} onClick={e=>onClose(e)}>Отмена</button>   
                 </div>    
                 
             </div>
