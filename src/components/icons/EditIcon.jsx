@@ -1,4 +1,5 @@
 import * as React from "react";
+
 const EditIcon = ({width, height}) => (
   <svg
     width={width}

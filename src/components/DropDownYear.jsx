@@ -5,7 +5,7 @@ const DropDownYear = ({options, onSelect}) => {
 
   return (
     <div className={styles.dropdown}>
-      <ClockIcon width={24} height={24}/>
+      <ClockIcon width={16} height={16}/>
       <select 
         onChange={((e) =>onSelect(e.target.value))}
       >

@@ -8,22 +8,47 @@ import EyeIcon from '../components/icons/EyeIcon'
 import StarIcon from '../components/icons/StarIcon'
 import ExportIcon from '../components/icons/ExportIcon'
 import TrashIcon from '../components/icons/TrashIcon'
+import ClockIcon from '../components/icons/ClockIcon'
+import TranscriptIcon from '../components/icons/TranscriptIcon'
+import ClapperboardIcon from '../components/icons/ClapperboardIcon'
 import PlayButtonIcon from '../components/icons/PlayButtonIcon'
 import SeasonsSection from '../components/SeasonsSection'
 import FilmSection from '../components/FilmSection'
 import ModalDeleteProject from '../components/ModalDeleteProject'
 
 const ProjectDetails = () => {
+
   const params = useParams();
+
   const project = filmCards.find(item => item.id == params.id)
+
   const navigate = useNavigate();
+
+  if (project == undefined) {
+    return (
+      <MainLayout>
+        <div className={styles.centered}>
+          <h1 className={styles.header}>Oops!</h1>
+          <h2 className={styles.infoText}>Проект не найден. Возможно он был удален</h2>
+          <div className={styles.actions}>
+              <button 
+                  className={styles.buttonSubmit}
+                  onClick={()=>navigate('/projects')}
+              >
+                  Go Home
+              </button>
+          </div>
+        </div>
+      </MainLayout>
+    )
+  }
 
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const openModal = () => {
     setIsModalOpen(true);
-    console.log('openModal')
   }
+
   const closeModal = () => setIsModalOpen(false);
 
   const handleDeleteProject = () => {
@@ -61,7 +86,7 @@ const ProjectDetails = () => {
                 </div>
               </div>
               <div className={styles.ActionBox}>
-                <button>Редактировать</button>
+                <button onClick={()=>navigate(`/edit-project/${params.id}`)}>Редактировать</button>
                 <div className={styles.deleteBox} onClick={openModal}>
                   <TrashIcon width={16} height={16} viewBox={'0 0 16 16'}/>
                 </div>
@@ -79,6 +104,38 @@ const ProjectDetails = () => {
           </div>
         </div> 
         <div className={styles.aside}>
+          <div className={styles.year}>
+            <ClockIcon width={16} height={16} />
+            <p>{project.yearProduced}</p>
+          </div>
+          <div className={styles.category}>
+            <TranscriptIcon width={16} height={16} />
+            <p>{project.category}</p>
+          </div>
+          <div className={styles.seasonInfo}>
+            <ClapperboardIcon width={16} height={16} />
+            <p>{project.seasons.length > 0 ?
+              `${project.seasons.length} сезонов, ${project.seasons[project.seasons.length - 1].series.length} серий, ${project.duration} мин`
+              : `${project.duration} мин`
+            }</p>
+          </div>
+          <div className={styles.bgImage} style={{backgroundImage: `url(/src/assets/images/${project.thumbnail})`}}></div>
+          <div className={styles.grayLine}></div>
+
+          <div className={styles.addedInfo}>
+            <p>
+              <span className={styles.grayText}>Добавил:</span>
+              <span className={styles.normalText}>{project.author}</span>
+            </p>
+            <p>
+              <span className={styles.grayText}>Дата добавления:</span>
+              <span className={styles.normalText}>{project.addedToProjects}</span>
+            </p>
+            <p>
+              <span className={styles.grayText}>Дата обновления:</span>
+              <span className={styles.normalText}>{project.lastModified}</span>
+            </p>
+          </div>
           
         </div> 
 

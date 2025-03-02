@@ -169,4 +169,111 @@
 
 .aside {
     width: 318px;
+    padding-inline: 32px;
+
+    p {
+        font-size: var(--font-size-14);
+        font-weight: var(--font-weight-400);
+
+        span.grayText {
+            color: var(--gray-text-color);
+            margin-right: 5px;
+        }
+    }
+}
+
+.addedInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.bgImage {
+    height: 220px;
+    width: 150px;
+    border-radius: var(--border-radius-3);
+    background-position: center center;
+    background-size: cover;
+}
+
+.grayLine {
+    width: 100%;
+    height: 1px;
+    background-color: #e7e8e9;
+    margin-block: 32px;
+}
+
+.year {
+    display: flex; 
+    gap: 12px;
+    font-size: var(--font-size-14);
+    font-weight: var(--font-weight-400);
+    margin-bottom: 16px;
+
+    path {
+        fill: var(--main-text-color);
+    }
+}
+
+.category {
+    display: flex;
+    gap: 12px;
+    font-size: var(--font-size-14);
+    font-weight: var(--font-weight-400);
+    margin-bottom: 16px;
+
+    path {
+        fill: var(--main-text-color);
+    }
+}
+
+.seasonInfo {
+    display: flex;
+    gap: 12px;
+    font-size: var(--font-size-14);
+    font-weight: var(--font-weight-400);
+    margin-bottom: 24px;
+
+    path {
+        fill: var(--main-text-color);
+    }
+}
+
+
+.buttonSubmit {
+    background-color: var(--color-purple);
+    color: #fff;
+    outline: 0;
+    border: 0px;
+    border-radius: var(--border-radius-3);
+    padding: 8px 24px;
+    /* width: 296px; */
+    font-size: var(--font-size-16);
+    font-weight: var(--font-weight-700);
+    margin: 16px 12px;
+
+    &:hover {
+        opacity: 0.8;
+        cursor: pointer;
+    }
+}
+
+.centered {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.header {
+    font-size: 144px;
+}
+
+.infoText {
+    margin: 20px;
+    text-transform: uppercase;
+    font-family: monospace;
+    font-size: 24px;
 }

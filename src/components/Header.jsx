@@ -17,7 +17,7 @@ const Header = () => {
         <input className={styles.input} type="text" placeholder='Поиск' />
         <SearchIcon width={24} height={24}/>
       </div>
-      <Link className={styles.routerLink} to={'/login'}>Выйти
+      <Link className={styles.routerLink} to={'/'}>Выйти
         <div className={styles.exitBox}>
           <ExitIcon width={24} height={24}/>
         </div>

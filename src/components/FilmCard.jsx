@@ -5,7 +5,7 @@ import styles from '../assets/css/FilmCard.module.css'
 import EditIcon from './icons/EditIcon'
 import TrashIcon from './icons/TrashIcon'
 import EyeIcon from './icons/EyeIcon'
-import ModalDeleteProject2 from './ModalDeleteProject2'
+import ModalDeleteProject from './ModalDeleteProject'
 import { filmCards } from '../sevices/filmCardBase'
 
 const FilmCard = ({id, title, category, views, seriesCount, imageSrc}) => {
@@ -29,7 +29,7 @@ const FilmCard = ({id, title, category, views, seriesCount, imageSrc}) => {
         const index = filmCards.findIndex(item => item.id == id)
         filmCards.splice(index, 1)
         console.log(filmCards.length)
-        closeModal2()
+        closeModal2(e)
         navigate('/projects')
     }
 
@@ -40,10 +40,10 @@ const FilmCard = ({id, title, category, views, seriesCount, imageSrc}) => {
 
   return (
     <div className={styles.card}>
-        <div className={styles.imageBox} style={{backgroundImage: imageSrc}}>
+        <div className={styles.imageBox} style={{backgroundImage: imageSrc}} onClick={()=>navigate(`/details/${id}`)}>
             { seriesCount? <p className={styles.seriesCount}>{seriesCount} бөлім</p> : '' }
         </div>
-        <p className={styles.title}>{title}</p>
+        <p className={styles.title} onClick={()=>navigate(`/details/${id}`)}>{title}</p>
         <p className={styles.category}>{category}</p>
         <div className={styles.actionBox}>
             <div className={styles.views}>
@@ -51,7 +51,7 @@ const FilmCard = ({id, title, category, views, seriesCount, imageSrc}) => {
                 <p>{views}</p>
             </div>
             <div className={styles.actions}>
-                <button onClick={e=>handleEditProject(e)}>
+                <button onClick={e => handleEditProject(e)}>
                     <EditIcon width={16} height={16} />
                 </button>
                 <button  onClick={e => openModal2(e)}>
@@ -60,7 +60,7 @@ const FilmCard = ({id, title, category, views, seriesCount, imageSrc}) => {
             </div>
         </div>
 
-        <ModalDeleteProject2 title={'Удалить проект?'} isOpen={isModalOpen2} onClose={closeModal2} confirmDeleteProject={handleDeleteProject}/>
+        <ModalDeleteProject title={'Удалить проект?'} isOpen={isModalOpen2} onClose={closeModal2} confirmDeleteProject={handleDeleteProject}/>
     </div>
   )
 }

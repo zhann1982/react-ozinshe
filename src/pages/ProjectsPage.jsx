@@ -62,8 +62,8 @@ const ProjectsPage = () => {
         </div>
         <div className={styles.cardBox}>
           {filmCards.map(film=>(
-            <Link key={film.id} to={`/details/${film.id}`}>
               <FilmCard 
+                key={film.id}
                 id={film.id}
                 title={film.title}
                 category={film.category}
@@ -71,7 +71,6 @@ const ProjectsPage = () => {
                 seriesCount={film.lastSerieAdded}
                 imageSrc={`url(/src/assets/images/${film.thumbnail})`}
               />
-            </Link>
           ))}
         </div>
       </section>
