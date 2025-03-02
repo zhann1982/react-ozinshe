@@ -64,6 +64,7 @@ const ProjectsPage = () => {
           {filmCards.map(film=>(
             <Link key={film.id} to={`/details/${film.id}`}>
               <FilmCard 
+                id={film.id}
                 title={film.title}
                 category={film.category}
                 views={film.viewsCount}

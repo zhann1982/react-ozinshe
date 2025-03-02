@@ -20,7 +20,10 @@ const ProjectDetails = () => {
 
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const openModal = () => setIsModalOpen(true);
+  const openModal = () => {
+    setIsModalOpen(true);
+    console.log('openModal')
+  }
   const closeModal = () => setIsModalOpen(false);
 
   const handleDeleteProject = () => {
@@ -77,8 +80,10 @@ const ProjectDetails = () => {
         </div> 
         <div className={styles.aside}>
           
-        </div>     
+        </div> 
+
         <ModalDeleteProject title={'Удалить проект?'} isOpen={isModalOpen} onClose={closeModal} confirmDeleteProject={handleDeleteProject}/>
+
       </section>
     </MainLayout>
   )
