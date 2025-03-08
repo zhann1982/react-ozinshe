@@ -28,6 +28,7 @@ export const filterCategory = [
 ];
 
 export const filterYears = [
+    'За все время',
     '2025',
     '2024',
     '2023',
@@ -35,8 +36,7 @@ export const filterYears = [
     '2021',
     '2011 - 2020',
     '2000 - 2010',
-    'до 2000',
-    'За все время'
+    'до 2000'
 ]
 
 export const filterAgeCategories = [

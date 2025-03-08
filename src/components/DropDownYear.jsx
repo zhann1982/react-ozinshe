@@ -1,4 +1,4 @@
-import styles from '../assets/css/DropDown.module.css';
+import styles from '../assets/css/DropDownYear.module.css';
 import ClockIcon from './icons/ClockIcon'
 
 const DropDownYear = ({options, onSelect}) => {

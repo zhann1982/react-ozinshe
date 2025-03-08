@@ -13,11 +13,22 @@ import AgesIcon from './icons/AgesIcon'
 
 const Sidebar = () => {
 
+  const location = useLocation();
+  const navigate = useNavigate();
+  const handleActiveLink = () => {
+    if(location.pathname === '/projects' || location.pathname.includes('/edit-project') || location.pathname.includes('/add-project') || location.pathname.includes('/details')) {
+      return styles.active
+    } else {
+      console.log('not active')
+      return styles.navItem
+    }
+  }
+
   return (
     <section className={styles.sidebar}>
       <NavLink 
         to={'/projects'} 
-        className={({ isActive }) => (isActive ? styles.active : styles.navItem)}
+        className={handleActiveLink}
       >
         <ProjectsIcon width={24} height={24} color={"#7E2DFC"} />
         <p>Проекты</p>

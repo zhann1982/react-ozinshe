@@ -13,7 +13,7 @@
     padding-inline: 12px;
 
     select {
-      field-sizing: content;
+      width: 100%;
       -webkit-appearance: none; /* Remove default arrow in Chrome/Safari */
       -moz-appearance: none;    /* Remove default arrow in Firefox */
       appearance: none;         /* Remove default arrow in modern browsers */

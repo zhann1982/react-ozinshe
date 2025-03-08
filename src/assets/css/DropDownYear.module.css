@@ -18,21 +18,14 @@
       -moz-appearance: none;    /* Remove default arrow in Firefox */
       appearance: none;         /* Remove default arrow in modern browsers */
       background: transparent;  /* Optional: Make background transparent */
-      padding: 5px 45px 5px 5px;      /* Add padding to prevent text overlap */
+      padding: 5px 5px;      /* Add padding to prevent text overlap */
       border: 0px;
       outline: 0px;
       color: var(--main-text-color);
       font-size: var(--font-size-14);
       font-weight: var(--font-weight-700);
-      z-index: 1;
    
     }
-
-    img {
-      margin-left: -40px;
-      z-index: 0;
-    }
-
   }
 
   .dropdownToggle {

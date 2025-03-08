@@ -1,12 +1,11 @@
-import styles from '../assets/css/DropDown.module.css';
+import styles from '../assets/css/DropDownSelect.module.css';
 import { useState } from 'react';
 
-const Dropdown = ({title, options, onSelect}) => {
+const Dropdown = ({ options, onSelect}) => {
   const [down,setDown] = useState(false)
 
   return (
     <div className={styles.dropdown}>
-      <p>{title}</p>
       
       <select 
         onChange={((e) =>onSelect(e.target.value))}
