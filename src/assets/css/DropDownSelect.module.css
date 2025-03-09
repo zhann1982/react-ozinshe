@@ -1,68 +1,57 @@
 /* src/Dropdown.css */
 .dropdown {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: var(--font-size-14);
-    font-weight: var(--font-weight-500);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size-14);
+  font-weight: var(--font-weight-500);
+  color: var(--gray-text-color);
+  gap: 8px;
+  height: 46px;
+  border-radius: var(--border-radius-3);
+  background-color: var(--bg-light-gray-color-transparent);
+  padding-inline: 16px;
+  position: relative;
+
+  select {
+    width: 100%;
+    -webkit-appearance: none; /* Remove default arrow in Chrome/Safari */
+    -moz-appearance: none;    /* Remove default arrow in Firefox */
+    appearance: none;         /* Remove default arrow in modern browsers */
+    background: transparent;  /* Optional: Make background transparent */
+    padding: 5px 45px 5px 5px;      /* Add padding to prevent text overlap */
+    border: 0px;
+    outline: 0px;
     color: var(--gray-text-color);
-    gap: 8px;
-    height: 40px;
-    border-radius: var(--border-radius-3);
-    background-color: var(--bg-light-gray-color-transparent);
-    padding-inline: 12px;
+    font-size: var(--font-size-14);
+    font-weight: var(--font-weight-700);
+    letter-spacing: 0.8px;
+    z-index: 1;
 
-    select {
-      width: 100%;
-      -webkit-appearance: none; /* Remove default arrow in Chrome/Safari */
-      -moz-appearance: none;    /* Remove default arrow in Firefox */
-      appearance: none;         /* Remove default arrow in modern browsers */
-      background: transparent;  /* Optional: Make background transparent */
-      padding: 5px 45px 5px 5px;      /* Add padding to prevent text overlap */
-      border: 0px;
-      outline: 0px;
-      color: var(--main-text-color);
-      font-size: var(--font-size-14);
-      font-weight: var(--font-weight-700);
-      z-index: 1;
-   
+    option.disabled {
+      color: var(--gray-text-color);
     }
-
-    img {
-      margin-left: -40px;
-      z-index: 0;
-    }
-
+  
   }
 
-  .dropdownToggle {
-    padding: 10px 20px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #fff;
-    cursor: pointer;
+  img {
+    margin-left: -40px;
+    z-index: 0;
   }
+
+}
   
-  .dropdownMenu {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-  }
-  
-  .dropdownItem {
-    padding: 10px 20px;
-    cursor: pointer;
-  }
-  
-  .dropdownItem:hover {
-    background-color: #f5f5f5;
-  }
+.displayNone {
+  display: none;
+}
+
+.displayLabel {
+  position: absolute;
+  top: -8px;
+  left: 18px;
+  font-size: var(--font-size-12);
+  font-weight: var(--font-weight-500);
+  background-color: #fff;
+  color: var(--gray-text-color);
+  padding-inline: 8px;
+}
