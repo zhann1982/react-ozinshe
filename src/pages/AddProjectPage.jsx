@@ -14,6 +14,9 @@ import DropDownSelect from '../components/DropDownSelect'
 
 
 const AddProjectPage = () => {
+  let checkInputsFilled = new Array(10).fill(false);
+  const [inputsCheck, setInputsCheck] = useState(checkInputsFilled)
+
   const [hintClass, setHintClass] = useState(styles.hintTextVisible)
   const [labelClass, setLabelClass] = useState(styles.displayNone)
   const [labelClass1, setLabelClass1] = useState(styles.displayNone)
@@ -29,6 +32,16 @@ const AddProjectPage = () => {
 
   const [textareaClass, setTextareaClass] = useState(styles.textareaEmpty)
 
+  const [submitButtonClass, setSubmitButtonClass] = useState(styles.disabled)
+
+  const handleInputsAllFilled = () => {
+    if(inputsCheck.every(item => item === true)){
+      setSubmitButtonClass(styles.activated)
+    } else {
+      setSubmitButtonClass(styles.disabled) 
+    }
+  }
+
   const handleChange = (e) => {
     if(e.target.value.length > 0){
       setHintClass(styles.hintTextDisplayNone)
@@ -39,9 +52,11 @@ const AddProjectPage = () => {
 
   const handleInputChange = (e) => { 
     if(e.target.value.length > 0){
+      setInputsCheck(inputsCheck.map((item, index) => index === 0 ? true : item))
       setLabelClass(styles.displayLabel)
       setInputClass(styles.inputFilled)
     } else {
+      setInputsCheck(inputsCheck.map((item, index) => index === 0 ? false : item))
       setLabelClass(styles.displayNone)
       setInputClass(styles.inputEmpty)
     }
@@ -49,9 +64,11 @@ const AddProjectPage = () => {
 
   const handleInputChange1 = (e) => { 
     if(e.target.value.length > 0){
+      setInputsCheck(inputsCheck.map((item, index) => index === 1 ? true : item))
       setLabelClass1(styles.displayLabel)
       setInputClass1(styles.inputFilled)
     } else {
+      setInputsCheck(inputsCheck.map((item, index) => index === 1 ? false : item))
       setLabelClass1(styles.displayNone)
       setInputClass1(styles.inputEmpty)
     }
@@ -59,9 +76,11 @@ const AddProjectPage = () => {
 
   const handleInputChange2 = (e) => { 
     if(e.target.value.length > 0){
+      setInputsCheck(inputsCheck.map((item, index) => index === 2 ? true : item))
       setLabelClass2(styles.displayLabel)
       setInputClass2(styles.inputFilled)
     } else {
+      setInputsCheck(inputsCheck.map((item, index) => index === 2 ? false : item))
       setLabelClass2(styles.displayNone)
       setInputClass2(styles.inputEmpty)
     }
@@ -69,9 +88,11 @@ const AddProjectPage = () => {
 
   const handleInputChange3 = (e) => { 
     if(e.target.value.length > 0){
+      setInputsCheck(inputsCheck.map((item, index) => index === 3 ? true : item))
       setLabelClass3(styles.displayLabel)
       setInputClass3(styles.inputFilled)
     } else {
+      setInputsCheck(inputsCheck.map((item, index) => index === 3 ? false : item))
       setLabelClass3(styles.displayNone)
       setInputClass3(styles.inputEmpty)
     }
@@ -79,9 +100,12 @@ const AddProjectPage = () => {
 
   const handleInputChange4 = (e) => { 
     if(e.target.value.length > 0){
+      setInputsCheck(inputsCheck.map((item, index) => index === 4 ? true : item))
       setLabelClass4(styles.displayLabel)
       setInputClass4(styles.inputFilled)
+      handleInputsAllFilled()
     } else {
+      setInputsCheck(inputsCheck.map((item, index) => index === 4 ? false : item))
       setLabelClass4(styles.displayNone)
       setInputClass4(styles.inputEmpty)
     }
@@ -89,8 +113,10 @@ const AddProjectPage = () => {
 
   const handleTextareaChange = (e) => {
     if(e.target.value.length > 0){
+      setInputsCheck(inputsCheck.map((item, index) => index === 5 ? true : item))
       setTextareaClass(styles.textareaFilled)
     } else {
+      setInputsCheck(inputsCheck.map((item, index) => index === 5 ? false : item))
       setTextareaClass(styles.textareaEmpty)
     }
   }
@@ -98,15 +124,35 @@ const AddProjectPage = () => {
   const navigate = useNavigate()
 
   const handleSelectCategory = (value) => {
-    console.log(value)
+    if(value.length > 0){
+      setInputsCheck(inputsCheck.map((item, index) => index === 6 ? true : item))
+    } else {
+      setInputsCheck(inputsCheck.map((item, index) => index === 6 ? false : item))
+    }
   }
 
   const handleSelectType = (value) => {
-    console.log(value)
+    if(value.length > 0){
+      setInputsCheck(inputsCheck.map((item, index) => index === 7 ? true : item))
+    } else {
+      setInputsCheck(inputsCheck.map((item, index) => index === 7 ? false : item))
+    }
   }
 
   const handleSelectAgeCategory = (value) => {
-    console.log(value)
+    if(value.length > 0){
+      setInputsCheck(inputsCheck.map((item, index) => index === 8 ? true : item))
+    } else {
+      setInputsCheck(inputsCheck.map((item, index) => index === 8 ? false : item))
+    }
+  }
+
+  const handleSelectYear = (value) => {
+    if(value.length > 0){
+      setInputsCheck(inputsCheck.map((item, index) => index === 9 ? true : item))
+    } else {
+      setInputsCheck(inputsCheck.map((item, index) => index === 9 ? false : item))
+    }
   }
 
   return (
@@ -147,7 +193,7 @@ const AddProjectPage = () => {
             </div>
 
             <div className={styles.row}>
-              <DropDownSelect title='Год' options={filterYears} onSelected={handleSelectType}/>
+              <DropDownSelect title='Год' options={filterYears} onSelected={handleSelectYear}/>
 
               <div className={styles.inputWrapper}>
                 <label className={labelClass1}>{'Хронометраж (мин)'}</label>
@@ -179,7 +225,10 @@ const AddProjectPage = () => {
             </div>
           </div>
 
-
+          <div className={styles.actionButtons}>
+            <button type='submit' className={submitButtonClass}>Далее</button>
+            <button className={styles.cancelButton}>Отмена</button>
+          </div>
         </form>
 
 

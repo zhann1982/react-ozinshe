@@ -192,3 +192,27 @@
 .hintTextDisplayNone {
     display: none;
 }
+
+.disabled {
+    background-color: #e0cdfe;
+    padding: 8px 24px;
+    border-radius: var(--border-radius-3);
+    border: 0;
+    outline: 0;
+    font-size: var(--font-size-14);
+    font-weight: var(--font-weight-700);
+    color: white;
+    cursor: not-allowed;
+}
+
+.activated {
+    background-color: var(--color-purple);
+    padding: 8px 24px;
+    border-radius: var(--border-radius-3);
+    border: 0;
+    outline: 0;
+    font-size: var(--font-size-14);
+    font-weight: var(--font-weight-700);
+    color: white;
+    cursor: not-allowed;
+}

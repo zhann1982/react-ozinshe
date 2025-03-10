@@ -3,12 +3,25 @@ import { useState } from 'react';
 
 const Dropdown = ({ title, options, onSelected}) => {
   const [down,setDown] = useState(false)
+  const [labelClass, setLabelClass] = useState(styles.displayNone)
+  const [inputClass, setInputClass] = useState(styles.dropdown)
+
+  const handleInputChange = (e) => {
+    onSelected(e.target.value)
+    if(e.target.value.length > 0){
+      setLabelClass(styles.displayLabel)
+      setInputClass(styles.dropdownSeleted)
+    } else {
+      setLabelClass(styles.displayNone)
+      setInputClass(styles.dropdown)
+    }
+  }
 
   return (
-    <div className={styles.dropdown}>
-      <label className={styles.displayLabel}>{title}</label>
+    <div className={inputClass}>
+      <label className={labelClass}>{title}</label>
       <select 
-        onChange={((e) =>onSelected(e.target.value))}
+        onChange={((e) =>handleInputChange(e))}
         onClick={()=>setDown(!down)}
       >
         <option className={styles.disabled} value=''  defaultValue>{title}</option>
