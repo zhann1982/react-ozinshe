@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import MainLayout from '../layouts/MainLayout'
 import styles from '../assets/css/AddProjectPage.module.css'
 import { Link, useNavigate } from 'react-router-dom'
@@ -11,9 +11,11 @@ import {
   filterYears 
 } from '../sevices/filterArrays'
 import DropDownSelect from '../components/DropDownSelect'
-
+import { filmCards } from '../sevices/filmCardBase'
 
 const AddProjectPage = () => {
+  const navigate = useNavigate()
+
   let checkInputsFilled = new Array(10).fill(false);
   const [inputsCheck, setInputsCheck] = useState(checkInputsFilled)
 
@@ -32,13 +34,17 @@ const AddProjectPage = () => {
 
   const [textareaClass, setTextareaClass] = useState(styles.textareaEmpty)
 
-  const [submitButtonClass, setSubmitButtonClass] = useState(styles.disabled)
+  const [submitButtonClass, setSubmitButtonClass] = useState(false)
+
+  useEffect(() => {
+    handleInputsAllFilled()
+  }, [inputsCheck])
 
   const handleInputsAllFilled = () => {
     if(inputsCheck.every(item => item === true)){
-      setSubmitButtonClass(styles.activated)
+      setSubmitButtonClass(true)
     } else {
-      setSubmitButtonClass(styles.disabled) 
+      setSubmitButtonClass(false) 
     }
   }
 
@@ -103,7 +109,6 @@ const AddProjectPage = () => {
       setInputsCheck(inputsCheck.map((item, index) => index === 4 ? true : item))
       setLabelClass4(styles.displayLabel)
       setInputClass4(styles.inputFilled)
-      handleInputsAllFilled()
     } else {
       setInputsCheck(inputsCheck.map((item, index) => index === 4 ? false : item))
       setLabelClass4(styles.displayNone)
@@ -121,7 +126,7 @@ const AddProjectPage = () => {
     }
   }
 
-  const navigate = useNavigate()
+  
 
   const handleSelectCategory = (value) => {
     if(value.length > 0){
@@ -155,6 +160,14 @@ const AddProjectPage = () => {
     }
   }
 
+  const handleSubmitForm = (e) => {
+    e.preventDefault()
+    // here we can send new project's data to server
+    if(submitButtonClass){
+      navigate('/add-project-2')
+    }
+  }
+
   return (
     <MainLayout>
     <div className={styles.whiteBG}>
@@ -167,7 +180,7 @@ const AddProjectPage = () => {
         </div>
 
 
-        <form className={styles.formContainer}>
+        <form className={styles.formContainer} onSubmit={(e)=>handleSubmitForm(e)}>
 
           <div className={styles.formHeader}>
             <button 
@@ -226,8 +239,8 @@ const AddProjectPage = () => {
           </div>
 
           <div className={styles.actionButtons}>
-            <button type='submit' className={submitButtonClass}>Далее</button>
-            <button className={styles.cancelButton}>Отмена</button>
+            <button type='submit' className={submitButtonClass?styles.activated:styles.disabled}>Далее</button>
+            <button className={styles.cancelButton} onClick={()=>navigate('/projects')}>Отмена</button>
           </div>
         </form>
 

@@ -193,16 +193,27 @@
     display: none;
 }
 
+.actionButtons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    padding-top: 32px;
+}
+
 .disabled {
     background-color: #e0cdfe;
     padding: 8px 24px;
     border-radius: var(--border-radius-3);
     border: 0;
     outline: 0;
-    font-size: var(--font-size-14);
+    font-size: var(--font-size-16);
     font-weight: var(--font-weight-700);
     color: white;
     cursor: not-allowed;
+    width: 134px;
+    height: 38px;
+    text-align: center;
+
 }
 
 .activated {
@@ -211,8 +222,26 @@
     border-radius: var(--border-radius-3);
     border: 0;
     outline: 0;
-    font-size: var(--font-size-14);
+    font-size: var(--font-size-16);
     font-weight: var(--font-weight-700);
     color: white;
-    cursor: not-allowed;
+    cursor: pointer;
+    width: 134px;
+    height: 38px;
+    text-align: center;
+}
+
+.cancelButton {
+    background-color: var(--bg-light-gray-color-transparent-1);
+    padding: 8px 24px;
+    border-radius: var(--border-radius-3);
+    border: 0;
+    outline: 0;
+    font-size: var(--font-size-16);
+    font-weight: var(--font-weight-700);
+    color: var(--main-text-color);
+    cursor: pointer;
+    width: 134px;
+    height: 38px;
+    text-align: center;
 }

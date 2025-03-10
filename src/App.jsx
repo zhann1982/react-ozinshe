@@ -11,6 +11,7 @@ import AgesPage from './pages/AgesPage'
 import NotFoundPage from './pages/NotFoundPage'
 import ProjectDetails from './pages/ProjectDetails'
 import AddProjectPage from './pages/AddProjectPage'
+import AddProjectPage_2 from './pages/AddProjectPage_2'
 import EditProjectPage from './pages/EditProjectPage'
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
           <Route path='details/:id'       element={<ProjectDetails />}    />
           <Route path='edit-project/:id'  element={<EditProjectPage />}   />
           <Route path='add-project'       element={<AddProjectPage />}    />
+          <Route path='add-project-2'       element={<AddProjectPage_2 />}    />
           <Route path='main-projects'     element={<MainProjectsPage />}  />
           <Route path='categories'        element={<CategoriesPage />}    />
           <Route path='users'             element={<UsersPage />}         />
