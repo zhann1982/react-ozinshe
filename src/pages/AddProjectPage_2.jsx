@@ -4,9 +4,15 @@ import styles from "../assets/css/AddProjectPage_2.module.css";
 import { Link, useNavigate } from "react-router-dom";
 import ChevronRight from "../components/icons/ChevronRight";
 import BackArrowIcon from "../components/icons/BackArrowIcon";
+import DropDownSelect from "../components/DropDownSelect";
 
 const AddProjectPage_2 = () => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
+
+  const handleSelectSeasonCount = (value) => {
+    console.log(value);
+  };
+
   return (
     <MainLayout>
       <div className={styles.whiteBG}>
@@ -28,7 +34,17 @@ const AddProjectPage_2 = () => {
               <h1>Видео</h1>
             </div>
 
+            <div className={styles.dropdownContainer}>
+              <DropDownSelect
+                title={"Количество сезонов"}
+                options={[1, 2, 3, 4, 5, 6, 7, 8]}
+                onSelected={handleSelectSeasonCount}
+              />
+            </div>
+            
+
           </form>
+
 
         </div>
       </div>
