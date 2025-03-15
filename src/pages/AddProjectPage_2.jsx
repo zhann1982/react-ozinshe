@@ -1,17 +1,23 @@
-import React from "react";
+import React, {useState} from "react";
 import MainLayout from "../layouts/MainLayout";
 import styles from "../assets/css/AddProjectPage_2.module.css";
 import { Link, useNavigate } from "react-router-dom";
 import ChevronRight from "../components/icons/ChevronRight";
 import BackArrowIcon from "../components/icons/BackArrowIcon";
 import DropDownSelect from "../components/DropDownSelect";
+import SeasonLoader from "../components/SeasonLoader";
 
 const AddProjectPage_2 = () => {
   const navigate = useNavigate();
+  const [seasonCount, setSeasonCount] = useState(0);
 
   const handleSelectSeasonCount = (value) => {
-    console.log(value);
+    setSeasonCount(value);
   };
+
+  const handleInfo = (obj) => {
+    console.log(obj);
+  }
 
   return (
     <MainLayout>
@@ -42,7 +48,20 @@ const AddProjectPage_2 = () => {
               />
             </div>
             
+            {seasonCount > 0 ? (
+              <SeasonLoader seasonCount={seasonCount} onSeasonFilled={handleInfo}/>
+            ) : (
+              <div className="seasonLoaderBoxEmpty">
+                <p>Выберите количество сезонов</p>
+              </div>
+            )}
 
+            <div className={styles.actionButtons}>
+              <button>Назад</button>
+              <button>Далее</button>
+              <button>Отмена</button>
+            </div>
+            
           </form>
 
 
