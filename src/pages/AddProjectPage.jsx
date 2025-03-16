@@ -11,29 +11,17 @@ import {
   filterYears 
 } from '../sevices/filterArrays'
 import DropDownSelect from '../components/DropDownSelect'
-import { filmCards } from '../sevices/filmCardBase'
+import InputText from '../components/InputText'
+import InputNumber from '../components/InputNumber'
+
 
 const AddProjectPage = () => {
   const navigate = useNavigate()
 
   let checkInputsFilled = new Array(10).fill(false);
   const [inputsCheck, setInputsCheck] = useState(checkInputsFilled)
-
   const [hintClass, setHintClass] = useState(styles.hintTextVisible)
-  const [labelClass, setLabelClass] = useState(styles.displayNone)
-  const [labelClass1, setLabelClass1] = useState(styles.displayNone)
-  const [labelClass2, setLabelClass2] = useState(styles.displayNone)
-  const [labelClass3, setLabelClass3] = useState(styles.displayNone)
-  const [labelClass4, setLabelClass4] = useState(styles.displayNone)
-
-  const [inputClass, setInputClass] = useState(styles.inputEmpty)
-  const [inputClass1, setInputClass1] = useState(styles.inputEmpty)
-  const [inputClass2, setInputClass2] = useState(styles.inputEmpty)
-  const [inputClass3, setInputClass3] = useState(styles.inputEmpty)
-  const [inputClass4, setInputClass4] = useState(styles.inputEmpty)
-
   const [textareaClass, setTextareaClass] = useState(styles.textareaEmpty)
-
   const [submitButtonClass, setSubmitButtonClass] = useState(false)
 
   useEffect(() => {
@@ -47,72 +35,30 @@ const AddProjectPage = () => {
       setSubmitButtonClass(false) 
     }
   }
+  
+  const handleInputChange1 = (value) => { 
+    if(value.length > 0){
+      setInputsCheck(inputsCheck.map((item, index) => index === 1 ? true : item))
+    } else {
+      setInputsCheck(inputsCheck.map((item, index) => index === 1 ? false : item))
+    }
+  }
 
-  const handleChange = (e) => {
-    if(e.target.value.length > 0){
+  const handleInputChange2 = (value) => { 
+    if(value.length > 0){
+      setInputsCheck(inputsCheck.map((item, index) => index === 2 ? true : item))
       setHintClass(styles.hintTextDisplayNone)
     } else {
+      setInputsCheck(inputsCheck.map((item, index) => index === 2 ? false : item))
       setHintClass(styles.hintTextVisible)
     }
   }
 
-  const handleInputChange = (e) => { 
-    if(e.target.value.length > 0){
-      setInputsCheck(inputsCheck.map((item, index) => index === 0 ? true : item))
-      setLabelClass(styles.displayLabel)
-      setInputClass(styles.inputFilled)
-    } else {
-      setInputsCheck(inputsCheck.map((item, index) => index === 0 ? false : item))
-      setLabelClass(styles.displayNone)
-      setInputClass(styles.inputEmpty)
-    }
-  }
-
-  const handleInputChange1 = (e) => { 
-    if(e.target.value.length > 0){
-      setInputsCheck(inputsCheck.map((item, index) => index === 1 ? true : item))
-      setLabelClass1(styles.displayLabel)
-      setInputClass1(styles.inputFilled)
-    } else {
-      setInputsCheck(inputsCheck.map((item, index) => index === 1 ? false : item))
-      setLabelClass1(styles.displayNone)
-      setInputClass1(styles.inputEmpty)
-    }
-  }
-
-  const handleInputChange2 = (e) => { 
-    if(e.target.value.length > 0){
-      setInputsCheck(inputsCheck.map((item, index) => index === 2 ? true : item))
-      setLabelClass2(styles.displayLabel)
-      setInputClass2(styles.inputFilled)
-    } else {
-      setInputsCheck(inputsCheck.map((item, index) => index === 2 ? false : item))
-      setLabelClass2(styles.displayNone)
-      setInputClass2(styles.inputEmpty)
-    }
-  }
-
-  const handleInputChange3 = (e) => { 
-    if(e.target.value.length > 0){
+  const handleInputChange3 = (value) => { 
+    if(value.length > 0){
       setInputsCheck(inputsCheck.map((item, index) => index === 3 ? true : item))
-      setLabelClass3(styles.displayLabel)
-      setInputClass3(styles.inputFilled)
     } else {
       setInputsCheck(inputsCheck.map((item, index) => index === 3 ? false : item))
-      setLabelClass3(styles.displayNone)
-      setInputClass3(styles.inputEmpty)
-    }
-  }
-
-  const handleInputChange4 = (e) => { 
-    if(e.target.value.length > 0){
-      setInputsCheck(inputsCheck.map((item, index) => index === 4 ? true : item))
-      setLabelClass4(styles.displayLabel)
-      setInputClass4(styles.inputFilled)
-    } else {
-      setInputsCheck(inputsCheck.map((item, index) => index === 4 ? false : item))
-      setLabelClass4(styles.displayNone)
-      setInputClass4(styles.inputEmpty)
     }
   }
 
@@ -126,8 +72,22 @@ const AddProjectPage = () => {
     }
   }
 
-  
+  const handleInputChange = (value) => { 
+    if(value.length > 0){
+      setInputsCheck(inputsCheck.map((item, index) => index === 0 ? true : item))
+    } else {
+      setInputsCheck(inputsCheck.map((item, index) => index === 0 ? false : item))
+    }
+  }
 
+  const handleInputChange4 = (value) => { 
+    if(value.length > 0){
+      setInputsCheck(inputsCheck.map((item, index) => index === 4 ? true : item))
+    } else {
+      setInputsCheck(inputsCheck.map((item, index) => index === 4 ? false : item))
+    }
+  }
+  
   const handleSelectCategory = (value) => {
     if(value.length > 0){
       setInputsCheck(inputsCheck.map((item, index) => index === 6 ? true : item))
@@ -179,7 +139,6 @@ const AddProjectPage = () => {
           <p>Добавить проект</p>
         </div>
 
-
         <form className={styles.formContainer} onSubmit={(e)=>handleSubmitForm(e)}>
 
           <div className={styles.formHeader}>
@@ -193,31 +152,17 @@ const AddProjectPage = () => {
           </div>
 
           <div className={styles.flexColumn}>
-            <div className={styles.inputWrapper}>
-              <label className={labelClass}>Название проекта</label>
-              <input className={inputClass} onChange={e=>handleInputChange(e)} type="text" placeholder='Название проекта'/>
-            </div>
-
+            <InputText title='Название проекта' onSelected={handleInputChange}/>
             <DropDownSelect title='Категория' options={filterCategory} onSelected={handleSelectCategory}/>
-            
             <div className={styles.row}>
               <DropDownSelect title='Тип проекта' options={filterType} onSelected={handleSelectType}/>
               <DropDownSelect title='Возрастная категория' options={filterAgeCategories} onSelected={handleSelectAgeCategory} />
             </div>
-
             <div className={styles.row}>
               <DropDownSelect title='Год' options={filterYears} onSelected={handleSelectYear}/>
-
-              <div className={styles.inputWrapper}>
-                <label className={labelClass1}>{'Хронометраж (мин)'}</label>
-                <input className={inputClass1} onChange={e=>handleInputChange1(e)} type="number" min={3} max={180} placeholder='Хронометраж (мин)'/>  
-              </div>
+              <InputNumber title='Хронометраж (мин)' onSelected={handleInputChange1} />
             </div>
-
-            <div className={styles.inputWrapper}>
-              <label className={labelClass2}>Ключевые слова</label>
-              <input className={inputClass2} onChange={e=>{handleChange(e); handleInputChange2(e)}} type="text" placeholder='Ключевые слова'/>
-            </div>
+            <InputText title='Ключевые слова' onSelected={handleInputChange2}/>
           </div>  
 
           <p className={hintClass}>Например: мультфильм, мультсериал</p>
@@ -226,16 +171,8 @@ const AddProjectPage = () => {
             <div className={styles.inputWrapper}>
               <textarea className={textareaClass} onChange={e=>handleTextareaChange(e)} placeholder='Добавьте описание'/>  
             </div>
-
-            <div className={styles.inputWrapper}>
-              <label className={labelClass3}>Режиссер</label>
-              <input className={inputClass3} onChange={e=>handleInputChange3(e)} type="text" placeholder='Режиссер'/>
-            </div>
-
-            <div className={styles.inputWrapper}>
-              <label className={labelClass4}>Продюссер</label>
-              <input className={inputClass4} onChange={e=>handleInputChange4(e)} type="text" placeholder='Продюссер'/>
-            </div>
+            <InputText title='Режиссер' onSelected={handleInputChange3}/>
+            <InputText title='Продюссер' onSelected={handleInputChange4}/>
           </div>
 
           <div className={styles.actionButtons}>

@@ -93,6 +93,14 @@
             color: var(--gray-text-color);
         }
     }
+
+    input:focus-within {
+        border: 1px solid var(--primary-color);
+    }
+
+    textarea:focus-within {
+        border: 1px solid var(--primary-color);
+    }
 }
 
 .formHeader {
@@ -147,6 +155,17 @@
     font-weight: var(--font-weight-500);
     background-color: #fff;
     color: var(--gray-text-color);
+    padding-inline: 8px;
+}
+
+.displayLabelFocused {
+    position: absolute;
+    top: -8px;
+    left: 18px;
+    font-size: var(--font-size-12);
+    font-weight: var(--font-weight-500);
+    background-color: #fff;
+    color: var(--primary-color);
     padding-inline: 8px;
 }
 

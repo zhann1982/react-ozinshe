@@ -1,0 +1,79 @@
+
+
+.inputEmpty {
+    width: 100%;
+    height: 46px;
+    font-size: var(--font-size-14);
+    font-weight: var(--font-weight-700);
+    color: var(--gray-text-color);
+    border-radius: var(--border-radius-3);
+    background-color: var(--bg-light-gray-color-transparent);
+    padding-inline: 24px;     
+    border: 0;
+    outline: 0px;
+    letter-spacing: 0.8px;
+
+    &:focus-within {
+        border: 1px solid var(--primary-color);
+    }
+
+    &::placeholder {
+        color: var(--gray-text-color);
+    }
+}
+
+.inputFilled {
+    width: 100%;
+    font-size: var(--font-size-14);
+    font-weight: var(--font-weight-700);
+    color: var(--main-text-color);
+    height: 46px;
+    border: 1px solid var(--main-text-color);
+    border-radius: var(--border-radius-3);
+    background-color: transparent;
+    padding-inline: 24px;  
+    outline: 0px;
+    letter-spacing: 0.8px;
+
+    &:focus-within {
+        border: 1px solid var(--primary-color);
+    }
+
+    &::placeholder {
+        color: var(--gray-text-color);
+    }
+}
+
+
+    
+.displayNone {
+    display: none;
+}
+  
+.displayLabel {
+    position: absolute;
+    top: -8px;
+    left: 18px;
+    font-size: var(--font-size-12);
+    font-weight: var(--font-weight-500);
+    background-color: #fff;
+    color: var(--gray-text-color);
+    padding-inline: 8px;
+}
+  
+.displayLabelFocused {
+    position: absolute;
+    top: -8px;
+    left: 18px;
+    font-size: var(--font-size-12);
+    font-weight: var(--font-weight-500);
+    background-color: #fff;
+    color: var(--primary-color);
+    padding-inline: 8px;
+}
+
+.inputWrapper {
+    position: relative;
+
+    display: flex;
+}

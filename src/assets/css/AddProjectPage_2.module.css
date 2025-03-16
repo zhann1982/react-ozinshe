@@ -62,6 +62,12 @@
     border-radius: var(--border-radius-3);
     padding: 32px;
 
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    min-height: 394px;
+
     .inputEmpty {
         width: 100%;
         height: 46px;
@@ -109,4 +115,80 @@
 
 .dropdownContainer {
     width: 190px;
+}
+
+.hintTextVisible p {
+    padding: 8px 0 16px 24px;
+    font-size: var(--font-size-12);
+    font-weight: var(--font-weight-500);
+    color: var(--gray-text-color);
+}
+
+.actionButtons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    padding-top: 32px;
+}
+
+.disabled {
+    background-color: #e0cdfe;
+    padding: 8px 24px;
+    border-radius: var(--border-radius-3);
+    border: 0;
+    outline: 0;
+    font-size: var(--font-size-16);
+    font-weight: var(--font-weight-700);
+    color: white;
+    cursor: not-allowed;
+    width: 134px;
+    height: 38px;
+    text-align: center;
+
+}
+
+.activated {
+    background-color: var(--color-purple);
+    padding: 8px 24px;
+    border-radius: var(--border-radius-3);
+    border: 0;
+    outline: 0;
+    font-size: var(--font-size-16);
+    font-weight: var(--font-weight-700);
+    color: white;
+    cursor: pointer;
+    width: 134px;
+    height: 38px;
+    text-align: center;
+}
+
+.cancelButton {
+    background-color: var(--bg-light-gray-color-transparent-1);
+    padding: 8px 24px;
+    border-radius: var(--border-radius-3);
+    border: 0;
+    outline: 0;
+    font-size: var(--font-size-16);
+    font-weight: var(--font-weight-700);
+    color: var(--main-text-color);
+    cursor: pointer;
+    width: 134px;
+    height: 38px;
+    text-align: center;
+}
+
+.backButton2 {
+    background-color: var(--bg-light-gray-color-transparent-1);
+    padding: 8px 24px;
+    border-radius: var(--border-radius-3);
+    border: 0;
+    outline: 0;
+    font-size: var(--font-size-16);
+    font-weight: var(--font-weight-700);
+    color: var(--main-text-color);
+    cursor: pointer;
+    width: 134px;
+    height: 38px;
+    text-align: center;
+    margin-right: auto;
 }

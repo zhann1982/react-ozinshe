@@ -33,7 +33,7 @@ const AddProjectPage_2 = () => {
             <div className={styles.formHeader}>
               <button
                 className={styles.backButton}
-                onClick={() => navigate("/projects")}
+                onClick={() => navigate("/add-project")}
               >
                 <BackArrowIcon width={20} height={20} />
               </button>
@@ -45,21 +45,22 @@ const AddProjectPage_2 = () => {
                 title={"Количество сезонов"}
                 options={[1, 2, 3, 4, 5, 6, 7, 8]}
                 onSelected={handleSelectSeasonCount}
+                valuePreselected={seasonCount}
               />
             </div>
             
             {seasonCount > 0 ? (
               <SeasonLoader seasonCount={seasonCount} onSeasonFilled={handleInfo}/>
             ) : (
-              <div className="seasonLoaderBoxEmpty">
+              <div className={styles.hintTextVisible}>
                 <p>Выберите количество сезонов</p>
               </div>
             )}
 
             <div className={styles.actionButtons}>
-              <button>Назад</button>
-              <button>Далее</button>
-              <button>Отмена</button>
+              <button className={styles.backButton2} onClick={()=>navigate(-1)}>Назад</button>
+              <button type='submit' className={styles.activated}>Далее</button>
+              <button className={styles.cancelButton} onClick={()=>navigate('/projects')}>Отмена</button>
             </div>
             
           </form>
