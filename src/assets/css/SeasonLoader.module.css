@@ -3,3 +3,9 @@
         margin-bottom: 16px;
     }
 }
+
+.grayLine {
+    width: 100%;
+    border: 1px solid var(--bg-light-gray-color-transparent);
+    margin-block: 16px;
+}

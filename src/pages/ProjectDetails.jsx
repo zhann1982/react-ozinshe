@@ -88,7 +88,7 @@ const ProjectDetails = () => {
               <div className={styles.ActionBox}>
                 <button onClick={()=>navigate(`/edit-project/${params.id}`)}>Редактировать</button>
                 <div className={styles.deleteBox} onClick={openModal}>
-                  <TrashIcon width={16} height={16} viewBox={'0 0 16 16'}/>
+                  <TrashIcon width={20} height={20} viewBox={'0 0 16 16'}/>
                 </div>
               </div>
             </div>

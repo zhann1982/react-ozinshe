@@ -59,7 +59,7 @@ const AddProjectPage_2 = () => {
 
             <div className={styles.actionButtons}>
               <button className={styles.backButton2} onClick={()=>navigate(-1)}>Назад</button>
-              <button type='submit' className={styles.activated}>Далее</button>
+              <button type='submit' className={styles.disabled}>Далее</button>
               <button className={styles.cancelButton} onClick={()=>navigate('/projects')}>Отмена</button>
             </div>
             

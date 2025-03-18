@@ -1,7 +1,7 @@
 import styles from '../assets/css/InputText.module.css';
 import { useState } from 'react';
 
-const InputText = ({ title, onSelected}) => {
+const InputText = ({ title, onSelected, indexOfInput=null, valueOfInput=''}) => {
   const [labelClass, setLabelClass] = useState(styles.displayNone)
   const [inputClass, setInputClass] = useState(styles.inputEmpty)
 
@@ -15,11 +15,10 @@ const InputText = ({ title, onSelected}) => {
   }
 
   const handleInputChange = (e) => {
-    onSelected(e.target.value)
+    onSelected(e.target.value, indexOfInput)
     if(e.target.value.length > 0){
       setLabelClass(styles.displayLabel)
       setInputClass(styles.inputFilled)
-      
     } else {
       setLabelClass(styles.displayNone)
       setInputClass(styles.inputEmpty)
@@ -30,6 +29,7 @@ const InputText = ({ title, onSelected}) => {
     <div className={styles.inputWrapper}>
       <label className={labelClass} >{title}</label>
       <input 
+        value={valueOfInput}
         className={inputClass}
         onChange={((e) =>handleInputChange(e))}
         onFocusCapture={handleFocus}
