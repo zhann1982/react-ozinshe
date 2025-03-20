@@ -47,6 +47,11 @@
         align-items: center;
         background: transparent;
         border: none; 
+        padding-bottom: 16px;
+
+        &:hover {
+            cursor: pointer;
+        }
     }
 }
 

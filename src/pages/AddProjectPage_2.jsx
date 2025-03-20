@@ -10,13 +10,23 @@ import SeasonLoader from "../components/SeasonLoader";
 const AddProjectPage_2 = () => {
   const navigate = useNavigate();
   const [seasonCount, setSeasonCount] = useState(0);
+  const [activeButton, setActiveButton] = useState(false);
 
   const handleSelectSeasonCount = (value) => {
     setSeasonCount(value);
   };
 
   const handleInfo = (obj) => {
-    console.log(obj);
+    console.log("data", obj);
+    obj.every((item) => {
+      if (item.series.length === 0) {
+        setActiveButton(false);
+        return false;
+      } else {
+        setActiveButton(true);
+        return true;
+      }
+    })
   }
 
   return (
@@ -59,7 +69,7 @@ const AddProjectPage_2 = () => {
 
             <div className={styles.actionButtons}>
               <button className={styles.backButton2} onClick={()=>navigate(-1)}>Назад</button>
-              <button type='submit' className={styles.disabled}>Далее</button>
+              <button type='submit' className={activeButton?styles.activated:styles.disabled}>Далее</button>
               <button className={styles.cancelButton} onClick={()=>navigate('/projects')}>Отмена</button>
             </div>
             

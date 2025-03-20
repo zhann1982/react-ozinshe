@@ -1,12 +1,24 @@
 import React, { useState } from 'react'
 import SeriesLoader from './SeriesLoader'
 import styles from '../assets/css/SeasonLoader.module.css'
+import { use } from 'react'
 
-const SeasonLoader = ({seasonCount}) => {
+const SeasonLoader = ({seasonCount, onSeasonFilled}) => {
     const [data, setData] = useState([])
+
     const handleFilled = (obj) => {
-        setData([...data, obj])
+        let arr = [...data]
+        let index = arr.findIndex(item => item.seasonNumber == obj.seasonNumber)
+        if (index != -1) {
+            arr[index] = obj
+        } else {
+            arr.push(obj)
+        }
+        setData([...arr])
     }
+
+    onSeasonFilled(data)    
+
   return (
     <div className={styles.seasonLoader}>
         {Array(+seasonCount).fill('').map((_, index) => (
@@ -20,7 +32,6 @@ const SeasonLoader = ({seasonCount}) => {
                 }
             </div>
         ))}
-        {console.log(data)}
     </div>
   )
 }
