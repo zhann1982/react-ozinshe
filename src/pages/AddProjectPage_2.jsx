@@ -6,6 +6,8 @@ import ChevronRight from "../components/icons/ChevronRight";
 import BackArrowIcon from "../components/icons/BackArrowIcon";
 import DropDownSelect from "../components/DropDownSelect";
 import SeasonLoader from "../components/SeasonLoader";
+import { isAdminLoggedIn } from "../sevices/isAdminLoggedIn";
+import NoAdminLoggedIn from "../components/NoAdminLoggedIn";
 
 const AddProjectPage_2 = () => {
   const navigate = useNavigate();
@@ -31,10 +33,13 @@ const AddProjectPage_2 = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("data", data);
+    // data will be sent to the server
     navigate("/add-project-3");
   }
 
-  return (
+  if (!isAdminLoggedIn()) {
+    return <NoAdminLoggedIn />
+  } else return (
     <MainLayout>
       <div className={styles.whiteBG}>
         <div className={styles.container}>

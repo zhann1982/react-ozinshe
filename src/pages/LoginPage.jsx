@@ -15,10 +15,15 @@ const LoginPage = () => {
     const handleMouseDown = () => setPasswordVisible(true)
     const handleMouseUp = () => setPasswordVisible(false)
 
+    // useEffect(() => {
+    //     localStorage.removeItem('token')
+    // }, [])
+
     const handleSubmit = (e) => {
         e.preventDefault()
         const admin = admins.find((admin) => admin.email === email)
         if (admin && admin.password === password) {
+            localStorage.setItem('token', JSON.stringify(admin.token))
             navigate('/projects')
         } else {
             alert('Неверный логин или пароль')
@@ -27,9 +32,9 @@ const LoginPage = () => {
 
      return (
         <div className={styles.formOverlay}>
-            <Link to='/projects'>
-                <MainIcon width={80} height={80} />
-            </Link>
+           
+            <MainIcon width={80} height={80} />
+           
             <form className={styles.formBox} onSubmit={handleSubmit}>
                 <h2 className={styles.title}>Добро пожаловать</h2>
                 <p className={styles.info}>Войдите в систему, чтобы продолжить</p>

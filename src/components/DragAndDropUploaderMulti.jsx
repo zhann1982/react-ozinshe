@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
-import styles from '../assets/css/DragAndDropUploader.module.css';
+import styles from '../assets/css/DragAndDropUploaderMulti.module.css';
 import UploadIcon from './icons/UploadIcon';
 import TrashIcon from './icons/TrashIcon';
 
-const DragAndDropUploader = ({ onImageUpload, id }) => {
-  const [previewImage, setPreviewImage] = useState(null);
+const DragAndDropUploaderMulti = ({ onImageUpload, id }) => {
   const [isDragging, setIsDragging] = useState(false);
 
   const handleFileChange = (event) => {
-    const file = event.target.files[0];
-    processFile(file);
+    const files = event.target.files;
+    processFile(files);
     event.target.value = null;
   };
 
@@ -30,24 +29,12 @@ const DragAndDropUploader = ({ onImageUpload, id }) => {
     processFile(file);
   };
 
-  const processFile = (file) => {
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = (e) => {
-        setPreviewImage(e.target.result);
-        onImageUpload && onImageUpload(file); // Pass file to parent
-      };
-      reader.readAsDataURL(file);
+  const processFile = (files) => {
+    if (files.length>0) {
+      onImageUpload && onImageUpload(files)
     } else {
-      setPreviewImage(null);
       onImageUpload && onImageUpload(null); // Pass null to parent
     }
-  };
-
-  const clearFileInput = () => {
-    setPreviewImage(null);
-    processFile(null);
-    onImageUpload && onImageUpload(null); // Pass null to parent
   };
 
   return (
@@ -55,10 +42,10 @@ const DragAndDropUploader = ({ onImageUpload, id }) => {
     style={{
       border: isDragging 
         ? '2px dashed #0052cc' 
-        : previewImage ? 'none' : '2px dashed rgba(143, 146, 161, 0.2)',
+        : '2px dashed rgba(143, 146, 161, 0.2)',
       backgroundColor: isDragging 
         ? '#f0f8ff' 
-        : previewImage ? 'transparent' : 'rgba(143, 146, 161, 0.05)',
+        : 'rgba(143, 146, 161, 0.05)',
     }}
       className={styles.dragAndDropContainerFilled}
       
@@ -73,8 +60,9 @@ const DragAndDropUploader = ({ onImageUpload, id }) => {
         onChange={handleFileChange}
         style={{ display: 'none' }}
         id={id}
+        multiple
       />
-      <div style={{ display: previewImage?'none':'block' }}>
+      <div>
         <label htmlFor={id} className={styles.uploadIconLabel}>
             <div className={styles.uploadIconBox}>
               <UploadIcon width={24} height={24} />
@@ -87,24 +75,9 @@ const DragAndDropUploader = ({ onImageUpload, id }) => {
           </label>
         </p>
       </div>
-      <div className={styles.previewImageBox}>
-        {previewImage && (
-          <img
-            src={previewImage}
-            alt="Preview"
-          />
-        )}
-        <div 
-          className={styles.deleteIconBox} 
-          onClick={clearFileInput}
-          style={{ display: previewImage ? 'block' : 'none' }}
-        >
-          <TrashIcon width={20} height={20} />
-        </div>
-      </div>
       
     </div>
   );
 };
 
-export default DragAndDropUploader;
+export default DragAndDropUploaderMulti;

@@ -14,6 +14,8 @@ import DropDownSelect from '../components/DropDownSelect'
 import InputText from '../components/InputText'
 import InputNumber from '../components/InputNumber'
 import Textarea from '../components/Textarea'
+import { isAdminLoggedIn } from '../sevices/isAdminLoggedIn'
+import NoAdminLoggedIn from '../components/NoAdminLoggedIn'
 
 
 const AddProjectPage = () => {
@@ -114,7 +116,9 @@ const AddProjectPage = () => {
     }
   }
 
-  return (
+  if (!isAdminLoggedIn()) {
+    return <NoAdminLoggedIn />
+  } else return (
     <MainLayout>
     <div className={styles.whiteBG}>
       <div className={styles.container}>

@@ -1,0 +1,81 @@
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+  
+.modalContent {
+  background-color: white;
+  border-radius: var(--border-radius-3);
+  width: 300px;
+  width: 480px;
+  position: relative;
+
+  h2 {
+    text-align: center;
+    font-size: var(--font-size-22);
+    font-weight: var(--font-weight-700);
+    margin-bottom: 32px;
+  }
+}
+
+.titleBox {
+  display: flex;
+  justify-content: flex-end;
+  align-items: end;
+  padding: 16px 24px;
+  border-bottom: 1px solid var(--bg-light-gray-color-transparent-1);
+
+  button  {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    margin-top: 4px;
+  }
+
+  h2 {
+    font-size: var(--font-size-16);
+    font-weight: var(--font-weight-700);
+  }
+}
+
+.buttonBox {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 32px;
+}
+
+.buttonYes {
+  background-color: var(--color-purple);
+  outline: 0px;
+  border: 0px;
+  border-radius: var(--border-radius-3);
+  display: flex;
+  justify-content: center;      
+  align-items: center;
+  gap: 8px;
+  height: 40px;
+  width: 120px;
+  color: #fff;     
+  font-size: var(--font-size-14);
+  font-weight: var(--font-weight-700);
+  
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.iconBox {
+  display: flex;
+  justify-content: center;
+  padding-top: 32px;
+  padding-bottom: 16px;
+}

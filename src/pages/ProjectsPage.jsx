@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import MainLayout from '../layouts/MainLayout'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
+import { isAdminLoggedIn } from '../sevices/isAdminLoggedIn'
+import NoAdminLoggedIn from '../components/NoAdminLoggedIn'
 
 import styles from '../assets/css/ProjectsPage.module.css'
 import { 
@@ -34,7 +36,9 @@ const ProjectsPage = () => {
     console.log(option)
   }
 
-  return (
+  if (!isAdminLoggedIn()) {
+    return <NoAdminLoggedIn />
+  } else return (
     <MainLayout>
     <div className={styles.wrapper}>
       <section className={styles.section}>

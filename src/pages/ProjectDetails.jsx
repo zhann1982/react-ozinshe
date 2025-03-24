@@ -15,6 +15,8 @@ import PlayButtonIcon from '../components/icons/PlayButtonIcon'
 import SeasonsSection from '../components/SeasonsSection'
 import FilmSection from '../components/FilmSection'
 import ModalDeleteProject from '../components/ModalDeleteProject'
+import { isAdminLoggedIn } from '../sevices/isAdminLoggedIn'
+import NoAdminLoggedIn from '../components/NoAdminLoggedIn'
 
 const ProjectDetails = () => {
 
@@ -57,7 +59,9 @@ const ProjectDetails = () => {
     navigate('/projects')
   }
 
-  return (
+  if (!isAdminLoggedIn()) {
+    return <NoAdminLoggedIn />
+  } else return (
     <MainLayout>
       <section className={styles.section}>
         <div className={styles.main}>
