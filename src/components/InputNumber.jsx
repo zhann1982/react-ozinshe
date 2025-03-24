@@ -1,7 +1,7 @@
 import styles from '../assets/css/InputNumber.module.css';
 import { useState } from 'react';
 
-const InputNumber = ({ title, onSelected, valueOfInput=null}) => {
+const InputNumber = ({ title, onSelected, valueOfInput=0}) => {
   const [labelClass, setLabelClass] = useState(styles.displayNone)
   const [inputClass, setInputClass] = useState(styles.inputEmpty)
 
@@ -30,7 +30,7 @@ const InputNumber = ({ title, onSelected, valueOfInput=null}) => {
     <div className={styles.inputWrapper}>
       <label className={labelClass} >{title}</label>
       <input 
-        value={valueOfInput}
+        // value={valueOfInput==0?'':valueOfInput}
         className={inputClass}
         onChange={((e) =>handleInputChange(e))}
         onFocusCapture={handleFocus}

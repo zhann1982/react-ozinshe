@@ -11,22 +11,27 @@ const AddProjectPage_2 = () => {
   const navigate = useNavigate();
   const [seasonCount, setSeasonCount] = useState(0);
   const [activeButton, setActiveButton] = useState(false);
+  const [data, setData] = useState([]); // data from SeasonLoader
 
   const handleSelectSeasonCount = (value) => {
     setSeasonCount(value);
   };
 
   const handleInfo = (obj) => {
-    console.log("data", obj);
-    obj.every((item) => {
-      if (item.series.length === 0) {
-        setActiveButton(false);
-        return false;
-      } else {
-        setActiveButton(true);
-        return true;
-      }
-    })
+    let allFilled = []
+    obj.forEach((item) => {
+      const allSeries = item.series.every((videoId) => (videoId !== null && videoId !== ""));
+      allFilled.push(allSeries);
+    });
+    allFilled = allFilled.every((item) => item === true);
+    setActiveButton(allFilled);
+    setData(obj);
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("data", data);
+    navigate("/add-project-3");
   }
 
   return (
@@ -39,11 +44,11 @@ const AddProjectPage_2 = () => {
             <p>Добавить проект</p>
           </div>
 
-          <form className={styles.formContainer}>
+          <form className={styles.formContainer} onSubmit={handleSubmit}>
             <div className={styles.formHeader}>
               <button
                 className={styles.backButton}
-                onClick={() => navigate("/add-project")}
+                onClick={(e) => {e.preventDefault(); navigate("/add-project")}}
               >
                 <BackArrowIcon width={20} height={20} />
               </button>
@@ -60,7 +65,7 @@ const AddProjectPage_2 = () => {
             </div>
             
             {seasonCount > 0 ? (
-              <SeasonLoader seasonCount={seasonCount} onSeasonFilled={handleInfo}/>
+              <SeasonLoader seasonCounter={seasonCount} onSeasonFilled={handleInfo}/>
             ) : (
               <div className={styles.hintTextVisible}>
                 <p>Выберите количество сезонов</p>

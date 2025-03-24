@@ -112,3 +112,21 @@
         opacity: 0.8;
     }
 }
+
+.inputPasswordBox {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+
+    .eyeIconBox {
+        position: absolute;
+        right: 16px;
+        top: 12px;
+        cursor: pointer;
+    }
+
+    path {
+        transform: scale(1.5);
+    }
+}

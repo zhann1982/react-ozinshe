@@ -55,7 +55,7 @@ const FilmCard = ({id, title, category, views, seriesCount, imageSrc}) => {
                     <EditIcon width={16} height={16} />
                 </button>
                 <button  onClick={e => openModal2(e)}>
-                    <TrashIcon width={16} height={16} viewBox={'0 0 16 16'}/>
+                    <TrashIcon width={16} height={16} scalePath={0.85}/>
                 </button>
             </div>
         </div>

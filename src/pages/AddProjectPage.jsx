@@ -44,7 +44,7 @@ const AddProjectPage = () => {
   const handleInputsAllFilled = () => {
     if(inputsCheck.every(item => item === true)){
       setSubmitButtonClass(true)
-      console.log(data)
+      // console.log(data)
     } else {
       setSubmitButtonClass(false) 
     }

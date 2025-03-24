@@ -1,9 +1,8 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import SeriesLoader from './SeriesLoader'
 import styles from '../assets/css/SeasonLoader.module.css'
-import { use } from 'react'
 
-const SeasonLoader = ({seasonCount, onSeasonFilled}) => {
+const SeasonLoader = ({seasonCounter, onSeasonFilled}) => {
     const [data, setData] = useState([])
 
     const handleFilled = (obj) => {
@@ -17,23 +16,25 @@ const SeasonLoader = ({seasonCount, onSeasonFilled}) => {
         setData([...arr])
     }
 
-    onSeasonFilled(data)    
+    useEffect(() => {
+        onSeasonFilled(data)
+    }, [data]) 
 
-  return (
-    <div className={styles.seasonLoader}>
-        {Array(+seasonCount).fill('').map((_, index) => (
-            <div key={index} className={styles.seasonLoaderBox}>
-                <h2>{index + 1} сезон</h2>
-                <SeriesLoader onFilled={handleFilled} season={index + 1}/>
-                {
-                    (index<seasonCount-1)
-                    ?(<div className={styles.grayLine}></div>)
-                    :(<div></div>)
-                }
-            </div>
-        ))}
-    </div>
-  )
+    return (
+        <div className={styles.seasonLoader}>
+            {Array(+seasonCounter).fill('').map((_, index) => (
+                <div key={index} className={styles.seasonLoaderBox}>
+                    <h2>{index + 1} сезон</h2>
+                    <SeriesLoader onFilled={handleFilled} season={index + 1}/>
+                    {
+                        (index<seasonCounter-1)
+                        ?(<div className={styles.grayLine}></div>)
+                        :(<div></div>)
+                    }
+                </div>
+            ))}
+        </div>
+    )
 }
 
 export default SeasonLoader
