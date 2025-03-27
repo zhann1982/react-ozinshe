@@ -1,9 +1,13 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useContext} from 'react'
+import { AppContext } from '../App'
 import styles from '../assets/css/SeriesLoader.module.css'
 import TrashIcon from '../components/icons/TrashIcon'
 import InputText from '../components/InputText'
 
-const SeriesLoader = ({onFilled, season}) => {
+
+
+const SeriesLoader = ({season}) => {
+    const {newProject, setNewProject} = useContext(AppContext)
     const [series, setSeries] = useState(['']);
 
     const handleAddClick = (e) => {
@@ -23,18 +27,41 @@ const SeriesLoader = ({onFilled, season}) => {
             let arr = [...series]
             arr.splice(index, 1)
             setSeries([...arr])
-        } else if (series.length == 1) {
+        } else if (series.length = 1) {
             setSeries([''])
         }
     }
 
     useEffect(()=>{
-        onFilled({seasonNumber: season, series})
+        
+        let arr = newProject.seasons.length>0?[...newProject.seasons]:[]
+        let index = arr.findIndex(item => item.seasonNumber == season)
+        if (index != -1) {
+            arr[index] = {seasonNumber: season, series} 
+        } else {
+            arr.push({seasonNumber: season, series})
+        }
+        setNewProject({...newProject, seasons: arr})
+
+    },[])
+    
+    useEffect(()=>{
+
+        console.log('newProject 2', newProject)
+        let arr = newProject.seasons.length>0?[...newProject.seasons]:[]
+        let index = arr.findIndex(item => item.seasonNumber == season)
+        if (index != -1) {
+            arr[index] = {seasonNumber: season, series} 
+        } else {
+            arr.push({seasonNumber: season, series})
+        }
+        setNewProject({...newProject, seasons: arr})
     },[series])
     
     
   return (
     <div className={styles.seriesLoader}>
+        
         {series.map((value, index) => (
             <div key={index} className={styles.seriesLoaderItem}>
                 <div key={index} className={styles.seriesInput}>
@@ -42,7 +69,7 @@ const SeriesLoader = ({onFilled, season}) => {
                     <div className={styles.inputBox}>
                         <InputText 
                             title={`${index + 1} серия / Youtube Video ID `} 
-                            valueOfInput={value}
+                            // valueOfInput={value}
                             onSelected={handleInputChange} 
                             indexOfInput={index}
                         />

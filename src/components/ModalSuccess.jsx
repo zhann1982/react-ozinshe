@@ -22,7 +22,6 @@ const ModalSuccess = ({ isOpen, onClose, title }) => {
                 <div className={styles.buttonBox}>
                     <button className={styles.buttonYes} onClick={onClose}>Закрыть</button>    
                 </div>    
-                
             </div>
         </div>
   )

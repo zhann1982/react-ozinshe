@@ -1,4 +1,5 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useContext} from 'react'
+import { AppContext } from '../App'
 import MainLayout from '../layouts/MainLayout'
 import styles from '../assets/css/AddProjectPage.module.css'
 import { Link, useNavigate } from 'react-router-dom'
@@ -20,6 +21,7 @@ import NoAdminLoggedIn from '../components/NoAdminLoggedIn'
 
 const AddProjectPage = () => {
   
+  const {newProject, setNewProject} = useContext(AppContext)
   const navigate = useNavigate()
 
   let checkInputsFilled = new Array(10).fill(false);
@@ -110,11 +112,15 @@ const AddProjectPage = () => {
   const handleSubmitForm = (e) => {
     e.preventDefault()
     // here we can send new project's data to server
-    console.log(data)
+    setNewProject({...newProject, ...data, seasons: []})
     if(submitButtonClass){
       navigate('/add-project-2')
     }
   }
+
+  useEffect(() => {
+    console.log('new project 1 part',newProject)
+  }, [newProject])
 
   if (!isAdminLoggedIn()) {
     return <NoAdminLoggedIn />

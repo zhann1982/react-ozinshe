@@ -1,4 +1,5 @@
-import React, {useState} from "react";
+import React, {useState, useEffect, useContext} from 'react'
+import { AppContext } from '../App'
 import MainLayout from "../layouts/MainLayout";
 import styles from "../assets/css/AddProjectPage_2.module.css";
 import { Link, useNavigate } from "react-router-dom";
@@ -10,32 +11,50 @@ import { isAdminLoggedIn } from "../sevices/isAdminLoggedIn";
 import NoAdminLoggedIn from "../components/NoAdminLoggedIn";
 
 const AddProjectPage_2 = () => {
+  const {newProject, setNewProject} = useContext(AppContext);
   const navigate = useNavigate();
   const [seasonCount, setSeasonCount] = useState(0);
   const [activeButton, setActiveButton] = useState(false);
-  const [data, setData] = useState([]); // data from SeasonLoader
+  // const [data, setData] = useState([]); // data from SeasonLoader
 
   const handleSelectSeasonCount = (value) => {
     setSeasonCount(value);
   };
 
-  const handleInfo = (obj) => {
+  // const handleInfo = (obj) => {
+  //   let allFilled = []
+  //   obj.forEach((item) => {
+  //     const allSeries = item.series.every((videoId) => (videoId !== null && videoId !== ""));
+  //     allFilled.push(allSeries);
+  //   });
+  //   allFilled = allFilled.every((item) => item === true);
+  //   setActiveButton(allFilled);
+  //   setData(obj);
+  //   console.log('obj', obj);
+  // }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setActiveButton(false);
+    // data will be sent to the server
+    if (activeButton) navigate("/add-project-3");
+  }
+
+  // useEffect(() => {
+  //   if (seasonCount < data.length) {
+  //     setData(data.slice(0, seasonCount));
+  //   }
+  // }, [seasonCount]);
+
+  useEffect(() => { 
     let allFilled = []
-    obj.forEach((item) => {
+    newProject.seasons.forEach((item) => {
       const allSeries = item.series.every((videoId) => (videoId !== null && videoId !== ""));
       allFilled.push(allSeries);
     });
     allFilled = allFilled.every((item) => item === true);
     setActiveButton(allFilled);
-    setData(obj);
-  }
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("data", data);
-    // data will be sent to the server
-    navigate("/add-project-3");
-  }
+  }, [seasonCount]);
 
   if (!isAdminLoggedIn()) {
     return <NoAdminLoggedIn />
@@ -63,14 +82,14 @@ const AddProjectPage_2 = () => {
             <div className={styles.dropdownContainer}>
               <DropDownSelect
                 title={"Количество сезонов"}
-                options={[1, 2, 3, 4, 5, 6, 7, 8]}
+                options={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]}
                 onSelected={handleSelectSeasonCount}
                 valuePreselected={seasonCount}
               />
             </div>
             
             {seasonCount > 0 ? (
-              <SeasonLoader seasonCounter={seasonCount} onSeasonFilled={handleInfo}/>
+              <SeasonLoader seasonCounter={seasonCount} />
             ) : (
               <div className={styles.hintTextVisible}>
                 <p>Выберите количество сезонов</p>

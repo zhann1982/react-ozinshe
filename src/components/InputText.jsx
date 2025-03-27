@@ -1,7 +1,7 @@
 import styles from '../assets/css/InputText.module.css';
 import { useState } from 'react';
 
-const InputText = ({ title, onSelected, indexOfInput=null, valueOfInput=''}) => {
+const InputText = ({ title, onSelected, indexOfInput=null}) => {
   const [labelClass, setLabelClass] = useState(styles.displayNone)
   const [inputClass, setInputClass] = useState(styles.inputEmpty)
 
@@ -29,7 +29,7 @@ const InputText = ({ title, onSelected, indexOfInput=null, valueOfInput=''}) => 
     <div className={styles.inputWrapper}>
       <label className={labelClass} >{title}</label>
       <input 
-        value={valueOfInput}
+        
         className={inputClass}
         onChange={((e) =>handleInputChange(e))}
         onFocusCapture={handleFocus}
