@@ -30,7 +30,7 @@ function App() {
             <Route path='/' exact           element={<LoginPage />}         />
             <Route path='projects'          element={<ProjectsPage />}      />
             <Route path='details/:id'       element={<ProjectDetails />}    />
-            <Route path='edit-project/:id'  element={<EditProjectPage />}   />
+            <Route path='edit-project/:id/*'  element={<EditProjectPage />}   />
             <Route path='add-project'       element={<AddProjectPage />}    />
             <Route path='add-project-2'     element={<AddProjectPage_2 />}  />
             <Route path='add-project-3'     element={<AddProjectPage_3 />}  />
