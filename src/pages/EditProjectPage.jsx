@@ -1,6 +1,6 @@
 import styles from '../assets/css/EditProjectPage.module.css'
-import React, {useState, useContext, createContext} from 'react'
-import { useParams, Link, NavLink, useNavigate, Routes, Route } from 'react-router-dom'
+import React, {useState, createContext} from 'react'
+import { useParams, Link, NavLink, useNavigate, Routes, Route, useMatch } from 'react-router-dom'
 import MainLayout from '../layouts/MainLayout'
 import { isAdminLoggedIn } from '../sevices/isAdminLoggedIn'
 import NoAdminLoggedIn from '../components/NoAdminLoggedIn'
@@ -17,23 +17,25 @@ export const EditContext = createContext()
 const EditProjectPage = () => {
     const navigate = useNavigate()
     const params = useParams()
-    const [submitButtonClass, setSubmitButtonClass] = useState(false)
     const [editedProject, setEditedProject] = useState(filmCards.find(item => item.id == params.id))
+    const [allFilled, setAllFilled] = useState(true)
 
     const handleSubmitForm = (e) => {
       e.preventDefault()
-      // here we can send new project's data to server
-      setNewProject({...newProject, ...data, seasons: []})
-      if(submitButtonClass){
-        navigate('/add-project-2')
+      if(allFilled==false) {
+        alert('не все поля заполнены')
       }
+      // here we can send edited project's data to server
+      
+        // navigate('/add-project-2')
+      
     }
 
     
     if (!isAdminLoggedIn()) {
       return <NoAdminLoggedIn />
     } else return (
-      <EditContext.Provider value={{editedProject, setEditedProject}}>
+      <EditContext.Provider value={{editedProject, setEditedProject, allFilled, setAllFilled}}>
         <MainLayout>
         <div className={styles.whiteBG}>
           <div className={styles.container}>
@@ -57,19 +59,34 @@ const EditProjectPage = () => {
               </div>
 
               <nav className={styles.navTabs}>
-                <NavLink to={`/edit-project/${editedProject.id}/main-info`}>Основная информация</NavLink>
-                <NavLink to={`/edit-project/${editedProject.id}/video`}>Видео</NavLink>
-                <NavLink to={`/edit-project/${editedProject.id}/thumbnail-screenshots`}>Обложка и скриншоты</NavLink>
+                <NavLink 
+                  to={`/edit-project/${editedProject.id}/`}
+                  className={({ isActive }) => (useMatch(`/edit-project/${editedProject.id}/`) ? styles.active : styles.secondary)}
+                >
+                  Основная информация
+                </NavLink>
+                <NavLink 
+                  to={`/edit-project/${editedProject.id}/video`}
+                  className={({ isActive }) => (isActive ? styles.active : styles.secondary)}
+                >
+                  Видео
+                </NavLink>
+                <NavLink 
+                  to={`/edit-project/${editedProject.id}/thumbnail-screenshots`}
+                  className={({ isActive }) => (isActive ? styles.active : styles.secondary)}
+                >
+                  Обложка и скриншоты
+                </NavLink>
               </nav>
 
               <Routes>
-                <Route path='main-info' element={<MainInfoTab />}/>
+                <Route path='/' element={<MainInfoTab />}/>
                 <Route path='video' element={<VideosTab />}/>
                 <Route path='thumbnail-screenshots' element={<ThumbnailScreenshotsTab />}/>
               </Routes>
 
               <div className={styles.actionButtons}>
-                <button type='submit' className={submitButtonClass?styles.activated:styles.disabled}>Сохранить</button>
+                <button type='submit' className={styles.activated}>Сохранить</button>
                 <button className={styles.cancelButton} onClick={()=>navigate('/projects')}>Отмена</button>
               </div>
 

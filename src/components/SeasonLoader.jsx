@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import SeriesLoader from './SeriesLoader'
 import styles from '../assets/css/SeasonLoader.module.css'
 

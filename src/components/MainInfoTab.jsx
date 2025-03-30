@@ -1,41 +1,53 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useContext} from 'react'
 import styles from '../assets/css/MainInfoTab.module.css'
 import { filterAgeCategories, filterCategory, filterType, filterYears } from '../sevices/filterArrays'
 import DropDownSelect from './DropDownSelect'
 import InputText from './InputText'
 import InputNumber from './InputNumber'
 import Textarea from './Textarea'
-
+import { EditContext } from '../pages/EditProjectPage'
+import { use } from 'react'
 
 
 const MainInfoTabs = () => {
-  let checkInputsFilled = new Array(10).fill(false);
+  const {editedProject, setEditedProject,allFilled, setAllFilled} = useContext(EditContext)
+
+  let checkInputsFilled = new Array(10).fill(true);
   const [inputsCheck, setInputsCheck] = useState(checkInputsFilled)
-  const [hintClass, setHintClass] = useState(styles.hintTextVisible)
-  const [submitButtonClass, setSubmitButtonClass] = useState(false)
+  const [hintClass, setHintClass] = useState(editedProject.keyTags?styles.hintTextDisplayNone:styles.hintTextVisible)
+
   const [data, setData] = useState({
-    title: '',
-    category: '',
-    type: '',
-    ageCategory: '',
-    yearProduced: '',
-    duration: null,
-    keyTags: [],
-    description:'',
-    director: '',
-    producer: ''
+    title: editedProject.title ?? '',
+    category: editedProject.category ?? '',
+    type: editedProject.type ?? '',
+    ageCategory: editedProject.ageCategory ?? '',
+    yearProduced: editedProject.yearProduced ?? '',
+    duration: editedProject.duration ?? null,
+    keyTags: editedProject.keyTags ?? [],
+    description:editedProject.description ?? '',
+    director: editedProject.director ?? '',
+    producer: editedProject.producer ?? ''
   })
 
   useEffect(() => {
     handleInputsAllFilled()
   }, [inputsCheck])
+
+  useEffect(() => {
+    return () => {
+      setEditedProject({...editedProject, ...data})
+    }
+  },[data])
   
   const handleInputsAllFilled = () => {
     if(inputsCheck.every(item => item === true)){
-      setSubmitButtonClass(true)
-      // console.log(data)
+      setAllFilled(true)
+      setEditedProject({...editedProject, ...data})
+      // here we can send edited project's data to server
+      console.log(data)
     } else {
-      setSubmitButtonClass(false) 
+      setAllFilled(false)
+      console.log('Заполните все поля')
     }
   }
   
@@ -98,14 +110,14 @@ const MainInfoTabs = () => {
     <div>
       <div className={styles.flexColumn}>
         <InputText title='Название проекта' onSelected={value=>handleInputChange(value, 0)} valueOfInput={data.title}/>
-        <DropDownSelect title='Категория' options={filterCategory} onSelected={value=>handleInputChange(value, 6)} />
+        <DropDownSelect title='Категория' options={filterCategory} onSelected={value=>handleInputChange(value, 6)} valuePreselected={data.category}/>
         <div className={styles.row}>
-          <DropDownSelect title='Тип проекта' options={filterType} onSelected={value=>handleInputChange(value, 7)}/>
-          <DropDownSelect title='Возрастная категория' options={filterAgeCategories} onSelected={value=>handleInputChange(value, 8)} />
+          <DropDownSelect title='Тип проекта' options={filterType} onSelected={value=>handleInputChange(value, 7)} valuePreselected={data.type}/>
+          <DropDownSelect title='Возрастная категория' options={filterAgeCategories} onSelected={value=>handleInputChange(value, 8)} valuePreselected={data.ageCategory}/>
         </div>
         <div className={styles.row}>
-          <DropDownSelect title='Год' options={filterYears} onSelected={value=>handleInputChange(value, 9)}/>
-          <InputNumber title='Хронометраж (мин)' onSelected={value=>handleInputChange(value, 1)} />
+          <DropDownSelect title='Год' options={filterYears} onSelected={value=>handleInputChange(value, 9)} valuePreselected={data.yearProduced}/>
+          <InputNumber title='Хронометраж (мин)' onSelected={value=>handleInputChange(value, 1)} valueOfInput={data.duration}/>
         </div>
         <InputText title='Ключевые слова' onSelected={value=>handleInputChange(value, 2)}  valueOfInput={data.keyTags}/>
       </div>  
@@ -113,7 +125,7 @@ const MainInfoTabs = () => {
       <p className={hintClass}>Например: мультфильм, мультсериал</p>
 
       <div className={styles.flexColumn2}>
-        <Textarea title='Добавьте описание' onSelected={value=>handleInputChange(value, 5)} />
+        <Textarea title='Добавьте описание' onSelected={value=>handleInputChange(value, 5)} valueOfInput={data.description}/>
         <InputText title='Режиссер' onSelected={value=>handleInputChange(value, 3)}  valueOfInput={data.director}/>
         <InputText title='Продюссер' onSelected={value=>handleInputChange(value, 4)}  valueOfInput={data.producer}/>
       </div>

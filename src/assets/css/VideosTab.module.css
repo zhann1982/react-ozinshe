@@ -1,0 +1,10 @@
+.dropdownContainer {
+    width: 190px;
+}
+
+.hintTextVisible p {
+    padding: 8px 0 16px 24px;
+    font-size: var(--font-size-12);
+    font-weight: var(--font-weight-500);
+    color: var(--gray-text-color);
+}

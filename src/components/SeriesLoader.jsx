@@ -5,10 +5,11 @@ import TrashIcon from '../components/icons/TrashIcon'
 import InputText from '../components/InputText'
 
 
-
 const SeriesLoader = ({season}) => {
+    const {editedProject, setEditedProject} = useContext(EditContext)
+
     const {newProject, setNewProject} = useContext(AppContext)
-    const [series, setSeries] = useState(['']);
+    const [series, setSeries] = useState(editedProject.seasons.find((item)=>item.seasonNumber == season));
 
     const handleAddClick = (e) => {
         e.preventDefault()
@@ -101,10 +102,10 @@ const SeriesLoader = ({season}) => {
             </div>
         ))}
         <button 
-                    onClick={(e)=>handleAddClick(e)} 
-                    className={styles.addNewInputButton}
-                >
-                    Добавить серию
+            onClick={(e)=>handleAddClick(e)} 
+            className={styles.addNewInputButton}
+        >
+            Добавить серию
         </button>
     </div>
   )

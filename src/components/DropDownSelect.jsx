@@ -1,11 +1,15 @@
 import styles from '../assets/css/DropDownSelect.module.css';
 import { useEffect, useState } from 'react';
 
-const Dropdown = ({ title, options, onSelected, valuePreselected = ''}) => {
+const Dropdown = ({ title, options, onSelected, valuePreselected}) => {
+  if (Array.isArray(valuePreselected)) {
+    valuePreselected = valuePreselected.join(', ')
+  }
+
   const [down,setDown] = useState(false)
-  const [isSelected, setIsSelected] = useState(false)
-  const [labelClass, setLabelClass] = useState(styles.displayNone)
-  const [inputClass, setInputClass] = useState(styles.dropdown)
+  const [isSelected, setIsSelected] = useState(valuePreselected?true:false)
+  const [labelClass, setLabelClass] = useState(valuePreselected?styles.displayLabel:styles.displayNone)
+  const [inputClass, setInputClass] = useState(valuePreselected?styles.dropdownSeleted:styles.dropdown)
 
   const handleFocus = () => setLabelClass(styles.displayLabelFocused);
   const handleBlur = (e) => {
@@ -38,7 +42,7 @@ const Dropdown = ({ title, options, onSelected, valuePreselected = ''}) => {
         onFocusCapture={handleFocus}
         onBlurCapture={(e)=>handleBlur(e)}
       >
-        <option className={styles.disabled} value={''}  defaultValue>{title}</option>
+        <option className={styles.disabled} value={valuePreselected??''}  defaultValue>{valuePreselected??title}</option>
         {options.map((opt,index)=>(
           <option key={index} value={opt}> {opt} </option>
         ))}

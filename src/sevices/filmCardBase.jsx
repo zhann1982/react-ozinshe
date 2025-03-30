@@ -10,7 +10,7 @@ export const filmCards = [
         addedToProjects: '18:25 21-05-2021',
         lastModified: '18:45 15-04-2024',
         viewsCount: 15201,
-        duration: 10, // in minutes
+        duration: '10', // in minutes
         ageCategory: ['6-8', '8-10'],
         director: 'Бақдәулет Әлімбеков',
         producer: 'Сандуғаш Кенжебаева',
@@ -21,40 +21,40 @@ export const filmCards = [
             {
                 seasonNumber: 1,
                 series: [
-                    'https://www.youtube.com/watch?v=OUq8BME03YM&list=PLm8b4TrIR2AfMkraS_KXD-rjmcZKzGfZ5',
-                    'https://www.youtube.com/watch?v=0lsFLDIv3OY',
-                    'https://www.youtube.com/watch?v=OUq8BME03YM&list=PLm8b4TrIR2AfMkraS_KXD-rjmcZKzGfZ5',
-                    'https://www.youtube.com/watch?v=0lsFLDIv3OY',
-                    'https://www.youtube.com/watch?v=OUq8BME03YM&list=PLm8b4TrIR2AfMkraS_KXD-rjmcZKzGfZ5',
-                    'https://www.youtube.com/watch?v=0lsFLDIv3OY',
-                    'https://www.youtube.com/watch?v=OUq8BME03YM&list=PLm8b4TrIR2AfMkraS_KXD-rjmcZKzGfZ5',
-                    'https://www.youtube.com/watch?v=0lsFLDIv3OY',
-                    'https://www.youtube.com/watch?v=OUq8BME03YM&list=PLm8b4TrIR2AfMkraS_KXD-rjmcZKzGfZ5',
-                    'https://www.youtube.com/watch?v=0lsFLDIv3OY'
+                    '0lsFLDIv3OY',
+                    '0lsFLDIv3OY',
+                    '0lsFLDIv3OY',
+                    '0lsFLDIv3OY',
+                    '0lsFLDIv3OY',
+                    '0lsFLDIv3OY',
+                    '0lsFLDIv3OY',
+                    '0lsFLDIv3OY',
+                    '0lsFLDIv3OY',
+                    '0lsFLDIv3OY'
                 ]           
             },
             {
                 seasonNumber: 2,
                 series: [
-                    'https://www.youtube.com/watch?v=OUq8BME03YM&list=PLm8b4TrIR2AfMkraS_KXD-rjmcZKzGfZ5',
-                    'https://www.youtube.com/watch?v=0lsFLDIv3OY',
-                    'https://www.youtube.com/watch?v=OUq8BME03YM&list=PLm8b4TrIR2AfMkraS_KXD-rjmcZKzGfZ5',
-                    'https://www.youtube.com/watch?v=0lsFLDIv3OY',
-                    'https://www.youtube.com/watch?v=OUq8BME03YM&list=PLm8b4TrIR2AfMkraS_KXD-rjmcZKzGfZ5',
-                    'https://www.youtube.com/watch?v=0lsFLDIv3OY',
-                    'https://www.youtube.com/watch?v=OUq8BME03YM&list=PLm8b4TrIR2AfMkraS_KXD-rjmcZKzGfZ5',
-                    'https://www.youtube.com/watch?v=0lsFLDIv3OY',
-                    'https://www.youtube.com/watch?v=OUq8BME03YM&list=PLm8b4TrIR2AfMkraS_KXD-rjmcZKzGfZ5',
-                    'https://www.youtube.com/watch?v=0lsFLDIv3OY'
+                    '0lsFLDIv3OY',
+                    '0lsFLDIv3OY',
+                    '0lsFLDIv3OY',
+                    '0lsFLDIv3OY',
+                    '0lsFLDIv3OY',
+                    '0lsFLDIv3OY',
+                    '0lsFLDIv3OY',
+                    '0lsFLDIv3OY',
+                    '0lsFLDIv3OY',
+                    '0lsFLDIv3OY'
                 ]           
             },
             {
                 seasonNumber: 3,
                 series: [
-                    'https://www.youtube.com/watch?v=OUq8BME03YM&list=PLm8b4TrIR2AfMkraS_KXD-rjmcZKzGfZ5',
-                    'https://www.youtube.com/watch?v=0lsFLDIv3OY',
-                    'https://www.youtube.com/watch?v=OUq8BME03YM&list=PLm8b4TrIR2AfMkraS_KXD-rjmcZKzGfZ5',
-                    'https://www.youtube.com/watch?v=0lsFLDIv3OY'
+                    '0lsFLDIv3OY',
+                    '0lsFLDIv3OY',
+                    '0lsFLDIv3OY',
+                    '0lsFLDIv3OY'
                 ]           
             },
         ],
@@ -94,48 +94,48 @@ export const filmCards = [
             {
                 seasonNumber: 1,
                 series: [
-                    'https://www.youtube.com/watch?v=vPQy7H-i3ww&list=PLm8b4TrIR2AeB1dr738AYXmu28m3gEQpd',
-                    'https://www.youtube.com/watch?v=F_p7ePt17J4',
-                    'https://www.youtube.com/watch?v=vPQy7H-i3ww&list=PLm8b4TrIR2AeB1dr738AYXmu28m3gEQpd',
-                    'https://www.youtube.com/watch?v=F_p7ePt17J4',
-                    'https://www.youtube.com/watch?v=vPQy7H-i3ww&list=PLm8b4TrIR2AeB1dr738AYXmu28m3gEQpd',
-                    'https://www.youtube.com/watch?v=F_p7ePt17J4',
-                    'https://www.youtube.com/watch?v=vPQy7H-i3ww&list=PLm8b4TrIR2AeB1dr738AYXmu28m3gEQpd',
-                    'https://www.youtube.com/watch?v=F_p7ePt17J4',
-                    'https://www.youtube.com/watch?v=vPQy7H-i3ww&list=PLm8b4TrIR2AeB1dr738AYXmu28m3gEQpd',
-                    'https://www.youtube.com/watch?v=F_p7ePt17J4'
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4'
                 ]           
             },
             {
                 seasonNumber: 2,
                 series: [
-                    'https://www.youtube.com/watch?v=vPQy7H-i3ww&list=PLm8b4TrIR2AeB1dr738AYXmu28m3gEQpd',
-                    'https://www.youtube.com/watch?v=F_p7ePt17J4',
-                    'https://www.youtube.com/watch?v=vPQy7H-i3ww&list=PLm8b4TrIR2AeB1dr738AYXmu28m3gEQpd',
-                    'https://www.youtube.com/watch?v=F_p7ePt17J4',
-                    'https://www.youtube.com/watch?v=vPQy7H-i3ww&list=PLm8b4TrIR2AeB1dr738AYXmu28m3gEQpd',
-                    'https://www.youtube.com/watch?v=F_p7ePt17J4',
-                    'https://www.youtube.com/watch?v=vPQy7H-i3ww&list=PLm8b4TrIR2AeB1dr738AYXmu28m3gEQpd',
-                    'https://www.youtube.com/watch?v=F_p7ePt17J4',
-                    'https://www.youtube.com/watch?v=vPQy7H-i3ww&list=PLm8b4TrIR2AeB1dr738AYXmu28m3gEQpd',
-                    'https://www.youtube.com/watch?v=F_p7ePt17J4'
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4'
                 ]           
             },
             {
                 seasonNumber: 3,
                 series: [
-                    'https://www.youtube.com/watch?v=vPQy7H-i3ww&list=PLm8b4TrIR2AeB1dr738AYXmu28m3gEQpd',
-                    'https://www.youtube.com/watch?v=F_p7ePt17J4',
-                    'https://www.youtube.com/watch?v=vPQy7H-i3ww&list=PLm8b4TrIR2AeB1dr738AYXmu28m3gEQpd',
-                    'https://www.youtube.com/watch?v=F_p7ePt17J4',
-                    'https://www.youtube.com/watch?v=vPQy7H-i3ww&list=PLm8b4TrIR2AeB1dr738AYXmu28m3gEQpd',
-                    'https://www.youtube.com/watch?v=F_p7ePt17J4',
-                    'https://www.youtube.com/watch?v=vPQy7H-i3ww&list=PLm8b4TrIR2AeB1dr738AYXmu28m3gEQpd',
-                    'https://www.youtube.com/watch?v=F_p7ePt17J4',
-                    'https://www.youtube.com/watch?v=vPQy7H-i3ww&list=PLm8b4TrIR2AeB1dr738AYXmu28m3gEQpd',
-                    'https://www.youtube.com/watch?v=F_p7ePt17J4',
-                    'https://www.youtube.com/watch?v=vPQy7H-i3ww&list=PLm8b4TrIR2AeB1dr738AYXmu28m3gEQpd',
-                    'https://www.youtube.com/watch?v=F_p7ePt17J4'
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4'
                 ]           
             },
         ],
@@ -241,40 +241,40 @@ export const filmCards = [
             {
                 seasonNumber: 1,
                 series: [
-                    'https://www.youtube.com/watch?v=OUq8BME03YM&list=PLm8b4TrIR2AfMkraS_KXD-rjmcZKzGfZ5',
-                    'https://www.youtube.com/watch?v=0lsFLDIv3OY',
-                    'https://www.youtube.com/watch?v=OUq8BME03YM&list=PLm8b4TrIR2AfMkraS_KXD-rjmcZKzGfZ5',
-                    'https://www.youtube.com/watch?v=0lsFLDIv3OY',
-                    'https://www.youtube.com/watch?v=OUq8BME03YM&list=PLm8b4TrIR2AfMkraS_KXD-rjmcZKzGfZ5',
-                    'https://www.youtube.com/watch?v=0lsFLDIv3OY',
-                    'https://www.youtube.com/watch?v=OUq8BME03YM&list=PLm8b4TrIR2AfMkraS_KXD-rjmcZKzGfZ5',
-                    'https://www.youtube.com/watch?v=0lsFLDIv3OY',
-                    'https://www.youtube.com/watch?v=OUq8BME03YM&list=PLm8b4TrIR2AfMkraS_KXD-rjmcZKzGfZ5',
-                    'https://www.youtube.com/watch?v=0lsFLDIv3OY'
+                    '0lsFLDIv3OY',
+                    '0lsFLDIv3OY',
+                    '0lsFLDIv3OY',
+                    '0lsFLDIv3OY',
+                    '0lsFLDIv3OY',
+                    '0lsFLDIv3OY',
+                    '0lsFLDIv3OY',
+                    '0lsFLDIv3OY',
+                    '0lsFLDIv3OY',
+                    '0lsFLDIv3OY'
                 ]           
             },
             {
                 seasonNumber: 2,
                 series: [
-                    'https://www.youtube.com/watch?v=OUq8BME03YM&list=PLm8b4TrIR2AfMkraS_KXD-rjmcZKzGfZ5',
-                    'https://www.youtube.com/watch?v=0lsFLDIv3OY',
-                    'https://www.youtube.com/watch?v=OUq8BME03YM&list=PLm8b4TrIR2AfMkraS_KXD-rjmcZKzGfZ5',
-                    'https://www.youtube.com/watch?v=0lsFLDIv3OY',
-                    'https://www.youtube.com/watch?v=OUq8BME03YM&list=PLm8b4TrIR2AfMkraS_KXD-rjmcZKzGfZ5',
-                    'https://www.youtube.com/watch?v=0lsFLDIv3OY',
-                    'https://www.youtube.com/watch?v=OUq8BME03YM&list=PLm8b4TrIR2AfMkraS_KXD-rjmcZKzGfZ5',
-                    'https://www.youtube.com/watch?v=0lsFLDIv3OY',
-                    'https://www.youtube.com/watch?v=OUq8BME03YM&list=PLm8b4TrIR2AfMkraS_KXD-rjmcZKzGfZ5',
-                    'https://www.youtube.com/watch?v=0lsFLDIv3OY'
+                    '0lsFLDIv3OY',
+                    '0lsFLDIv3OY',
+                    '0lsFLDIv3OY',
+                    '0lsFLDIv3OY',
+                    '0lsFLDIv3OY',
+                    '0lsFLDIv3OY',
+                    '0lsFLDIv3OY',
+                    '0lsFLDIv3OY',
+                    '0lsFLDIv3OY',
+                    '0lsFLDIv3OY'
                 ]           
             },
             {
                 seasonNumber: 3,
                 series: [
-                    'https://www.youtube.com/watch?v=OUq8BME03YM&list=PLm8b4TrIR2AfMkraS_KXD-rjmcZKzGfZ5',
-                    'https://www.youtube.com/watch?v=0lsFLDIv3OY',
-                    'https://www.youtube.com/watch?v=OUq8BME03YM&list=PLm8b4TrIR2AfMkraS_KXD-rjmcZKzGfZ5',
-                    'https://www.youtube.com/watch?v=0lsFLDIv3OY'
+                    '0lsFLDIv3OY',
+                    '0lsFLDIv3OY',
+                    '0lsFLDIv3OY',
+                    '0lsFLDIv3OY'
                 ]           
             },
         ],
@@ -347,48 +347,48 @@ export const filmCards = [
             {
                 seasonNumber: 1,
                 series: [
-                    'https://www.youtube.com/watch?v=vPQy7H-i3ww&list=PLm8b4TrIR2AeB1dr738AYXmu28m3gEQpd',
-                    'https://www.youtube.com/watch?v=F_p7ePt17J4',
-                    'https://www.youtube.com/watch?v=vPQy7H-i3ww&list=PLm8b4TrIR2AeB1dr738AYXmu28m3gEQpd',
-                    'https://www.youtube.com/watch?v=F_p7ePt17J4',
-                    'https://www.youtube.com/watch?v=vPQy7H-i3ww&list=PLm8b4TrIR2AeB1dr738AYXmu28m3gEQpd',
-                    'https://www.youtube.com/watch?v=F_p7ePt17J4',
-                    'https://www.youtube.com/watch?v=vPQy7H-i3ww&list=PLm8b4TrIR2AeB1dr738AYXmu28m3gEQpd',
-                    'https://www.youtube.com/watch?v=F_p7ePt17J4',
-                    'https://www.youtube.com/watch?v=vPQy7H-i3ww&list=PLm8b4TrIR2AeB1dr738AYXmu28m3gEQpd',
-                    'https://www.youtube.com/watch?v=F_p7ePt17J4'
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4'
                 ]           
             },
             {
                 seasonNumber: 2,
                 series: [
-                    'https://www.youtube.com/watch?v=vPQy7H-i3ww&list=PLm8b4TrIR2AeB1dr738AYXmu28m3gEQpd',
-                    'https://www.youtube.com/watch?v=F_p7ePt17J4',
-                    'https://www.youtube.com/watch?v=vPQy7H-i3ww&list=PLm8b4TrIR2AeB1dr738AYXmu28m3gEQpd',
-                    'https://www.youtube.com/watch?v=F_p7ePt17J4',
-                    'https://www.youtube.com/watch?v=vPQy7H-i3ww&list=PLm8b4TrIR2AeB1dr738AYXmu28m3gEQpd',
-                    'https://www.youtube.com/watch?v=F_p7ePt17J4',
-                    'https://www.youtube.com/watch?v=vPQy7H-i3ww&list=PLm8b4TrIR2AeB1dr738AYXmu28m3gEQpd',
-                    'https://www.youtube.com/watch?v=F_p7ePt17J4',
-                    'https://www.youtube.com/watch?v=vPQy7H-i3ww&list=PLm8b4TrIR2AeB1dr738AYXmu28m3gEQpd',
-                    'https://www.youtube.com/watch?v=F_p7ePt17J4'
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4'
                 ]           
             },
             {
                 seasonNumber: 3,
                 series: [
-                    'https://www.youtube.com/watch?v=vPQy7H-i3ww&list=PLm8b4TrIR2AeB1dr738AYXmu28m3gEQpd',
-                    'https://www.youtube.com/watch?v=F_p7ePt17J4',
-                    'https://www.youtube.com/watch?v=vPQy7H-i3ww&list=PLm8b4TrIR2AeB1dr738AYXmu28m3gEQpd',
-                    'https://www.youtube.com/watch?v=F_p7ePt17J4',
-                    'https://www.youtube.com/watch?v=vPQy7H-i3ww&list=PLm8b4TrIR2AeB1dr738AYXmu28m3gEQpd',
-                    'https://www.youtube.com/watch?v=F_p7ePt17J4',
-                    'https://www.youtube.com/watch?v=vPQy7H-i3ww&list=PLm8b4TrIR2AeB1dr738AYXmu28m3gEQpd',
-                    'https://www.youtube.com/watch?v=F_p7ePt17J4',
-                    'https://www.youtube.com/watch?v=vPQy7H-i3ww&list=PLm8b4TrIR2AeB1dr738AYXmu28m3gEQpd',
-                    'https://www.youtube.com/watch?v=F_p7ePt17J4',
-                    'https://www.youtube.com/watch?v=vPQy7H-i3ww&list=PLm8b4TrIR2AeB1dr738AYXmu28m3gEQpd',
-                    'https://www.youtube.com/watch?v=F_p7ePt17J4'
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4'
                 ]           
             },
         ],
@@ -461,40 +461,40 @@ export const filmCards = [
             {
                 seasonNumber: 1,
                 series: [
-                    'https://www.youtube.com/watch?v=OUq8BME03YM&list=PLm8b4TrIR2AfMkraS_KXD-rjmcZKzGfZ5',
-                    'https://www.youtube.com/watch?v=0lsFLDIv3OY',
-                    'https://www.youtube.com/watch?v=OUq8BME03YM&list=PLm8b4TrIR2AfMkraS_KXD-rjmcZKzGfZ5',
-                    'https://www.youtube.com/watch?v=0lsFLDIv3OY',
-                    'https://www.youtube.com/watch?v=OUq8BME03YM&list=PLm8b4TrIR2AfMkraS_KXD-rjmcZKzGfZ5',
-                    'https://www.youtube.com/watch?v=0lsFLDIv3OY',
-                    'https://www.youtube.com/watch?v=OUq8BME03YM&list=PLm8b4TrIR2AfMkraS_KXD-rjmcZKzGfZ5',
-                    'https://www.youtube.com/watch?v=0lsFLDIv3OY',
-                    'https://www.youtube.com/watch?v=OUq8BME03YM&list=PLm8b4TrIR2AfMkraS_KXD-rjmcZKzGfZ5',
-                    'https://www.youtube.com/watch?v=0lsFLDIv3OY'
+                    '0lsFLDIv3OY',
+                    '0lsFLDIv3OY',
+                    '0lsFLDIv3OY',
+                    '0lsFLDIv3OY',
+                    '0lsFLDIv3OY',
+                    '0lsFLDIv3OY',
+                    '0lsFLDIv3OY',
+                    '0lsFLDIv3OY',
+                    '0lsFLDIv3OY',
+                    '0lsFLDIv3OY'
                 ]           
             },
             {
                 seasonNumber: 2,
                 series: [
-                    'https://www.youtube.com/watch?v=OUq8BME03YM&list=PLm8b4TrIR2AfMkraS_KXD-rjmcZKzGfZ5',
-                    'https://www.youtube.com/watch?v=0lsFLDIv3OY',
-                    'https://www.youtube.com/watch?v=OUq8BME03YM&list=PLm8b4TrIR2AfMkraS_KXD-rjmcZKzGfZ5',
-                    'https://www.youtube.com/watch?v=0lsFLDIv3OY',
-                    'https://www.youtube.com/watch?v=OUq8BME03YM&list=PLm8b4TrIR2AfMkraS_KXD-rjmcZKzGfZ5',
-                    'https://www.youtube.com/watch?v=0lsFLDIv3OY',
-                    'https://www.youtube.com/watch?v=OUq8BME03YM&list=PLm8b4TrIR2AfMkraS_KXD-rjmcZKzGfZ5',
-                    'https://www.youtube.com/watch?v=0lsFLDIv3OY',
-                    'https://www.youtube.com/watch?v=OUq8BME03YM&list=PLm8b4TrIR2AfMkraS_KXD-rjmcZKzGfZ5',
-                    'https://www.youtube.com/watch?v=0lsFLDIv3OY'
+                    '0lsFLDIv3OY',
+                    '0lsFLDIv3OY',
+                    '0lsFLDIv3OY',
+                    '0lsFLDIv3OY',
+                    '0lsFLDIv3OY',
+                    '0lsFLDIv3OY',
+                    '0lsFLDIv3OY',
+                    '0lsFLDIv3OY',
+                    '0lsFLDIv3OY',
+                    '0lsFLDIv3OY'
                 ]           
             },
             {
                 seasonNumber: 3,
                 series: [
-                    'https://www.youtube.com/watch?v=OUq8BME03YM&list=PLm8b4TrIR2AfMkraS_KXD-rjmcZKzGfZ5',
-                    'https://www.youtube.com/watch?v=0lsFLDIv3OY',
-                    'https://www.youtube.com/watch?v=OUq8BME03YM&list=PLm8b4TrIR2AfMkraS_KXD-rjmcZKzGfZ5',
-                    'https://www.youtube.com/watch?v=0lsFLDIv3OY'
+                    '0lsFLDIv3OY',
+                    '0lsFLDIv3OY',
+                    '0lsFLDIv3OY',
+                    '0lsFLDIv3OY'
                 ]           
             },
         ],
@@ -567,48 +567,48 @@ export const filmCards = [
             {
                 seasonNumber: 1,
                 series: [
-                    'https://www.youtube.com/watch?v=vPQy7H-i3ww&list=PLm8b4TrIR2AeB1dr738AYXmu28m3gEQpd',
-                    'https://www.youtube.com/watch?v=F_p7ePt17J4',
-                    'https://www.youtube.com/watch?v=vPQy7H-i3ww&list=PLm8b4TrIR2AeB1dr738AYXmu28m3gEQpd',
-                    'https://www.youtube.com/watch?v=F_p7ePt17J4',
-                    'https://www.youtube.com/watch?v=vPQy7H-i3ww&list=PLm8b4TrIR2AeB1dr738AYXmu28m3gEQpd',
-                    'https://www.youtube.com/watch?v=F_p7ePt17J4',
-                    'https://www.youtube.com/watch?v=vPQy7H-i3ww&list=PLm8b4TrIR2AeB1dr738AYXmu28m3gEQpd',
-                    'https://www.youtube.com/watch?v=F_p7ePt17J4',
-                    'https://www.youtube.com/watch?v=vPQy7H-i3ww&list=PLm8b4TrIR2AeB1dr738AYXmu28m3gEQpd',
-                    'https://www.youtube.com/watch?v=F_p7ePt17J4'
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4'
                 ]           
             },
             {
                 seasonNumber: 2,
                 series: [
-                    'https://www.youtube.com/watch?v=vPQy7H-i3ww&list=PLm8b4TrIR2AeB1dr738AYXmu28m3gEQpd',
-                    'https://www.youtube.com/watch?v=F_p7ePt17J4',
-                    'https://www.youtube.com/watch?v=vPQy7H-i3ww&list=PLm8b4TrIR2AeB1dr738AYXmu28m3gEQpd',
-                    'https://www.youtube.com/watch?v=F_p7ePt17J4',
-                    'https://www.youtube.com/watch?v=vPQy7H-i3ww&list=PLm8b4TrIR2AeB1dr738AYXmu28m3gEQpd',
-                    'https://www.youtube.com/watch?v=F_p7ePt17J4',
-                    'https://www.youtube.com/watch?v=vPQy7H-i3ww&list=PLm8b4TrIR2AeB1dr738AYXmu28m3gEQpd',
-                    'https://www.youtube.com/watch?v=F_p7ePt17J4',
-                    'https://www.youtube.com/watch?v=vPQy7H-i3ww&list=PLm8b4TrIR2AeB1dr738AYXmu28m3gEQpd',
-                    'https://www.youtube.com/watch?v=F_p7ePt17J4'
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4'
                 ]           
             },
             {
                 seasonNumber: 3,
                 series: [
-                    'https://www.youtube.com/watch?v=vPQy7H-i3ww&list=PLm8b4TrIR2AeB1dr738AYXmu28m3gEQpd',
-                    'https://www.youtube.com/watch?v=F_p7ePt17J4',
-                    'https://www.youtube.com/watch?v=vPQy7H-i3ww&list=PLm8b4TrIR2AeB1dr738AYXmu28m3gEQpd',
-                    'https://www.youtube.com/watch?v=F_p7ePt17J4',
-                    'https://www.youtube.com/watch?v=vPQy7H-i3ww&list=PLm8b4TrIR2AeB1dr738AYXmu28m3gEQpd',
-                    'https://www.youtube.com/watch?v=F_p7ePt17J4',
-                    'https://www.youtube.com/watch?v=vPQy7H-i3ww&list=PLm8b4TrIR2AeB1dr738AYXmu28m3gEQpd',
-                    'https://www.youtube.com/watch?v=F_p7ePt17J4',
-                    'https://www.youtube.com/watch?v=vPQy7H-i3ww&list=PLm8b4TrIR2AeB1dr738AYXmu28m3gEQpd',
-                    'https://www.youtube.com/watch?v=F_p7ePt17J4',
-                    'https://www.youtube.com/watch?v=vPQy7H-i3ww&list=PLm8b4TrIR2AeB1dr738AYXmu28m3gEQpd',
-                    'https://www.youtube.com/watch?v=F_p7ePt17J4'
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4'
                 ]           
             },
         ],
@@ -681,40 +681,40 @@ export const filmCards = [
             {
                 seasonNumber: 1,
                 series: [
-                    'https://www.youtube.com/watch?v=OUq8BME03YM&list=PLm8b4TrIR2AfMkraS_KXD-rjmcZKzGfZ5',
-                    'https://www.youtube.com/watch?v=0lsFLDIv3OY',
-                    'https://www.youtube.com/watch?v=OUq8BME03YM&list=PLm8b4TrIR2AfMkraS_KXD-rjmcZKzGfZ5',
-                    'https://www.youtube.com/watch?v=0lsFLDIv3OY',
-                    'https://www.youtube.com/watch?v=OUq8BME03YM&list=PLm8b4TrIR2AfMkraS_KXD-rjmcZKzGfZ5',
-                    'https://www.youtube.com/watch?v=0lsFLDIv3OY',
-                    'https://www.youtube.com/watch?v=OUq8BME03YM&list=PLm8b4TrIR2AfMkraS_KXD-rjmcZKzGfZ5',
-                    'https://www.youtube.com/watch?v=0lsFLDIv3OY',
-                    'https://www.youtube.com/watch?v=OUq8BME03YM&list=PLm8b4TrIR2AfMkraS_KXD-rjmcZKzGfZ5',
-                    'https://www.youtube.com/watch?v=0lsFLDIv3OY'
+                    '0lsFLDIv3OY',
+                    '0lsFLDIv3OY',
+                    '0lsFLDIv3OY',
+                    '0lsFLDIv3OY',
+                    '0lsFLDIv3OY',
+                    '0lsFLDIv3OY',
+                    '0lsFLDIv3OY',
+                    '0lsFLDIv3OY',
+                    '0lsFLDIv3OY',
+                    '0lsFLDIv3OY'
                 ]           
             },
             {
                 seasonNumber: 2,
                 series: [
-                    'https://www.youtube.com/watch?v=OUq8BME03YM&list=PLm8b4TrIR2AfMkraS_KXD-rjmcZKzGfZ5',
-                    'https://www.youtube.com/watch?v=0lsFLDIv3OY',
-                    'https://www.youtube.com/watch?v=OUq8BME03YM&list=PLm8b4TrIR2AfMkraS_KXD-rjmcZKzGfZ5',
-                    'https://www.youtube.com/watch?v=0lsFLDIv3OY',
-                    'https://www.youtube.com/watch?v=OUq8BME03YM&list=PLm8b4TrIR2AfMkraS_KXD-rjmcZKzGfZ5',
-                    'https://www.youtube.com/watch?v=0lsFLDIv3OY',
-                    'https://www.youtube.com/watch?v=OUq8BME03YM&list=PLm8b4TrIR2AfMkraS_KXD-rjmcZKzGfZ5',
-                    'https://www.youtube.com/watch?v=0lsFLDIv3OY',
-                    'https://www.youtube.com/watch?v=OUq8BME03YM&list=PLm8b4TrIR2AfMkraS_KXD-rjmcZKzGfZ5',
-                    'https://www.youtube.com/watch?v=0lsFLDIv3OY'
+                    '0lsFLDIv3OY',
+                    '0lsFLDIv3OY',
+                    '0lsFLDIv3OY',
+                    '0lsFLDIv3OY',
+                    '0lsFLDIv3OY',
+                    '0lsFLDIv3OY',
+                    '0lsFLDIv3OY',
+                    '0lsFLDIv3OY',
+                    '0lsFLDIv3OY',
+                    '0lsFLDIv3OY'
                 ]           
             },
             {
                 seasonNumber: 3,
                 series: [
-                    'https://www.youtube.com/watch?v=OUq8BME03YM&list=PLm8b4TrIR2AfMkraS_KXD-rjmcZKzGfZ5',
-                    'https://www.youtube.com/watch?v=0lsFLDIv3OY',
-                    'https://www.youtube.com/watch?v=OUq8BME03YM&list=PLm8b4TrIR2AfMkraS_KXD-rjmcZKzGfZ5',
-                    'https://www.youtube.com/watch?v=0lsFLDIv3OY'
+                    '0lsFLDIv3OY',
+                    '0lsFLDIv3OY',
+                    '0lsFLDIv3OY',
+                    '0lsFLDIv3OY'
                 ]           
             },
         ],
@@ -787,48 +787,48 @@ export const filmCards = [
             {
                 seasonNumber: 1,
                 series: [
-                    'https://www.youtube.com/watch?v=vPQy7H-i3ww&list=PLm8b4TrIR2AeB1dr738AYXmu28m3gEQpd',
-                    'https://www.youtube.com/watch?v=F_p7ePt17J4',
-                    'https://www.youtube.com/watch?v=vPQy7H-i3ww&list=PLm8b4TrIR2AeB1dr738AYXmu28m3gEQpd',
-                    'https://www.youtube.com/watch?v=F_p7ePt17J4',
-                    'https://www.youtube.com/watch?v=vPQy7H-i3ww&list=PLm8b4TrIR2AeB1dr738AYXmu28m3gEQpd',
-                    'https://www.youtube.com/watch?v=F_p7ePt17J4',
-                    'https://www.youtube.com/watch?v=vPQy7H-i3ww&list=PLm8b4TrIR2AeB1dr738AYXmu28m3gEQpd',
-                    'https://www.youtube.com/watch?v=F_p7ePt17J4',
-                    'https://www.youtube.com/watch?v=vPQy7H-i3ww&list=PLm8b4TrIR2AeB1dr738AYXmu28m3gEQpd',
-                    'https://www.youtube.com/watch?v=F_p7ePt17J4'
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4'
                 ]           
             },
             {
                 seasonNumber: 2,
                 series: [
-                    'https://www.youtube.com/watch?v=vPQy7H-i3ww&list=PLm8b4TrIR2AeB1dr738AYXmu28m3gEQpd',
-                    'https://www.youtube.com/watch?v=F_p7ePt17J4',
-                    'https://www.youtube.com/watch?v=vPQy7H-i3ww&list=PLm8b4TrIR2AeB1dr738AYXmu28m3gEQpd',
-                    'https://www.youtube.com/watch?v=F_p7ePt17J4',
-                    'https://www.youtube.com/watch?v=vPQy7H-i3ww&list=PLm8b4TrIR2AeB1dr738AYXmu28m3gEQpd',
-                    'https://www.youtube.com/watch?v=F_p7ePt17J4',
-                    'https://www.youtube.com/watch?v=vPQy7H-i3ww&list=PLm8b4TrIR2AeB1dr738AYXmu28m3gEQpd',
-                    'https://www.youtube.com/watch?v=F_p7ePt17J4',
-                    'https://www.youtube.com/watch?v=vPQy7H-i3ww&list=PLm8b4TrIR2AeB1dr738AYXmu28m3gEQpd',
-                    'https://www.youtube.com/watch?v=F_p7ePt17J4'
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4'
                 ]           
             },
             {
                 seasonNumber: 3,
                 series: [
-                    'https://www.youtube.com/watch?v=vPQy7H-i3ww&list=PLm8b4TrIR2AeB1dr738AYXmu28m3gEQpd',
-                    'https://www.youtube.com/watch?v=F_p7ePt17J4',
-                    'https://www.youtube.com/watch?v=vPQy7H-i3ww&list=PLm8b4TrIR2AeB1dr738AYXmu28m3gEQpd',
-                    'https://www.youtube.com/watch?v=F_p7ePt17J4',
-                    'https://www.youtube.com/watch?v=vPQy7H-i3ww&list=PLm8b4TrIR2AeB1dr738AYXmu28m3gEQpd',
-                    'https://www.youtube.com/watch?v=F_p7ePt17J4',
-                    'https://www.youtube.com/watch?v=vPQy7H-i3ww&list=PLm8b4TrIR2AeB1dr738AYXmu28m3gEQpd',
-                    'https://www.youtube.com/watch?v=F_p7ePt17J4',
-                    'https://www.youtube.com/watch?v=vPQy7H-i3ww&list=PLm8b4TrIR2AeB1dr738AYXmu28m3gEQpd',
-                    'https://www.youtube.com/watch?v=F_p7ePt17J4',
-                    'https://www.youtube.com/watch?v=vPQy7H-i3ww&list=PLm8b4TrIR2AeB1dr738AYXmu28m3gEQpd',
-                    'https://www.youtube.com/watch?v=F_p7ePt17J4'
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4',
+                    'F_p7ePt17J4'
                 ]           
             },
         ],
