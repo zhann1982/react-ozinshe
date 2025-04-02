@@ -1,15 +1,19 @@
 import React, {useState, useEffect, useContext} from 'react'
+import { useLocation } from 'react-router-dom'
 import { AppContext } from '../App'
 import styles from '../assets/css/SeriesLoader.module.css'
 import TrashIcon from '../components/icons/TrashIcon'
 import InputText from '../components/InputText'
+import { EditContext } from '../pages/EditProjectPage'
 
 
 const SeriesLoader = ({season}) => {
+    const location = useLocation()
     const {editedProject, setEditedProject} = useContext(EditContext)
-
     const {newProject, setNewProject} = useContext(AppContext)
-    const [series, setSeries] = useState(editedProject.seasons.find((item)=>item.seasonNumber == season));
+
+    let obj = editedProject.seasons.find((item)=>item.seasonNumber == season)
+    const [series, setSeries] = useState(obj?obj.series:['']);
 
     const handleAddClick = (e) => {
         e.preventDefault()
@@ -34,29 +38,48 @@ const SeriesLoader = ({season}) => {
     }
 
     useEffect(()=>{
-        
-        let arr = newProject.seasons.length>0?[...newProject.seasons]:[]
-        let index = arr.findIndex(item => item.seasonNumber == season)
-        if (index != -1) {
-            arr[index] = {seasonNumber: season, series} 
-        } else {
-            arr.push({seasonNumber: season, series})
+        if (location.pathname.includes('edit-project')) {
+            let arr = editedProject.seasons.length>0?[...editedProject.seasons]:[]
+            let index = arr.findIndex(item => item.seasonNumber == season)
+            if (index != -1) {
+                arr[index] = {seasonNumber: season, series} 
+            } else {
+             arr.push({seasonNumber: season, series})
+            }
+            setEditedProject({...editedProject, seasons: arr})
+        } else if (location.pathname.includes('add-project')) {
+            let arr = newProject.seasons.length>0?[...newProject.seasons]:[]
+            let index = arr.findIndex(item => item.seasonNumber == season)
+            if (index != -1) {
+                arr[index] = {seasonNumber: season, series} 
+            } else {
+                arr.push({seasonNumber: season, series})
+            }
+            setNewProject({...newProject, seasons: arr})
         }
-        setNewProject({...newProject, seasons: arr})
-
     },[])
     
     useEffect(()=>{
-
-        console.log('newProject 2', newProject)
-        let arr = newProject.seasons.length>0?[...newProject.seasons]:[]
-        let index = arr.findIndex(item => item.seasonNumber == season)
-        if (index != -1) {
-            arr[index] = {seasonNumber: season, series} 
-        } else {
-            arr.push({seasonNumber: season, series})
+        if (location.pathname.includes('edit-project')) {
+            let arr = editedProject.seasons.length>0?[...editedProject.seasons]:[]
+            let index = arr.findIndex(item => item.seasonNumber == season)
+            if (index != -1) {
+                arr[index] = {seasonNumber: season, series} 
+            } else {
+             arr.push({seasonNumber: season, series})
+            }
+            setEditedProject({...editedProject, seasons: arr})
+        } else if (location.pathname.includes('add-project')) {
+            let arr = newProject.seasons.length>0?[...newProject.seasons]:[]
+            let index = arr.findIndex(item => item.seasonNumber == season)
+            if (index != -1) {
+                arr[index] = {seasonNumber: season, series} 
+            } else {
+                arr.push({seasonNumber: season, series})
+            }
+            setNewProject({...newProject, seasons: arr})
         }
-        setNewProject({...newProject, seasons: arr})
+        console.log(series)
     },[series])
     
     
@@ -70,7 +93,7 @@ const SeriesLoader = ({season}) => {
                     <div className={styles.inputBox}>
                         <InputText 
                             title={`${index + 1} серия / Youtube Video ID `} 
-                            // valueOfInput={value}
+                            valueOfInput={value}
                             onSelected={handleInputChange} 
                             indexOfInput={index}
                         />
