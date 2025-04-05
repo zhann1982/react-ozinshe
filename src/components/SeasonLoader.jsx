@@ -1,6 +1,6 @@
 import React from 'react'
 import SeriesLoader from './SeriesLoader'
-import styles from '../assets/css/SeasonLoader.module.css'
+import styles from '@css/SeasonLoader.module.css'
 
 const SeasonLoader = ({seasonCounter}) => {
 

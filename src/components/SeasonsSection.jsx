@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from '../assets/css/SeasonsSection.module.css'
+import styles from '@css/SeasonsSection.module.css'
 import { useState } from 'react'
 
 const SeasonsSection = ({project}) => {

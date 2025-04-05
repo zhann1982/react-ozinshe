@@ -1,22 +1,22 @@
-import React, { useEffect } from 'react'
-import MainLayout from '../layouts/MainLayout'
+import React from 'react'
+import MainLayout from '@layouts/MainLayout'
 import { useNavigate } from 'react-router-dom'
-import { isAdminLoggedIn } from '../sevices/isAdminLoggedIn'
-import NoAdminLoggedIn from '../components/NoAdminLoggedIn'
+import { isAdminLoggedIn } from '@services/isAdminLoggedIn'
+import NoAdminLoggedIn from '@components/NoAdminLoggedIn'
 
-import styles from '../assets/css/ProjectsPage.module.css'
+import styles from '@css/ProjectsPage.module.css'
 import { 
   filterPopularity, 
   filterCategory, 
   filterType, 
   filterYears 
-} from '../sevices/filterArrays'
-import { filmCards } from '../sevices/filmCardBase'
+} from '@services/filterArrays'
+import { filmCards } from '@services/filmCardBase'
 
-import Plusicon from '../components/icons/PlusIcon'
-import DropDown from '../components/DropDown'
-import DropDownYear from '../components/DropDownYear'
-import FilmCard from '../components/FilmCard'
+import Plusicon from '@components/icons/PlusIcon'
+import DropDown from '@components/DropDown'
+import DropDownYear from '@components/DropDownYear'
+import FilmCard from '@components/FilmCard'
 
 const ProjectsPage = () => {
   const navigate = useNavigate()

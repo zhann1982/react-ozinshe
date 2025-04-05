@@ -1,6 +1,6 @@
 import React from 'react'
-import styles from '../assets/css/ThumbnailScreenshotsTab.module.css'
-import TrashIcon from './icons/TrashIcon'
+import styles from '@css/ThumbnailScreenshotsTab.module.css'
+import TrashIcon from '@icons/TrashIcon'
 import { useState } from 'react'
 import DragAndDropUploader from './DragAndDropUploader'
 import DragAndDropUploaderMulti from './DragAndDropUploaderMulti'

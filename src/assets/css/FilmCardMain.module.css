@@ -1,14 +1,14 @@
 .card {
     display: flex;
     flex-direction: column;
-    width: 260px;
     background-color: #fff;
     padding: 16px;
     border-radius: var(--border-radius-3);
+    flex-grow: 1;
 }
 
 .imageBox {
-    width: 228px;
+    
     height: 334px;
     background-position: center center;
     background-size: cover;
@@ -40,6 +40,9 @@
     font-size: var(--font-size-12);
     font-weight: var(--font-weight-400);
     color: var(--light-gray-text-color);
+    display: flex;
+    align-items: center;
+    gap: 4px;
 }
 
 .actionBox {
@@ -49,14 +52,12 @@
     align-items: center;
 }
 
-.views {
-    display: flex;
-    align-items: center;
-    gap: 4px;
+.placeCount {
+    
     p {
         font-size: var(--font-size-12);
         font-weight: var(--font-weight-400);
-        color: #9CA3AF;
+        color: var(--main-text-color);
     }
 }
 

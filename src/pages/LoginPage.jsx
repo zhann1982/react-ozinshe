@@ -1,10 +1,10 @@
-import styles from '../assets/css/LoginPage.module.css'
-import React, {useState, useEffect} from 'react'
-import MainIcon from '../components/icons/MainIcon'
-import EyeIcon from '../components/icons/EyeIcon'
-import EyeIconHidden from '../components/icons/EyeIconHidden'
-import { Link, useNavigate } from 'react-router-dom'
-import { admins } from '../sevices/fakeAuth'
+import styles from '@css/LoginPage.module.css'
+import React, {useState} from 'react'
+import MainIcon from '@components/icons/MainIcon'
+import EyeIcon from '@components/icons/EyeIcon'
+import EyeIconHidden from '@components/icons/EyeIconHidden'
+import { useNavigate } from 'react-router-dom'
+import { admins } from '@services/fakeAuth'
 
 const LoginPage = () => {
     const [passwordVisible, setPasswordVisible] = useState(false)

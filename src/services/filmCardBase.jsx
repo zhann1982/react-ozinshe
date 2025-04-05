@@ -513,6 +513,41 @@ export const filmCards = [
         description: 'Шытырман оқиғалы мультсериал Елбасының «Ұлы   даланың жеті қыры» бағдарламасы аясында жүзеге асырылған. Мақалада қызғалдақтардың отаны Қазақстан екені айтылады. Ал, жоба қызғалдақтардың отаны – Алатау баурайы екенін анимация тілінде дәлелдей түседі. If you want to increase your knowledge of 3D design with Aarón, you can also take some of his other courses: Characters in Cinema 4D: from the Sketch to 3D Printing, Prototypes and Product Viewing in Cinema 4D, Compositions with Cinema 4D and OctaneRender, 3D Illustration with 4D Cinema 4D.'
     },
     {
+        id: 17,
+        title: 'Қызғалдақтар мекені ',
+        category: 'Телехикая',
+        type: 'Мультфильм',
+        rating: 6.7,
+        yearProduced: 2022,
+        author: 'Админ',
+        addedToProjects: '12:26 05-07-2023',
+        lastModified: '16:52 15-08-2024',
+        viewsCount: 9659,
+        duration: 35, // in minutes
+        ageCategory: ['4-6', '6-8'],
+        director: 'Бақдәулет Әлімбеков',
+        producer: 'Сандуғаш Кенжебаева',
+        keyTags: ['Герой', 'Мульт','Батырлар'],
+        thumbnail: 'cardImage9.png',
+        filmSource: 'https://www.youtube.com/watch?v=g9id4lzeIaI&list=PLm8b4TrIR2AdRO62vYTm1ULuJEWmb0Qay',
+        seasons: [],
+        chosenFavoriteCount: 9,
+        downloadCount: 112,
+        screenshots: [
+            '/src/assets/images/placeholderImage1.png',
+            '/src/assets/images/placeholderImage2.png',
+            '/src/assets/images/placeholderImage3.png',
+            '/src/assets/images/placeholderImage4.png',
+            '/src/assets/images/placeholderImage5.png',
+            '/src/assets/images/placeholderImage6.png',
+            '/src/assets/images/placeholderImage7.png',
+            '/src/assets/images/placeholderImage8.png'
+        ],
+        description: 'Шытырман оқиғалы мультсериал Елбасының «Ұлы   даланың жеті қыры» бағдарламасы аясында жүзеге асырылған. Мақалада қызғалдақтардың отаны Қазақстан екені айтылады. Ал, жоба қызғалдақтардың отаны – Алатау баурайы екенін анимация тілінде дәлелдей түседі. If you want to increase your knowledge of 3D design with Aarón, you can also take some of his other courses: Characters in Cinema 4D: from the Sketch to 3D Printing, Prototypes and Product Viewing in Cinema 4D, Compositions with Cinema 4D and OctaneRender, 3D Illustration with 4D Cinema 4D.',
+        isOnMainPage: true,
+        placeCountOnMainPage: 1,
+    },
+    {
         id: 10,
         title: 'Ойыншықтар',
         category: 'Телехикая',
@@ -543,7 +578,9 @@ export const filmCards = [
             '/src/assets/images/placeholderImage7.png',
             '/src/assets/images/placeholderImage8.png'
         ],
-        description: 'Шытырман оқиғалы мультсериал Елбасының «Ұлы   даланың жеті қыры» бағдарламасы аясында жүзеге асырылған. Мақалада қызғалдақтардың отаны Қазақстан екені айтылады. Ал, жоба қызғалдақтардың отаны – Алатау баурайы екенін анимация тілінде дәлелдей түседі. If you want to increase your knowledge of 3D design with Aarón, you can also take some of his other courses: Characters in Cinema 4D: from the Sketch to 3D Printing, Prototypes and Product Viewing in Cinema 4D, Compositions with Cinema 4D and OctaneRender, 3D Illustration with 4D Cinema 4D.'
+        description: 'Шытырман оқиғалы мультсериал Елбасының «Ұлы   даланың жеті қыры» бағдарламасы аясында жүзеге асырылған. Мақалада қызғалдақтардың отаны Қазақстан екені айтылады. Ал, жоба қызғалдақтардың отаны – Алатау баурайы екенін анимация тілінде дәлелдей түседі. If you want to increase your knowledge of 3D design with Aarón, you can also take some of his other courses: Characters in Cinema 4D: from the Sketch to 3D Printing, Prototypes and Product Viewing in Cinema 4D, Compositions with Cinema 4D and OctaneRender, 3D Illustration with 4D Cinema 4D.',
+        isOnMainPage: true,
+        placeCountOnMainPage: 2,
     },
     {
         id: 11,
@@ -878,5 +915,5 @@ export const filmCards = [
             '/src/assets/images/placeholderImage8.png'
         ],
         description: 'Шытырман оқиғалы мультсериал Елбасының «Ұлы   даланың жеті қыры» бағдарламасы аясында жүзеге асырылған. Мақалада қызғалдақтардың отаны Қазақстан екені айтылады. Ал, жоба қызғалдақтардың отаны – Алатау баурайы екенін анимация тілінде дәлелдей түседі. If you want to increase your knowledge of 3D design with Aarón, you can also take some of his other courses: Characters in Cinema 4D: from the Sketch to 3D Printing, Prototypes and Product Viewing in Cinema 4D, Compositions with Cinema 4D and OctaneRender, 3D Illustration with 4D Cinema 4D.'
-    },
+    }
 ]

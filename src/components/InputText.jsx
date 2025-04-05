@@ -1,4 +1,4 @@
-import styles from '../assets/css/InputText.module.css';
+import styles from '@css/InputText.module.css';
 import { useState } from 'react';
 
 const InputText = ({ title, onSelected, indexOfInput=null, valueOfInput}) => {

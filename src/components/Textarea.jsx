@@ -1,4 +1,4 @@
-import styles from '../assets/css/Textarea.module.css';
+import styles from '@css/Textarea.module.css';
 import React, { useState } from 'react';
 
 const Textarea = ({ title, onSelected, valueOfInput}) => {

@@ -1,22 +1,22 @@
 import React, {useState, useEffect, useContext} from 'react'
 import { AppContext } from '../App'
-import MainLayout from '../layouts/MainLayout'
-import styles from '../assets/css/AddProjectPage.module.css'
+import MainLayout from '@layouts/MainLayout'
+import styles from '@css/AddProjectPage.module.css'
 import { Link, useNavigate } from 'react-router-dom'
-import  ChevronRight  from '../components/icons/ChevronRight'
-import  BackArrowIcon  from '../components/icons/BackArrowIcon'
+import  ChevronRight  from '@components/icons/ChevronRight'
+import  BackArrowIcon  from '@components/icons/BackArrowIcon'
 import { 
   filterAgeCategories, 
   filterCategory, 
   filterType, 
   filterYears 
-} from '../sevices/filterArrays'
-import DropDownSelect from '../components/DropDownSelect'
-import InputText from '../components/InputText'
-import InputNumber from '../components/InputNumber'
-import Textarea from '../components/Textarea'
-import { isAdminLoggedIn } from '../sevices/isAdminLoggedIn'
-import NoAdminLoggedIn from '../components/NoAdminLoggedIn'
+} from '@services/filterArrays'
+import DropDownSelect from '@components/DropDownSelect'
+import InputText from '@components/InputText'
+import InputNumber from '@components/InputNumber'
+import Textarea from '@components/Textarea'
+import { isAdminLoggedIn } from '@services/isAdminLoggedIn'
+import NoAdminLoggedIn from '@components/NoAdminLoggedIn'
 
 
 const AddProjectPage = () => {

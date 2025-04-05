@@ -1,6 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
-import styles from '../assets/css/NoAdminLoggedIn.module.css'
+import styles from '@css/NoAdminLoggedIn.module.css'
 
 const NoAdminLoggedIn = () => {
     const navigate = useNavigate()

@@ -1,8 +1,8 @@
 import React from 'react'
-import styles from '../assets/css/ModalDeleteProject.module.css'
-import TimesIcon from './icons/TimesIcon';
+import styles from '@css/ModalDeleteProject.module.css'
+import TimesIcon from '@icons/TimesIcon';
 
-const ModalDeleteProject = ({ isOpen, onClose, confirmDeleteProject,title }) => {
+const ModalDeleteProject2 = ({ isOpen, onClose, confirmDeleteProject,title }) => {
     if (!isOpen) return null;
 
     return (
@@ -25,4 +25,4 @@ const ModalDeleteProject = ({ isOpen, onClose, confirmDeleteProject,title }) => 
     )
 }
 
-export default ModalDeleteProject
+export default ModalDeleteProject2

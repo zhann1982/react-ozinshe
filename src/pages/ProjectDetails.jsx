@@ -1,25 +1,26 @@
-import {useState} from 'react'
-import styles from '../assets/css/ProjectDetails.module.css'
-import MainLayout from '../layouts/MainLayout'
+import {useState, useContext} from 'react'
+import styles from '@css/ProjectDetails.module.css'
+import MainLayout from '@layouts/MainLayout'
 import { Link, useParams, useNavigate } from 'react-router-dom'
-import { filmCards } from '../sevices/filmCardBase'
-import ChevronRight from '../components/icons/ChevronRight'
-import EyeIcon from '../components/icons/EyeIcon'
-import StarIcon from '../components/icons/StarIcon'
-import ExportIcon from '../components/icons/ExportIcon'
-import TrashIcon from '../components/icons/TrashIcon'
-import ClockIcon from '../components/icons/ClockIcon'
-import TranscriptIcon from '../components/icons/TranscriptIcon'
-import ClapperboardIcon from '../components/icons/ClapperboardIcon'
-import PlayButtonIcon from '../components/icons/PlayButtonIcon'
-import SeasonsSection from '../components/SeasonsSection'
-import FilmSection from '../components/FilmSection'
-import ModalDeleteProject from '../components/ModalDeleteProject'
-import { isAdminLoggedIn } from '../sevices/isAdminLoggedIn'
-import NoAdminLoggedIn from '../components/NoAdminLoggedIn'
+import { filmCards } from '@services/filmCardBase'
+import ChevronRight from '@components/icons/ChevronRight'
+import EyeIcon from '@components/icons/EyeIcon'
+import StarIcon from '@components/icons/StarIcon'
+import ExportIcon from '@components/icons/ExportIcon'
+import TrashIcon from '@components/icons/TrashIcon'
+import ClockIcon from '@components/icons/ClockIcon'
+import TranscriptIcon from '@components/icons/TranscriptIcon'
+import ClapperboardIcon from '@components/icons/ClapperboardIcon'
+import PlayButtonIcon from '@components/icons/PlayButtonIcon'
+import SeasonsSection from '@components/SeasonsSection'
+import FilmSection from '@components/FilmSection'
+import ModalDeleteProject from '@components/ModalDeleteProject'
+import { isAdminLoggedIn } from '@services/isAdminLoggedIn'
+import NoAdminLoggedIn from '@components/NoAdminLoggedIn'
+import { AppContext } from '../App'
 
 const ProjectDetails = () => {
-
+  const {prevPage} = useContext(AppContext)
   const params = useParams();
 
   const project = filmCards.find(item => item.id == params.id)
@@ -66,7 +67,12 @@ const ProjectDetails = () => {
       <section className={styles.section}>
         <div className={styles.main}>
           <div className={styles.pagePath}>
-            <Link to={'/projects'}>Проекты</Link>
+            {
+              (prevPage=='/main-projects') 
+              ? <Link to={'/main-projects'}>Проекты на главной</Link> 
+              : <Link to={'/projects'}>Проекты</Link>
+            }
+            
             <ChevronRight width={16} height={16} />
             <p>{project.title}</p>
           </div>

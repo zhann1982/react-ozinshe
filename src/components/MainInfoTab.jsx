@@ -1,12 +1,11 @@
 import React, {useState, useEffect, useContext} from 'react'
-import styles from '../assets/css/MainInfoTab.module.css'
-import { filterAgeCategories, filterCategory, filterType, filterYears } from '../sevices/filterArrays'
+import styles from '@css/MainInfoTab.module.css'
+import { filterAgeCategories, filterCategory, filterType, filterYears } from '@services/filterArrays'
 import DropDownSelect from './DropDownSelect'
 import InputText from './InputText'
 import InputNumber from './InputNumber'
 import Textarea from './Textarea'
-import { EditContext } from '../pages/EditProjectPage'
-import { use } from 'react'
+import { EditContext } from '@pages/EditProjectPage'
 
 
 const MainInfoTabs = () => {

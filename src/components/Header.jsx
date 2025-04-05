@@ -1,8 +1,8 @@
 import React from 'react'
-import styles from '../assets/css/Header.module.css'
-import LogoImageSVG from './icons/LogoImageSVG'
-import SearchIcon from './icons/SearchIcon'
-import ExitIcon from './icons/ExitIcon'
+import styles from '@css/Header.module.css'
+import LogoImageSVG from '@icons/LogoImageSVG'
+import SearchIcon from '@icons/SearchIcon'
+import ExitIcon from '@icons/ExitIcon'
 import { useNavigate } from 'react-router-dom'
 
 const Header = () => {

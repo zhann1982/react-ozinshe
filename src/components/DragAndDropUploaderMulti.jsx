@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import styles from '../assets/css/DragAndDropUploaderMulti.module.css';
-import UploadIcon from './icons/UploadIcon';
-import TrashIcon from './icons/TrashIcon';
+import styles from '@css/DragAndDropUploaderMulti.module.css';
+import UploadIcon from '@icons/UploadIcon';
 
 const DragAndDropUploaderMulti = ({ onImageUpload, id }) => {
   const [isDragging, setIsDragging] = useState(false);

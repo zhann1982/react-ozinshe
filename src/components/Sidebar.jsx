@@ -1,20 +1,19 @@
-import styles from '../assets/css/Sidebar.module.css'
+import styles from '@css/Sidebar.module.css'
 
-import {useEffect, useState} from 'react'
-import { NavLink, useLocation, useNavigate } from 'react-router-dom'
+import React from 'react'
+import { NavLink, useLocation } from 'react-router-dom'
 
-import ProjectsIcon from './icons/ProjectsIcon'
-import HomeIcon from './icons/HomeIcon'
-import CategoriesIcon from './icons/CategoriesIcon'
-import UsersIcon from './icons/UsersIcon'
-import RolesIcon from './icons/RolesIcon'
-import GenresIcon from './icons/GenresIcon'
-import AgesIcon from './icons/AgesIcon'
+import ProjectsIcon from '@icons/ProjectsIcon'
+import HomeIcon from '@icons/HomeIcon'
+import CategoriesIcon from '@icons/CategoriesIcon'
+import UsersIcon from '@icons/UsersIcon'
+import RolesIcon from '@icons/RolesIcon'
+import GenresIcon from '@icons/GenresIcon'
+import AgesIcon from '@icons/AgesIcon'
 
 const Sidebar = () => {
 
   const location = useLocation();
-  const navigate = useNavigate();
   const handleActiveLink = () => {
     if(location.pathname === '/projects' || location.pathname.includes('/edit-project') || location.pathname.includes('/add-project') || location.pathname.includes('/details')) {
       return styles.active

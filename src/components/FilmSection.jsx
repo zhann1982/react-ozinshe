@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from '../assets/css/FilmSection.module.css'
+import styles from '@css/FilmSection.module.css'
 
 const FilmSection = ({project}) => {
   return (

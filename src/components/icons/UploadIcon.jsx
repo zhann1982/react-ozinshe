@@ -1,5 +1,6 @@
 import * as React from "react";
-const SVGComponent = ({width, height}) => (
+
+const UploadIcon = ({width, height}) => (
   <svg
     width={width}
     height={height}
@@ -15,4 +16,4 @@ const SVGComponent = ({width, height}) => (
     />
   </svg>
 );
-export default SVGComponent;
+export default UploadIcon;

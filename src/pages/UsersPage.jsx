@@ -1,7 +1,7 @@
 import React from 'react'
-import MainLayout from '../layouts/MainLayout'
-import { isAdminLoggedIn } from '../sevices/isAdminLoggedIn'
-import NoAdminLoggedIn from '../components/NoAdminLoggedIn'
+import MainLayout from '@layouts/MainLayout'
+import { isAdminLoggedIn } from '@services/isAdminLoggedIn'
+import NoAdminLoggedIn from '@components/NoAdminLoggedIn'
 
 const UsersPage = () => {
   if (!isAdminLoggedIn()) {

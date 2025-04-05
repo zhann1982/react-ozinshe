@@ -1,18 +1,21 @@
-import React, {useState, useEffect, useContext} from 'react'
+import {useState, useEffect, useContext} from 'react'
 import { useLocation } from 'react-router-dom'
 import { AppContext } from '../App'
-import styles from '../assets/css/SeriesLoader.module.css'
-import TrashIcon from '../components/icons/TrashIcon'
-import InputText from '../components/InputText'
-import { EditContext } from '../pages/EditProjectPage'
+import styles from '@css/SeriesLoader.module.css'
+import TrashIcon from '@components/icons/TrashIcon'
+import InputText from '@components/InputText'
+import { EditContext } from '@pages/EditProjectPage'
 
 
 const SeriesLoader = ({season}) => {
     const location = useLocation()
-    const {editedProject, setEditedProject} = useContext(EditContext)
-    const {newProject, setNewProject} = useContext(AppContext)
+    const {newProject, setNewProject, editedProject, setEditedProject} = useContext(AppContext)
 
-    let obj = editedProject.seasons.find((item)=>item.seasonNumber == season)
+    let obj
+    if (location.pathname.includes('edit-project')) {
+        obj = editedProject?.seasons.find((item)=>item.seasonNumber == season)
+    }
+    
     const [series, setSeries] = useState(obj?obj.series:['']);
 
     const handleAddClick = (e) => {

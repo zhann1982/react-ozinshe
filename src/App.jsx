@@ -1,30 +1,31 @@
 import './App.css'
 import {useState, useContext, createContext} from 'react'
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
-import ProjectsPage from './pages/ProjectsPage'
-import LoginPage from './pages/LoginPage'
-import MainProjectsPage from './pages/MainProjectsPage'
-import CategoriesPage from './pages/CategoriesPage'
-import UsersPage from './pages/UsersPage'
-import RolesPage from './pages/RolesPage'
-import GenresPage from './pages/GenresPage'
-import AgesPage from './pages/AgesPage'
-import NotFoundPage from './pages/NotFoundPage'
-import ProjectDetails from './pages/ProjectDetails'
-import AddProjectPage from './pages/AddProjectPage'
-import AddProjectPage_2 from './pages/AddProjectPage_2'
-import AddProjectPage_3 from './pages/AddProjectPage_3'
-import EditProjectPage from './pages/EditProjectPage'
+import ProjectsPage from '@pages/ProjectsPage'
+import LoginPage from '@pages/LoginPage'
+import MainProjectsPage from '@pages/MainProjectsPage'
+import CategoriesPage from '@pages/CategoriesPage'
+import UsersPage from '@pages/UsersPage'
+import RolesPage from '@pages/RolesPage'
+import GenresPage from '@pages/GenresPage'
+import AgesPage from '@pages/AgesPage'
+import NotFoundPage from '@pages/NotFoundPage'
+import ProjectDetails from '@pages/ProjectDetails'
+import AddProjectPage from '@pages/AddProjectPage'
+import AddProjectPage_2 from '@pages/AddProjectPage_2'
+import AddProjectPage_3 from '@pages/AddProjectPage_3'
+import EditProjectPage from '@pages/EditProjectPage'
 
 export const AppContext = createContext()
 
 function App() {
-  const [userAdmin, setUserAdmin] = useState(null)
+  const [prevPage, setPrevPage] = useState(null)
   const [newProject, setNewProject] = useState({})
+  const [editedProject, setEditedProject] = useState({})
 
   return (
     <div className="app">
-      <AppContext.Provider value={{userAdmin, setUserAdmin, newProject, setNewProject}}>
+      <AppContext.Provider value={{newProject, setNewProject, prevPage, setPrevPage, editedProject, setEditedProject}}>
         <BrowserRouter>
           <Routes>
             <Route path='/' exact           element={<LoginPage />}         />

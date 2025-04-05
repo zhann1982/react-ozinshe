@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import styles from '../assets/css/DragAndDropUploader.module.css';
-import UploadIcon from './icons/UploadIcon';
-import TrashIcon from './icons/TrashIcon';
+import styles from '@css/DragAndDropUploader.module.css';
+import UploadIcon from '@icons/UploadIcon';
+import TrashIcon from '@icons/TrashIcon';
 
 const DragAndDropUploader = ({ onImageUpload, id }) => {
   const [previewImage, setPreviewImage] = useState(null);

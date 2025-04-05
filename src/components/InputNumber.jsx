@@ -1,4 +1,4 @@
-import styles from '../assets/css/InputNumber.module.css';
+import styles from '@css/InputNumber.module.css';
 import { useState } from 'react';
 
 const InputNumber = ({ title, onSelected, valueOfInput}) => {

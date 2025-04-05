@@ -16,7 +16,7 @@
     align-items: center;
     gap: 14px;
     height: 25px;
-    padding: 40px 48px;
+    padding: 40px 24px;
 
     a {
         color: var(--gray-text-color);

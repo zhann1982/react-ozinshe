@@ -1,5 +1,5 @@
-import styles from '../assets/css/DropDownSelect.module.css';
-import { useEffect, useState } from 'react';
+import styles from '@css/DropDownSelect.module.css';
+import { useState } from 'react';
 
 const Dropdown = ({ title, options, onSelected, valuePreselected}) => {
   if (Array.isArray(valuePreselected)) {

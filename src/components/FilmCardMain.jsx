@@ -1,16 +1,18 @@
-import React from 'react'
-import {useState} from 'react'
-import { useNavigate } from 'react-router-dom'
-import styles from '@css/FilmCard.module.css'
+import React , {useState, useContext} from 'react'
+import { useNavigate, useLocation } from 'react-router-dom'
+import styles from '@css/FilmCardMain.module.css'
 import EditIcon from '@icons/EditIcon'
 import TrashIcon from '@icons/TrashIcon'
-import EyeIcon from '@icons/EyeIcon'
+import EllipseIcon from '@icons/EllipseIcon'
 import ModalDeleteProject from '@components/ModalDeleteProject'
 import { filmCards } from '@services/filmCardBase'
+import { AppContext } from '../App'
 
-const FilmCard = ({id, title, category, views, seriesCount, imageSrc}) => {
-
+const FilmCardMain = ({placeCount, id, title, type, category, imageSrc}) => {
+    const location = useLocation()
     const navigate = useNavigate();
+
+    const {setPrevPage} = useContext(AppContext)
 
     const [isModalOpen2, setIsModalOpen2] = useState(false);
   
@@ -30,25 +32,35 @@ const FilmCard = ({id, title, category, views, seriesCount, imageSrc}) => {
         filmCards.splice(index, 1)
         console.log(filmCards.length)
         closeModal2(e)
-        navigate('/projects')
+        navigate('/main-projects')
+        setPrevPage(location.pathname)
+        console.log(location.pathname)
     }
 
     const handleEditProject = (e) => {
         e.preventDefault()
         navigate(`/edit-project/${id}`)
+        setPrevPage(location.pathname)
+        console.log(location.pathname)
+    }
+
+    const handleViewProject = (e) => {
+        e.preventDefault()
+        navigate(`/details/${id}`)
+        setPrevPage(location.pathname)
+        console.log(location.pathname)
     }
 
   return (
     <div className={styles.card}>
-        <div className={styles.imageBox} style={{backgroundImage: imageSrc}} onClick={()=>navigate(`/details/${id}`)}>
-            { seriesCount? <p className={styles.seriesCount}>{seriesCount} бөлім</p> : '' }
+        <div className={styles.imageBox} style={{backgroundImage: imageSrc}} onClick={(e)=>handleViewProject(e)}>
+            
         </div>
-        <p className={styles.title} onClick={()=>navigate(`/details/${id}`)}>{title}</p>
-        <p className={styles.category}>{category}</p>
+        <p className={styles.title} onClick={(e)=>handleViewProject(e)}>{title}</p>
+        <p className={styles.category}>{category} <EllipseIcon /> {type}</p>
         <div className={styles.actionBox}>
-            <div className={styles.views}>
-                <EyeIcon width={16} height={16} />
-                <p>{views}</p>
+            <div className={styles.placeCount}>
+                <p>Проект на главной #{placeCount}</p>
             </div>
             <div className={styles.actions}>
                 <button onClick={e => handleEditProject(e)}>
@@ -65,4 +77,4 @@ const FilmCard = ({id, title, category, views, seriesCount, imageSrc}) => {
   )
 }
 
-export default FilmCard
+export default FilmCardMain

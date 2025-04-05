@@ -1,15 +1,16 @@
-import styles from '../assets/css/EditProjectPage.module.css'
-import React, {useState, createContext} from 'react'
+import styles from '@css/EditProjectPage.module.css'
+import React, {useState, createContext, useContext} from 'react'
 import { useParams, Link, NavLink, useNavigate, Routes, Route, useMatch } from 'react-router-dom'
-import MainLayout from '../layouts/MainLayout'
-import { isAdminLoggedIn } from '../sevices/isAdminLoggedIn'
-import NoAdminLoggedIn from '../components/NoAdminLoggedIn'
-import { filmCards } from '../sevices/filmCardBase'
-import ChevronRight from '../components/icons/ChevronRight'
-import BackArrowIcon from '../components/icons/BackArrowIcon'
-import MainInfoTab from '../components/MainInfoTab'
-import VideosTab from '../components/VideosTab'
-import ThumbnailScreenshotsTab from '../components/ThumbnailScreenshotsTab'
+import MainLayout from '@layouts/MainLayout'
+import { isAdminLoggedIn } from '@services/isAdminLoggedIn'
+import NoAdminLoggedIn from '@components/NoAdminLoggedIn'
+import { filmCards } from '@services/filmCardBase'
+import ChevronRight from '@components/icons/ChevronRight'
+import BackArrowIcon from '@components/icons/BackArrowIcon'
+import MainInfoTab from '@components/MainInfoTab'
+import VideosTab from '@components/VideosTab'
+import ThumbnailScreenshotsTab from '@components/ThumbnailScreenshotsTab'
+import { AppContext } from '../App'
 
 
 export const EditContext = createContext()
@@ -19,6 +20,7 @@ const EditProjectPage = () => {
     const params = useParams()
     const [editedProject, setEditedProject] = useState(filmCards.find(item => item.id == params.id))
     const [allFilled, setAllFilled] = useState(true)
+    const {prevPage} = useContext(AppContext)
 
     const handleSubmitForm = (e) => {
       e.preventDefault()
@@ -41,7 +43,11 @@ const EditProjectPage = () => {
           <div className={styles.container}>
 
             <div className={styles.pagePath}>
-              <Link to={'/projects'}>Проекты</Link>
+              {
+                (prevPage=='/main-projects') 
+                ? <Link to={'/main-projects'}>Проекты на главной</Link> 
+                : <Link to={'/projects'}>Проекты</Link>
+              }
               <ChevronRight width={16} height={16} />
               <p>Редактировать проект</p>
             </div>

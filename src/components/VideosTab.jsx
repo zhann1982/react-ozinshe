@@ -1,8 +1,8 @@
 import React, { useContext, useState } from 'react'
-import styles from '../assets/css/VideosTab.module.css'
+import styles from '@css/VideosTab.module.css'
 import DropDownSelect from './DropDownSelect'
 import SeasonLoader from './SeasonLoader'
-import { EditContext } from '../pages/EditProjectPage'
+import { EditContext } from '@pages/EditProjectPage'
 
 
 const VideosTabs = () => {

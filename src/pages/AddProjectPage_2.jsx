@@ -1,14 +1,14 @@
 import React, {useState, useEffect, useContext} from 'react'
 import { AppContext } from '../App'
-import MainLayout from "../layouts/MainLayout";
-import styles from "../assets/css/AddProjectPage_2.module.css";
+import MainLayout from "@layouts/MainLayout";
+import styles from "@css/AddProjectPage_2.module.css";
 import { Link, useNavigate } from "react-router-dom";
-import ChevronRight from "../components/icons/ChevronRight";
-import BackArrowIcon from "../components/icons/BackArrowIcon";
-import DropDownSelect from "../components/DropDownSelect";
-import SeasonLoader from "../components/SeasonLoader";
-import { isAdminLoggedIn } from "../sevices/isAdminLoggedIn";
-import NoAdminLoggedIn from "../components/NoAdminLoggedIn";
+import ChevronRight from "@components/icons/ChevronRight";
+import BackArrowIcon from "@components/icons/BackArrowIcon";
+import DropDownSelect from "@components/DropDownSelect";
+import SeasonLoader from "@components/SeasonLoader";
+import { isAdminLoggedIn } from "@services/isAdminLoggedIn";
+import NoAdminLoggedIn from "@components/NoAdminLoggedIn";
 
 const AddProjectPage_2 = () => {
   const {newProject, setNewProject} = useContext(AppContext);

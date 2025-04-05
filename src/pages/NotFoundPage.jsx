@@ -1,8 +1,8 @@
 import React from 'react'
-import styles from '../assets/css/NotFoundPage.module.css'
+import styles from '@css/NotFoundPage.module.css'
 import { useNavigate } from 'react-router-dom'
-import { isAdminLoggedIn } from '../sevices/isAdminLoggedIn'
-import NoAdminLoggedIn from '../components/NoAdminLoggedIn'
+import { isAdminLoggedIn } from '@services/isAdminLoggedIn'
+import NoAdminLoggedIn from '@components/NoAdminLoggedIn'
 
 const NotFoundPage = () => {
     const navigate = useNavigate()

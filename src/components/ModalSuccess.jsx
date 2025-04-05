@@ -1,7 +1,7 @@
 import React from 'react'
-import styles from '../assets/css/ModalSuccess.module.css'
-import SuccessIcon from './icons/SuccessIcon';
-import TimesIcon from './icons/TimesIcon';
+import styles from '@css/ModalSuccess.module.css'
+import SuccessIcon from '@icons/SuccessIcon';
+import TimesIcon from '@icons/TimesIcon';
 
 const ModalSuccess = ({ isOpen, onClose, title }) => {
 

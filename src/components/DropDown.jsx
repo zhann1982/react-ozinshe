@@ -1,4 +1,4 @@
-import styles from '../assets/css/DropDown.module.css';
+import styles from '@css/DropDown.module.css';
 import { useState } from 'react';
 
 const Dropdown = ({title, options, onSelect}) => {
