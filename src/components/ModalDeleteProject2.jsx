@@ -2,7 +2,7 @@ import React from 'react'
 import styles from '@css/ModalDeleteProject.module.css'
 import TimesIcon from '@icons/TimesIcon';
 
-const ModalDeleteProject2 = ({ isOpen, onClose, confirmDeleteProject,title }) => {
+const ModalDeleteProject2 = ({ isOpen, onClose, confirmDeleteProject,title, question }) => {
     if (!isOpen) return null;
 
     return (
@@ -14,7 +14,7 @@ const ModalDeleteProject2 = ({ isOpen, onClose, confirmDeleteProject,title }) =>
                     <TimesIcon width={24} height={24}  />
                     </button>
                 </div>
-                <p>Вы действительно хотите удалить проект?</p>
+                <p>{question}</p>
                 <div className={styles.buttonBox}>
                     <button className={styles.buttonYes} onClick={e=>confirmDeleteProject(e)}>Да, удалить</button> 
                     <button className={styles.buttonCancel} onClick={e=>onClose(e)}>Отмена</button>   

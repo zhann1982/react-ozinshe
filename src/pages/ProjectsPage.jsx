@@ -13,7 +13,7 @@ import {
 } from '@services/filterArrays'
 import { filmCards } from '@services/filmCardBase'
 
-import Plusicon from '@components/icons/PlusIcon'
+import Plusicon from '@icons/PlusIcon'
 import DropDown from '@components/DropDown'
 import DropDownYear from '@components/DropDownYear'
 import FilmCard from '@components/FilmCard'

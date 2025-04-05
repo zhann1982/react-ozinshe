@@ -1,7 +1,6 @@
 .wrapper {
     width: 100%;
     background-color: #fff;
-    height: calc(100vh + 64px);
 }
 
 .section {
@@ -9,6 +8,7 @@
     width: 100%;
     border-top-left-radius: var(--border-radius-3);
     padding: 40px 48px;
+    height: calc(100vh + 64px);
 }
 
 .titleBox {

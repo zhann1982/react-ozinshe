@@ -4,7 +4,7 @@ import styles from '@css/FilmCardMain.module.css'
 import EditIcon from '@icons/EditIcon'
 import TrashIcon from '@icons/TrashIcon'
 import EllipseIcon from '@icons/EllipseIcon'
-import ModalDeleteProject from '@components/ModalDeleteProject'
+import ModalDeleteProject2 from '@components/ModalDeleteProject2'
 import { filmCards } from '@services/filmCardBase'
 import { AppContext } from '../App'
 
@@ -53,8 +53,11 @@ const FilmCardMain = ({placeCount, id, title, type, category, imageSrc}) => {
 
   return (
     <div className={styles.card}>
-        <div className={styles.imageBox} style={{backgroundImage: imageSrc}} onClick={(e)=>handleViewProject(e)}>
-            
+        <div 
+            className={styles.imageBox} 
+            style={{backgroundImage: imageSrc}} 
+            onClick={(e)=>handleViewProject(e)}
+        >
         </div>
         <p className={styles.title} onClick={(e)=>handleViewProject(e)}>{title}</p>
         <p className={styles.category}>{category} <EllipseIcon /> {type}</p>
@@ -72,7 +75,13 @@ const FilmCardMain = ({placeCount, id, title, type, category, imageSrc}) => {
             </div>
         </div>
 
-        <ModalDeleteProject title={'Удалить проект?'} isOpen={isModalOpen2} onClose={closeModal2} confirmDeleteProject={handleDeleteProject}/>
+        <ModalDeleteProject2 
+            title={'Удалить проект из главной?'} 
+            question={'Вы действительно хотите удалить из главной?'}
+            isOpen={isModalOpen2} 
+            onClose={closeModal2} 
+            confirmDeleteProject={handleDeleteProject}
+        />
     </div>
   )
 }

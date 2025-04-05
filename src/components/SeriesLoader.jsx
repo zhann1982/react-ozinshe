@@ -2,9 +2,8 @@ import {useState, useEffect, useContext} from 'react'
 import { useLocation } from 'react-router-dom'
 import { AppContext } from '../App'
 import styles from '@css/SeriesLoader.module.css'
-import TrashIcon from '@components/icons/TrashIcon'
+import TrashIcon from '@icons/TrashIcon'
 import InputText from '@components/InputText'
-import { EditContext } from '@pages/EditProjectPage'
 
 
 const SeriesLoader = ({season}) => {

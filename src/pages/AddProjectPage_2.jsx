@@ -3,8 +3,8 @@ import { AppContext } from '../App'
 import MainLayout from "@layouts/MainLayout";
 import styles from "@css/AddProjectPage_2.module.css";
 import { Link, useNavigate } from "react-router-dom";
-import ChevronRight from "@components/icons/ChevronRight";
-import BackArrowIcon from "@components/icons/BackArrowIcon";
+import ChevronRight from "@icons/ChevronRight";
+import BackArrowIcon from "@icons/BackArrowIcon";
 import DropDownSelect from "@components/DropDownSelect";
 import SeasonLoader from "@components/SeasonLoader";
 import { isAdminLoggedIn } from "@services/isAdminLoggedIn";

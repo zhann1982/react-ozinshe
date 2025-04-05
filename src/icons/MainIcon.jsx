@@ -1,5 +1,5 @@
 import React from "react";
-import styles from '../../assets/css/MainIcon.module.css'
+import styles from '@css/MainIcon.module.css'
 
 const MainIcon = ({width, height}) => (
   <svg className={styles.radius}

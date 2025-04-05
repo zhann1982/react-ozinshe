@@ -1,8 +1,8 @@
 import styles from '@css/LoginPage.module.css'
 import React, {useState} from 'react'
-import MainIcon from '@components/icons/MainIcon'
-import EyeIcon from '@components/icons/EyeIcon'
-import EyeIconHidden from '@components/icons/EyeIconHidden'
+import MainIcon from '@icons/MainIcon'
+import EyeIcon from '@icons/EyeIcon'
+import EyeIconHidden from '@icons/EyeIconHidden'
 import { useNavigate } from 'react-router-dom'
 import { admins } from '@services/fakeAuth'
 
