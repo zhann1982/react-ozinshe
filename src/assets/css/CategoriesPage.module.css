@@ -1,0 +1,65 @@
+.wrapper {
+    width: 100%;
+    background-color: #fff;
+}
+
+.section {
+    background-color: var(--bg-light-gray-color-transparent);
+    width: 100%;
+    border-top-left-radius: var(--border-radius-3);
+    padding: 40px 48px;
+    height: calc(100vh + 64px);
+}
+
+.titleBox {
+    display: flex;
+    justify-content: space-between;
+}
+
+.title {
+    font-size: var(--font-size-22);
+}
+
+.projectsCountNumber {
+    font-size: var(--font-size-14);
+    font-weight: var(--font-weight-700);
+    margin-left: 8px;
+}
+
+.buttonAdd {
+    background-color: var(--color-purple);
+    outline: 0px;
+    border: 0px;
+    border-radius: var(--border-radius-3);
+    display: flex;
+    justify-content: center;      
+    align-items: center;
+    gap: 8px;
+    height: 40px;
+    width: 120px;
+    
+    p {
+        color: #fff;
+        font-size: var(--font-size-14);
+        font-weight: var(--font-weight-700);
+    }
+
+    svg {
+        path {
+            fill: #fff;
+        }
+    }
+}
+
+.toRight {
+    flex-grow: 1;
+    display: flex;
+    justify-content: end;
+}
+
+.cardBox {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    margin-top: 40px;
+}

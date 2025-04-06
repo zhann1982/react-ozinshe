@@ -1,4 +1,4 @@
-export const filterPopularity = [
+export let filterPopularity = [
     'Популярные',
     'Сначала новые',
     'Сначала старые',
@@ -7,7 +7,7 @@ export const filterPopularity = [
     'По длительности',
 ];
 
-export const filterType = [
+export let filterType = [
     'Фильмы и сериалы',
     'Фильм',
     'Сериал',
@@ -16,7 +16,7 @@ export const filterType = [
     'Телепередача',
 ];
 
-export const filterCategory = [
+export let filterCategory = [
     'Все категории',
     'Телехикая, Мультсериал',
     'Телехикая',
@@ -25,9 +25,12 @@ export const filterCategory = [
     'Фэнтези',
     'Фантастика',
     'Для малышей',
+    'Уроки',
+    'Научно-популярные',
+    'Исторические',
 ];
 
-export const filterYears = [
+export let filterYears = [
     'За все время',
     '2025',
     '2024',
@@ -39,7 +42,7 @@ export const filterYears = [
     'до 2000'
 ]
 
-export const filterAgeCategories = [
+export let filterAgeCategories = [
     '0-3',
     '4-6',
     '6-8',

@@ -57,7 +57,7 @@ const ModalAddToMainProjects = ({ isOpen, onClose, confirmAddToMainProjects,titl
                 }
             )
         } else {
-            alert('Выберите проект и очередность')
+            alert('Пожалуйста, заполните все поля')
         }
     }
 

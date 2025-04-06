@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import { useNavigate } from "react-router-dom";
 
-import Plusicon from "@icons/PlusIcon";
+import PlusIcon from "@icons/PlusIcon";
 import styles from "@css/MainProjectsPage.module.css";
 import MainLayout from "@layouts/MainLayout";
 import { isAdminLoggedIn } from "@services/isAdminLoggedIn";
@@ -57,7 +57,7 @@ const MainProjectsPage = () => {
                 className={styles.buttonAdd}
                 onClick={(e) => handleAddToMainProjects(e)}
               >
-                <Plusicon width={24} height={24} />
+                <PlusIcon width={24} height={24} />
                 <p>Добавить</p>
               </button>
             </div>

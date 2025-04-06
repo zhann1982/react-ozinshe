@@ -8,7 +8,7 @@ const UsersPage = () => {
     return <NoAdminLoggedIn />
   } else return (
     <MainLayout>
-    <div>Users Page</div>
+    
     </MainLayout>
   )
 }
