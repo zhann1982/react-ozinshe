@@ -130,3 +130,10 @@
         transform: scale(1.5);
     }
 }
+
+.error {
+    color: var(--delete-color);
+    font-size: var(--font-size-14);
+    font-weight: var(--font-weight-500);
+    margin-bottom: 8px;
+}
