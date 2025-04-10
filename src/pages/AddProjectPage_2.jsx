@@ -11,6 +11,9 @@ import { isAdminLoggedIn } from "@services/isAdminLoggedIn";
 import NoAdminLoggedIn from "@components/NoAdminLoggedIn";
 
 const AddProjectPage_2 = () => {
+  if (!isAdminLoggedIn()) {
+    return <NoAdminLoggedIn />
+  }
   const {newProject, setNewProject} = useContext(AppContext);
   const navigate = useNavigate();
   const [seasonCount, setSeasonCount] = useState(0);
@@ -21,30 +24,12 @@ const AddProjectPage_2 = () => {
     setSeasonCount(value);
   };
 
-  // const handleInfo = (obj) => {
-  //   let allFilled = []
-  //   obj.forEach((item) => {
-  //     const allSeries = item.series.every((videoId) => (videoId !== null && videoId !== ""));
-  //     allFilled.push(allSeries);
-  //   });
-  //   allFilled = allFilled.every((item) => item === true);
-  //   setActiveButton(allFilled);
-  //   setData(obj);
-  //   console.log('obj', obj);
-  // }
-
   const handleSubmit = (e) => {
     e.preventDefault();
     setActiveButton(false);
     // data will be sent to the server
     if (activeButton) navigate("/add-project-3");
   }
-
-  // useEffect(() => {
-  //   if (seasonCount < data.length) {
-  //     setData(data.slice(0, seasonCount));
-  //   }
-  // }, [seasonCount]);
 
   useEffect(() => { 
     let allFilled = []
@@ -56,9 +41,7 @@ const AddProjectPage_2 = () => {
     setActiveButton(allFilled);
   }, [seasonCount]);
 
-  if (!isAdminLoggedIn()) {
-    return <NoAdminLoggedIn />
-  } else return (
+  return (
     <MainLayout>
       <div className={styles.whiteBG}>
         <div className={styles.container}>
