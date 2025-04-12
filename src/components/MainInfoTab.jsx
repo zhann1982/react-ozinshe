@@ -107,7 +107,7 @@ const MainInfoTabs = () => {
   
   return (
     <div>
-      <div className={styles.flexColumn}>
+      <div className={styles.flexColumn}> 
         <InputText title='Название проекта' onSelected={value=>handleInputChange(value, 0)} valueOfInput={data.title}/>
         <DropDownSelect title='Категория' options={filterCategory} onSelected={value=>handleInputChange(value, 6)} valuePreselected={data.category}/>
         <div className={styles.row}>

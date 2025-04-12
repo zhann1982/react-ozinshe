@@ -1,20 +1,17 @@
 import React from 'react'
 import {useState} from 'react'
-import { useNavigate } from 'react-router-dom'
-import styles from '@css/CategoryCard.module.css'
+import styles from '@css/Rolecard.module.css'
 import EditIcon from '@icons/EditIcon'
 import TrashIcon from '@icons/TrashIcon'
 import VideoIcon from '@icons/VideoIcon'
 import ModalDeleteProject2 from '@components/ModalDeleteProject2'
-import { filterCategory } from '@services/filterArrays'
+import { filterRoles } from '@services/filterArrays'
+import CheckIcon from '../icons/CheckIcon'
 
 const RoleCard = ({roleObj}) => {
 
-    let categories = [...filterCategory]; // will be replaced with server response data
-    categories.shift()
-
-    const navigate = useNavigate();
-
+    let roles = [...filterRoles]; // will be replaced with server response data
+    
     const [isModalOpen2, setIsModalOpen2] = useState(false);
   
     const openModal2 = (e) => {
@@ -29,29 +26,37 @@ const RoleCard = ({roleObj}) => {
   
     const handleDeleteRole = (e) => {
         e.preventDefault()
-        let newCategories = categories.filter((category) => category !== title)
-        // filterCategory = [filterCategory[0], ...newCategories]
+        let newRoles = roles.filter(role => role.roleName !== roleObj.roleName)
+        // filterRoles = [...newRoles]
         // add server request to delete category
         closeModal2(e)
     }
 
-    const handleEditCategory = (e) => {
+    const handleEditRole = (e) => {
         e.preventDefault()
         
+    }
+
+    const roleAccessStatus = (roleObjKey) => {
+        if (roleObjKey.view === true && roleObjKey.edit === false && roleObjKey.delete === false) return 'Только чтение'
+        if (roleObjKey.view === true && roleObjKey.edit === true && roleObjKey.delete === false) return 'Редактирование'
+        if (roleObjKey.view === true && roleObjKey.edit === true && roleObjKey.delete === true) return 'Полный доступ'
+        return 'Нет доступа'
     }
 
   return (
     <div className={styles.card}>
         
-        <p className={styles.title}>{title}</p>
+        <p className={styles.title}>{roleObj.roleName}</p>
         
         <div className={styles.actionBox}>
-            <div className={styles.views}>
-                <VideoIcon />
-                <p>{21}</p>
+            <div className={styles.accessBox}>
+                <p><CheckIcon />Проекты <span className={styles.secondaryText}>{`(${roleAccessStatus(roleObj.access.projects)})`}</span></p>
+                <p><CheckIcon />Категории <span className={styles.secondaryText}>{`(${roleAccessStatus(roleObj.access.categories)})`}</span></p>
+                <p><CheckIcon />Пользователи <span className={styles.secondaryText}>{`(${roleAccessStatus(roleObj.access.users)})`}</span></p>
             </div>
             <div className={styles.actions}>
-                <button onClick={e => handleEditCategory(e)}>
+                <button onClick={e => handleEditRole(e)}>
                     <EditIcon width={16} height={16} />
                 </button>
                 <button  onClick={e => openModal2(e)}>

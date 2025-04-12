@@ -4,9 +4,9 @@ import MainLayout from "@layouts/MainLayout";
 import { isAdminLoggedIn } from "@services/isAdminLoggedIn";
 import NoAdminLoggedIn from "@components/NoAdminLoggedIn";
 import PlusIcon from "@icons/PlusIcon";
-import CategoryCard from "../components/CategoryCard";
+import RoleCard from "../components/RoleCard";
 import { filterRoles } from "@services/filterArrays";
-import ModalAddCategory from "../components/ModalAddCategory";
+import ModalAddRole from "../components/ModalAddRole";
 
 const RolesPage = () => {
   let roles = [...filterRoles]; // will be replaced with server response data
@@ -31,7 +31,7 @@ const RolesPage = () => {
   const confirmedAddNewRole = (role) => {
     // Add logic to add role to list on server
     roles.push(role)
-    // filterCategory = [filterCategory[0], ...roles]
+    // filterRoles = [filterRoles, ...roles]
     closeModal2();
   }
 
@@ -44,7 +44,7 @@ const RolesPage = () => {
           <section className={styles.section}>
             <div className={styles.titleBox}>
               <h1 className={styles.title}>
-              Категории
+              Роли
                 <span className={styles.projectsCountNumber}>
                   {rolesCount}
                 </span>

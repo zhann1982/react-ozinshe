@@ -1,0 +1,87 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    width: 538px;
+    background-color: #fff;
+    padding: 16px;
+    border-radius: var(--border-radius-3);
+}
+
+.imageBox {
+    width: 228px;
+    height: 334px;
+    background-position: center center;
+    background-size: cover;
+    border-radius: var(--border-radius-2);
+    padding: 12px;
+    display: flex;
+    align-items: start;
+}
+
+.seriesCount {
+    background-color: #171717D0;
+    margin-right: auto;
+    color: #fff;
+    display: block;
+    padding: 4px 10px;
+    font-size: var(--font-size-14);
+    font-weight: var(--font-weight-500);
+    border-radius: var(--border-radius-2);
+}
+
+.title {
+    font-size: var(--font-size-16);
+    font-weight: var(--font-weight-700);
+}
+
+.category {
+    margin-top: 8px;
+    font-size: var(--font-size-12);
+    font-weight: var(--font-weight-400);
+    color: var(--light-gray-text-color);
+}
+
+.actionBox {
+    margin-top: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+}
+
+.accessBox {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 10px;
+    p {
+        display: flex;
+        align-items: end;
+        gap: 4px;
+        font-size: var(--font-size-12);
+        font-weight: var(--font-weight-400);
+
+        span {
+            color: #9CA3AF;
+        }
+    }
+}
+
+.actions {
+    display: flex;
+    gap: 16px;
+    button {
+        outline: 0px;
+        border: 0px;
+        background-color: transparent;
+        cursor: pointer;
+    }
+}
+
+.card:hover .title {
+    color: var(--primary-color);
+}
+
+.card:hover {
+    cursor: pointer;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}

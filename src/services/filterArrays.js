@@ -66,25 +66,21 @@ export let filterRoles = [
         roleName: "Администратор",
         access: {
             projects: {
-                add: true,
                 edit: true,
                 delete: true,
                 view: true,
             },
             categories: {
-                add: true,
                 edit: true,
                 delete: true,
                 view: true,
             },
             users: {
-                add: true,
                 edit: true,
                 delete: true,
                 view: true,
             },
             roles: {
-                add: true,
                 edit: true,
                 delete: true,
                 view: true,
@@ -95,28 +91,24 @@ export let filterRoles = [
         roleName: "Менеджер 1",
         access: {
             projects: {
-                add: true,
-                edit: true,
+                edit: false,
                 delete: false,
                 view: true,
             },
             categories: {
-                add: false,
                 edit: false,
                 delete: false,
                 view: true,
             },
             users: {
-                add: false,
                 edit: false,
                 delete: false,
                 view: true,
             },
             roles: {
-                add: false,
                 edit: false,
                 delete: false,
-                view: true,
+                view: false,
             },
         }
     },
@@ -124,29 +116,64 @@ export let filterRoles = [
         roleName: "Старший менеджер",
         access: {
             projects: {
-                add: true,
                 edit: true,
-                delete: true,
+                delete: false,
                 view: true,
             },
             categories: {
-                add: true,
                 edit: true,
                 delete: false,
                 view: true,
             },
             users: {
-                add: true,
                 edit: true,
                 delete: false,
                 view: true,
             },
             roles: {
-                add: false,
                 edit: false,
                 delete: false,
                 view: true,
             },
         }
     },
+]
+
+export let filterGenres = [
+    {
+        genreName: 'Комедиялар',
+        image: 'placeholderImage1.png'
+    },
+    {
+        genreName: 'Отбасымен көретіндер',
+        image:'placeholderImage2.png'
+    },
+    {
+        genreName: 'Ғылыми-танымдық',
+        image:'placeholderImage3.png'
+    },
+    {
+        genreName: 'Ойын-сауық',
+        image:'placeholderImage4.png'
+    },
+    {
+        genreName: 'Ғылыми фантастика және фэнтези',
+        image:'placeholderImage5.png'
+    },
+    {
+        genreName: 'Шытырман оқиғалы',
+        image:'placeholderImage6.png'
+    },
+    {
+        genreName: 'Қысқаметрлі',
+        image:'placeholderImage7.png'
+    },
+    {
+        genreName: 'Музыкалық',
+        image:'placeholderImage8.png'
+    },
+    {
+        genreName: 'Спорттық',
+        image:'placeholderImage9.png'
+    }
 ]

@@ -15,7 +15,7 @@ const InputText = ({ title, onSelected, indexOfInput=null, valueOfInput}) => {
     if (e.target.value.length>0) {
       setLabelClass(styles.displayLabel);
     } else {
-      setLabelClass(styles.displayNone);
+      setLabelClass(styles.displayNone); 
     }
   }
 
