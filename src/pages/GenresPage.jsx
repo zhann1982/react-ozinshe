@@ -6,7 +6,7 @@ import NoAdminLoggedIn from "@components/NoAdminLoggedIn";
 import PlusIcon from "@icons/PlusIcon";
 import GenreCard from "../components/GenreCard";
 import { filterGenres } from "@services/filterArrays";
-import ModalAddCategory from "../components/ModalAddCategory";
+import ModalAddGenre from "../components/ModalAddGenre";
 
 const GenresPage = () => {
   let genres = [...filterGenres]; // will be replaced with server response data
@@ -73,7 +73,7 @@ const GenresPage = () => {
           </section>
         </div>
 
-        <ModalAddCategory title={'Добавить жанр'} isOpen={isModalOpen2} onClose={closeModal2} confirmAddGenre={confirmedAddNewGenre}/>
+        <ModalAddGenre title={'Добавить жанр'} isOpen={isModalOpen2} onClose={closeModal2} confirmAddGenre={confirmedAddNewGenre}/>
 
       </MainLayout>
     );
