@@ -29,7 +29,7 @@ const CategoriesPage = () => {
   }
 
   const confirmedAddNewCategory = (category) => {
-    // Add logic to add project to main projects page
+    // Add logic to add category to list on server
     categories.push(category)
     // filterCategory = [filterCategory[0], ...categories]
     closeModal2();

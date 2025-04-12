@@ -60,3 +60,93 @@ export let filterUsers = [
     "по алфавиту (А-Я)",
     "по алфавиту (Я-А)"
 ]
+
+export let filterRoles = [
+    {
+        roleName: "Администратор",
+        access: {
+            projects: {
+                add: true,
+                edit: true,
+                delete: true,
+                view: true,
+            },
+            categories: {
+                add: true,
+                edit: true,
+                delete: true,
+                view: true,
+            },
+            users: {
+                add: true,
+                edit: true,
+                delete: true,
+                view: true,
+            },
+            roles: {
+                add: true,
+                edit: true,
+                delete: true,
+                view: true,
+            },
+        }
+    },
+    {
+        roleName: "Менеджер 1",
+        access: {
+            projects: {
+                add: true,
+                edit: true,
+                delete: false,
+                view: true,
+            },
+            categories: {
+                add: false,
+                edit: false,
+                delete: false,
+                view: true,
+            },
+            users: {
+                add: false,
+                edit: false,
+                delete: false,
+                view: true,
+            },
+            roles: {
+                add: false,
+                edit: false,
+                delete: false,
+                view: true,
+            },
+        }
+    },
+    {
+        roleName: "Старший менеджер",
+        access: {
+            projects: {
+                add: true,
+                edit: true,
+                delete: true,
+                view: true,
+            },
+            categories: {
+                add: true,
+                edit: true,
+                delete: false,
+                view: true,
+            },
+            users: {
+                add: true,
+                edit: true,
+                delete: false,
+                view: true,
+            },
+            roles: {
+                add: false,
+                edit: false,
+                delete: false,
+                view: true,
+            },
+        }
+    },
+]
