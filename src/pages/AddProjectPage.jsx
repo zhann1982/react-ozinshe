@@ -156,7 +156,7 @@ const AddProjectPage = () => {
             </div>
             <div className={styles.row}>
               <DropDownSelect title='Год' options={filterYears} onSelected={value=>handleInputChange(value, 9)}/>
-              <InputNumber title='Хронометраж (мин)' onSelected={value=>handleInputChange(value, 1)} />
+              <InputNumber title='Хронометраж (мин)' onSelected={value=>handleInputChange(value, 1)} valueOfInput={data.duration}/>
             </div>
             <InputText title='Ключевые слова' onSelected={value=>handleInputChange(value, 2)}  valueOfInput={data.keyTags}/>
           </div>  

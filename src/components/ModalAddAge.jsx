@@ -1,18 +1,18 @@
 import React, {useState} from 'react'
-import styles from '@css/ModalAddGenre.module.css'
+import styles from '@css/ModalAddAge.module.css'
 import TimesIcon from '@icons/TimesIcon';
 import DragAndDropUploader from '@components/DragAndDropUploader'
 import InputText from '@components/InputText'
 
-const ModalAddGenre = ({ isOpen, onClose, confirmAddGenre,title }) => {
+const ModalAddAge = ({ isOpen, onClose, confirmAddAge,title }) => {
     if (!isOpen) return null;
 
     const [allSelected, setAllSelected] = useState([false, false])
-    const [genreName, setGenreName] = useState('')
+    const [ageName, setAgeName] = useState('')
     const [thumbnail, setThumbnail] = useState(null)
 
     const handleInput = (value) => {
-        setGenreName(value)
+        setAgeName(value)
         setAllSelected([true, allSelected[1]])
     }
 
@@ -23,12 +23,12 @@ const ModalAddGenre = ({ isOpen, onClose, confirmAddGenre,title }) => {
         }
     }
 
-    const handleAddGenre = (e) => {
+    const handleAddAge = (e) => {
         e.preventDefault()
         if (allSelected[0] && allSelected[1]) {
-            confirmAddGenre(
+            confirmAddAge(
                 {
-                    genreName: genreName,
+                    ageName: ageName,
                     image: thumbnail,
                 }
             )
@@ -48,11 +48,11 @@ const ModalAddGenre = ({ isOpen, onClose, confirmAddGenre,title }) => {
                 </div>
 
                 <div className={styles.inputBox}>
-                    <InputText title={'Название жанра'} onSelected={handleInput}/>
+                    <InputText title={'Название'} onSelected={handleInput}/>
                     <DragAndDropUploader onImageUpload={handleThumbnail} id="thumbnail"/>
                 </div>
                 <div className={styles.buttonBox}>
-                    <button className={styles.buttonYes} onClick={e=>handleAddGenre(e)}>Добавить</button> 
+                    <button className={styles.buttonYes} onClick={e=>handleAddAge(e)}>Добавить</button> 
                     <button className={styles.buttonCancel} onClick={onClose}>Отмена</button>   
                 </div>    
                 
@@ -61,4 +61,4 @@ const ModalAddGenre = ({ isOpen, onClose, confirmAddGenre,title }) => {
     )
 }
 
-export default ModalAddGenre
+export default ModalAddAge

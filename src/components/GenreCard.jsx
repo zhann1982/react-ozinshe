@@ -5,6 +5,7 @@ import EditIcon from '@icons/EditIcon'
 import TrashIcon from '@icons/TrashIcon'
 import VideoIcon from '@icons/VideoIcon'
 import ModalDeleteProject2 from '@components/ModalDeleteProject2'
+import {getRandomInteger, getRandomHexColor} from '@services/randomFunctions'
 
 const GenreCard = ({title, imageSrc}) => {
 
@@ -33,7 +34,14 @@ const GenreCard = ({title, imageSrc}) => {
 
   return (
     <div className={styles.card}>
-        <img className={styles.image} src={`/src/assets/images/${imageSrc}`} alt="Genre" />
+        {imageSrc==='randomGradient'
+        ?<div 
+            className={styles.gradientBox} 
+            style={{background: `linear-gradient(${getRandomInteger(0,180)}deg, ${getRandomHexColor()}, ${getRandomHexColor()})`}}
+        >
+        </div>
+        :<img className={styles.image} src={`/src/assets/images/${imageSrc}`} alt="Genre" />}
+        
         
         <p className={styles.title}>{title}</p>
         
@@ -52,7 +60,7 @@ const GenreCard = ({title, imageSrc}) => {
             </div>
         </div>
 
-        <ModalDeleteProject2 title={'Удалить жанр?'} question={'Вы действительно хотите удалить жанр?'} isOpen={isModalOpen2} onClose={closeModal2} confirmDeleteProject={handleDeleteGenre}/>
+        <ModalDeleteProject2 title={'Удалить возраст?'} question={'Вы действительно хотите удалить возраст?'} isOpen={isModalOpen2} onClose={closeModal2} confirmDeleteProject={handleDeleteGenre}/>
     </div>
   )
 }

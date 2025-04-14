@@ -1,18 +1,23 @@
 import {useState, useEffect, useContext} from 'react'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useParams } from 'react-router-dom'
 import { AppContext } from '../App'
 import styles from '@css/SeriesLoader.module.css'
 import TrashIcon from '@icons/TrashIcon'
 import InputText from '@components/InputText'
+import {filmCards} from '@services/filmCardBase'
 
 
 const SeriesLoader = ({season}) => {
     const location = useLocation()
+    const params = useParams()
+    let project = filmCards.find((item)=>item.id == params.id)
+    console.log('sload', project)
     const {newProject, setNewProject, editedProject, setEditedProject} = useContext(AppContext)
 
     let obj
     if (location.pathname.includes('edit-project')) {
-        obj = editedProject?.seasons.find((item)=>item.seasonNumber == season)
+        obj = project?.seasons.find((item)=>item.seasonNumber == season)
+        setEditedProject(project)
     }
     
     const [series, setSeries] = useState(obj?obj.series:['']);

@@ -48,8 +48,9 @@ export let filterAgeCategories = [
     '6-8',
     '8-10',
     '10-12',
-    '12-16',
-    '16+'
+    '12-14',
+    '14-16',
+    '16-18'
 ]
 
 export let filterUsers = [
