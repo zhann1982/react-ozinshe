@@ -4,20 +4,22 @@ import { AppContext } from '../App'
 import styles from '@css/SeriesLoader.module.css'
 import TrashIcon from '@icons/TrashIcon'
 import InputText from '@components/InputText'
-import {filmCards} from '@services/filmCardBase'
+// import {filmCards} from '@services/filmCardBase'
+import { EditContext } from '../pages/EditProjectPage'
 
 
 const SeriesLoader = ({season}) => {
     const location = useLocation()
     const params = useParams()
-    let project = filmCards.find((item)=>item.id == params.id)
-    console.log('sload', project)
-    const {newProject, setNewProject, editedProject, setEditedProject} = useContext(AppContext)
-
+    // let project = filmCards.find((item)=>item.id == params.id)
+    
+    const {newProject, setNewProject} = useContext(AppContext)
+    const {editedProject, setEditedProject} = useContext(EditContext)
+    console.log('sload', editedProject)
     let obj
     if (location.pathname.includes('edit-project')) {
-        obj = project?.seasons.find((item)=>item.seasonNumber == season)
-        setEditedProject(project)
+        obj = editedProject?.seasons.find((item)=>item.seasonNumber == season)
+        setEditedProject(editedProject)
     }
     
     const [series, setSeries] = useState(obj?obj.series:['']);
@@ -31,6 +33,7 @@ const SeriesLoader = ({season}) => {
         let arr = [...series]
         arr[index] = value
         setSeries([...arr]) 
+        console.log(value)
     }
 
     const handleDelete = (e, index) => {

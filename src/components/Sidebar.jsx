@@ -18,7 +18,6 @@ const Sidebar = () => {
     if(location.pathname === '/projects' || location.pathname.includes('/edit-project') || location.pathname.includes('/add-project') || location.pathname.includes('/details')) {
       return styles.active
     } else {
-      console.log('not active')
       return styles.navItem
     }
   }

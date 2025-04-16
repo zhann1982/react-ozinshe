@@ -3,7 +3,8 @@ import styles from '@css/DragAndDropUploader.module.css';
 import UploadIcon from '@icons/UploadIcon';
 import TrashIcon from '@icons/TrashIcon';
 
-const DragAndDropUploader = ({ onImageUpload, id }) => {
+const DragAndDropUploader = ({ onImageUpload, id, valuePreselected}) => {
+  const [valueGiven,setValueGiven] = useState(valuePreselected??null)
   const [previewImage, setPreviewImage] = useState(null);
   const [isDragging, setIsDragging] = useState(false);
 

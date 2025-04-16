@@ -11,6 +11,11 @@ const VideosTabs = () => {
 
   const handleSelectSeasonCount = (value) => {
     setSeasonCount(value)
+    if (editedProject.seasons.length>value) {
+      let arr = [...editedProject.seasons]
+      arr.splice(value)
+      setEditedProject({...editedProject, seasons: arr})
+    }
   }
   return (
     <>
@@ -31,7 +36,6 @@ const VideosTabs = () => {
           <p>Выберите количество сезонов</p>
         </div>
       )}
-
     </>
   )
 }

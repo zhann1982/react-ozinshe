@@ -28,11 +28,27 @@
 
 .navLink {
     padding: 8px 16px;
+    height: 57px;
+    font-size: var(--font-size-14);
+    font-weight: var(--font-weight-700);
+    color: var(--gray-text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
 }
 
 .activeLink {
     padding: 8px 16px;
-    color: red;
+    color: var(--primary-color);
+    font-size: var(--font-size-14);
+    font-weight: var(--font-weight-700);
+    height: 57px;
+    border-bottom: 2px solid var(--primary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
 }
 
 .cardBox {
@@ -40,5 +56,15 @@
     flex-wrap: wrap;
     gap: 18px;
     margin-top: 40px;
-    
+}
+
+.tabsNavbar {
+    display: flex;
+    height: 57px;
+    background-color: #fff;
+    margin-left: -48px;
+    padding-left: 48px;
+    margin-right: -48px;
+    padding-right: 48px;
+    margin-top: 16px;
 }

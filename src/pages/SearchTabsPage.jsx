@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useState } from 'react'
+import React, { useEffect, useLayoutEffect, useState, useRef } from 'react'
 import styles from '@css/SearchTabsPage.module.css'
 import { filmCards } from '@services/filmCardBase'
 import FilmCard from '@components/FilmCard'
@@ -8,7 +8,7 @@ import axios from 'axios'
 import UserCard from '@components/UserCard'
 
 const SearchTabsPage = ({ search }) => {
-  // filterCategory.shift();
+  const containerRef = useRef(null);
   const [foundCount, setFoundCount] = useState(0)
   const [tab, setTab] = useState(1)
   const [users, setUsers] = useState([])
@@ -27,6 +27,13 @@ const SearchTabsPage = ({ search }) => {
       });
   }, []);
 
+  useEffect(() => {
+    if (containerRef.current) {
+      console.log(containerRef.current.children.length)
+      setFoundCount(containerRef.current.children.length); // Count its children
+    }
+  }, [tab]);
+
   return (
     <div className={styles.wrapper}>
       <section className={styles.section}>
@@ -44,9 +51,9 @@ const SearchTabsPage = ({ search }) => {
           <div className={style3} onClick={e => setTab(3)}>Пользователи</div>
         </div>
 
-        <div className={styles.cardBox}>
+        <div >
           {(tab == 1)
-            ? <div className={styles.cardBox}>
+            ? <div ref={containerRef} className={styles.cardBox}>
               {filmCards
                 .filter(film => film.title.toLowerCase().includes(search.toLowerCase()))
                 .map(film => (
@@ -62,7 +69,7 @@ const SearchTabsPage = ({ search }) => {
                 ))}
             </div>
             : (tab == 2)
-              ? <div className={styles.cardBox}>
+              ? <div ref={containerRef} className={styles.cardBox}>
                 {filterCategory
                   .filter(category => category.toLowerCase().includes(search.toLowerCase()))
                   .map((category, index) => {
@@ -75,7 +82,7 @@ const SearchTabsPage = ({ search }) => {
 
                   })}
               </div>
-              : <div className={styles.cardBox}>
+              : <div ref={containerRef} className={styles.cardBox}>
                 {users
                   .filter(user => user.name.toLowerCase().includes(search.toLowerCase()))
                   .map((user) => (

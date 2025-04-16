@@ -21,11 +21,10 @@ export const AppContext = createContext()
 function App() {
   const [prevPage, setPrevPage] = useState(null)
   const [newProject, setNewProject] = useState({})
-  const [editedProject, setEditedProject] = useState({})
 
   return (
     <div className="app">
-      <AppContext.Provider value={{newProject, setNewProject, prevPage, setPrevPage, editedProject, setEditedProject}}>
+      <AppContext.Provider value={{newProject, setNewProject, prevPage, setPrevPage}}>
         <BrowserRouter>
           <Routes>
             <Route path='/' exact           element={<LoginPage />}         />

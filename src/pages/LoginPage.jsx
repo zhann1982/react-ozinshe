@@ -30,7 +30,6 @@ const LoginPage = () => {
         }
       });
       localStorage.setItem("token", response.data.result); // Сохраняем токен в localStorage
-      console.log(response.data.result);
       setEmail("");
       setPassword("");
       setError(null);

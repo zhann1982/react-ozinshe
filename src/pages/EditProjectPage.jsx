@@ -32,7 +32,6 @@ const EditProjectPage = () => {
         // navigate('/add-project-2')
       
     }
-
     
     if (!isAdminLoggedIn()) {
       return <NoAdminLoggedIn />

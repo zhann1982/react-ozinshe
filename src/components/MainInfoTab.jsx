@@ -43,7 +43,7 @@ const MainInfoTabs = () => {
       setAllFilled(true)
       setEditedProject({...editedProject, ...data})
       // here we can send edited project's data to server
-      console.log(data)
+      console.log('data refreshed', data)
     } else {
       setAllFilled(false)
       console.log('Заполните все поля')

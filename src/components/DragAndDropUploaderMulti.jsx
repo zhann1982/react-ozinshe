@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styles from '@css/DragAndDropUploaderMulti.module.css';
 import UploadIcon from '@icons/UploadIcon';
 
-const DragAndDropUploaderMulti = ({ onImageUpload, id }) => {
+const DragAndDropUploaderMulti = ({ onImageUpload, id, valuePreselected }) => {
   const [isDragging, setIsDragging] = useState(false);
 
   const handleFileChange = (event) => {
