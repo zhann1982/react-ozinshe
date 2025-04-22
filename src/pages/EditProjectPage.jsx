@@ -1,5 +1,5 @@
 import styles from '@css/EditProjectPage.module.css'
-import React, {useState, createContext, useContext} from 'react'
+import React, {useContext, useEffect, useLayoutEffect} from 'react'
 import { useParams, Link, NavLink, useNavigate, Routes, Route, useMatch } from 'react-router-dom'
 import MainLayout from '@layouts/MainLayout'
 import { isAdminLoggedIn } from '@services/isAdminLoggedIn'
@@ -12,15 +12,16 @@ import VideosTab from '@components/VideosTab'
 import ThumbnailScreenshotsTab from '@components/ThumbnailScreenshotsTab'
 import { AppContext } from '../App'
 
-
-export const EditContext = createContext()
-
 const EditProjectPage = () => {
     const navigate = useNavigate()
     const params = useParams()
-    const [editedProject, setEditedProject] = useState(filmCards.find(item => item.id == params.id))
-    const [allFilled, setAllFilled] = useState(true)
-    const {prevPage} = useContext(AppContext)
+    
+    const {prevPage, editedProject, setEditedProject, allFilled, setAllFilled} = useContext(AppContext)
+
+    useEffect(() => {
+      setEditedProject(filmCards.find(item => item.id == params.id))
+      console.log(filmCards.find(item => item.id == params.id))
+    }, [])
 
     const handleSubmitForm = (e) => {
       e.preventDefault()
@@ -36,7 +37,6 @@ const EditProjectPage = () => {
     if (!isAdminLoggedIn()) {
       return <NoAdminLoggedIn />
     } else return (
-      <EditContext.Provider value={{editedProject, setEditedProject, allFilled, setAllFilled}}>
         <MainLayout>
         <div className={styles.whiteBG}>
           <div className={styles.container}>
@@ -60,24 +60,24 @@ const EditProjectPage = () => {
                 >
                   <BackArrowIcon width={20} height={20}/>
                 </button>
-                <h1>Редактировать "{editedProject.title}"</h1>
+                <h1>Редактировать "{editedProject?.title}"</h1>
               </div>
 
               <nav className={styles.navTabs}>
                 <NavLink 
-                  to={`/edit-project/${editedProject.id}/`}
-                  className={({ isActive }) => (useMatch(`/edit-project/${editedProject.id}/`) ? styles.active : styles.secondary)}
+                  to={`/edit-project/${editedProject?.id}/`}
+                  className={({ isActive }) => (useMatch(`/edit-project/${editedProject?.id}/`) ? styles.active : styles.secondary)}
                 >
                   Основная информация
                 </NavLink>
                 <NavLink 
-                  to={`/edit-project/${editedProject.id}/video`}
+                  to={`/edit-project/${editedProject?.id}/video`}
                   className={({ isActive }) => (isActive ? styles.active : styles.secondary)}
                 >
                   Видео
                 </NavLink>
                 <NavLink 
-                  to={`/edit-project/${editedProject.id}/thumbnail-screenshots`}
+                  to={`/edit-project/${editedProject?.id}/thumbnail-screenshots`}
                   className={({ isActive }) => (isActive ? styles.active : styles.secondary)}
                 >
                   Обложка и скриншоты
@@ -100,7 +100,6 @@ const EditProjectPage = () => {
           </div>
         </div>
         </MainLayout>
-      </EditContext.Provider>
     )
 }
 

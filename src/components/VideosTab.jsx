@@ -2,12 +2,12 @@ import React, { useContext, useState } from 'react'
 import styles from '@css/VideosTab.module.css'
 import DropDownSelect from './DropDownSelect'
 import SeasonLoader from './SeasonLoader'
-import { EditContext } from '@pages/EditProjectPage'
+import { AppContext } from '../App'
 
 
 const VideosTabs = () => {
-  const {editedProject, setEditedProject} = useContext(EditContext)
-  const [seasonCount, setSeasonCount] = useState(editedProject.seasons.length??0)
+  const {editedProject, setEditedProject} = useContext(AppContext)
+  const [seasonCount, setSeasonCount] = useState(editedProject.seasons?.length??0)
 
   const handleSelectSeasonCount = (value) => {
     setSeasonCount(value)

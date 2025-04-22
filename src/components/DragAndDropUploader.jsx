@@ -4,8 +4,8 @@ import UploadIcon from '@icons/UploadIcon';
 import TrashIcon from '@icons/TrashIcon';
 
 const DragAndDropUploader = ({ onImageUpload, id, valuePreselected}) => {
-  const [valueGiven,setValueGiven] = useState(valuePreselected??null)
-  const [previewImage, setPreviewImage] = useState(null);
+  // const [valueGiven,setValueGiven] = useState(valuePreselected??null)
+  const [previewImage, setPreviewImage] = useState(valuePreselected?`/src/assets/images/${valuePreselected}`:null);
   const [isDragging, setIsDragging] = useState(false);
 
   const handleFileChange = (event) => {

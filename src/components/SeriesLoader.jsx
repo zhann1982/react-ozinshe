@@ -5,7 +5,6 @@ import styles from '@css/SeriesLoader.module.css'
 import TrashIcon from '@icons/TrashIcon'
 import InputText from '@components/InputText'
 // import {filmCards} from '@services/filmCardBase'
-import { EditContext } from '../pages/EditProjectPage'
 
 
 const SeriesLoader = ({season}) => {
@@ -13,9 +12,9 @@ const SeriesLoader = ({season}) => {
     const params = useParams()
     // let project = filmCards.find((item)=>item.id == params.id)
     
-    const {newProject, setNewProject} = useContext(AppContext)
-    const {editedProject, setEditedProject} = useContext(EditContext)
-    console.log('sload', editedProject)
+    const {newProject, setNewProject, editedProject, setEditedProject} = useContext(AppContext)
+    
+    console.log('seriesload', editedProject)
     let obj
     if (location.pathname.includes('edit-project')) {
         obj = editedProject?.seasons.find((item)=>item.seasonNumber == season)

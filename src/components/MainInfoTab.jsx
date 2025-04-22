@@ -5,27 +5,27 @@ import DropDownSelect from './DropDownSelect'
 import InputText from './InputText'
 import InputNumber from './InputNumber'
 import Textarea from './Textarea'
-import { EditContext } from '@pages/EditProjectPage'
+import { AppContext } from '../App'
 
 
 const MainInfoTabs = () => {
-  const {editedProject, setEditedProject,allFilled, setAllFilled} = useContext(EditContext)
+  const {editedProject, setEditedProject,allFilled, setAllFilled} = useContext(AppContext)
 
   let checkInputsFilled = new Array(10).fill(true);
   const [inputsCheck, setInputsCheck] = useState(checkInputsFilled)
-  const [hintClass, setHintClass] = useState(editedProject.keyTags?styles.hintTextDisplayNone:styles.hintTextVisible)
+  const [hintClass, setHintClass] = useState(editedProject?.keyTags?styles.hintTextDisplayNone:styles.hintTextVisible)
 
   const [data, setData] = useState({
-    title: editedProject.title ?? '',
-    category: editedProject.category ?? '',
-    type: editedProject.type ?? '',
-    ageCategory: editedProject.ageCategory ?? '',
-    yearProduced: editedProject.yearProduced ?? '',
-    duration: editedProject.duration ?? null,
-    keyTags: editedProject.keyTags ?? [],
-    description:editedProject.description ?? '',
-    director: editedProject.director ?? '',
-    producer: editedProject.producer ?? ''
+    title: editedProject?.title ?? '',
+    category: editedProject?.category ?? '',
+    type: editedProject?.type ?? '',
+    ageCategory: editedProject?.ageCategory ?? '',
+    yearProduced: editedProject?.yearProduced ?? '',
+    duration: editedProject?.duration ?? null,
+    keyTags: editedProject?.keyTags ?? [],
+    description:editedProject?.description ?? '',
+    director: editedProject?.director ?? '',
+    producer: editedProject?.producer ?? ''
   })
 
   useEffect(() => {

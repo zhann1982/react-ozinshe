@@ -4,10 +4,10 @@ import TrashIcon from '@icons/TrashIcon'
 import { useState, useContext } from 'react'
 import DragAndDropUploader from './DragAndDropUploader'
 import DragAndDropUploaderMulti from './DragAndDropUploaderMulti'
-import { EditContext } from '@pages/EditProjectPage'
+import { AppContext } from '../App'
 
 const ThumbnailScreenshotsTab = () => {
-  const {editedProject, setEditedProject} = useContext(EditContext)
+  const {editedProject, setEditedProject} = useContext(AppContext)
   const [thumbnail, setThumbnail] = useState(null)
   const [screenshots, setScreenshots] = useState([])
   const [alignCenter, setAlignCenter] = useState(false)
