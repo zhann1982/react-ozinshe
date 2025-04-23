@@ -6,8 +6,9 @@ import TrashIcon from '@icons/TrashIcon'
 import VideoIcon from '@icons/VideoIcon'
 import ModalDeleteProject2 from '@components/ModalDeleteProject2'
 import {getRandomInteger, getRandomHexColor} from '@services/randomFunctions'
+import axios from 'axios'
 
-const GenreCard = ({title, imageSrc}) => {
+const GenreCard = ({title, imageSrc, ageCategoryId, deleteConfirmed}) => {
 
     const [isModalOpen2, setIsModalOpen2] = useState(false);
   
@@ -23,7 +24,9 @@ const GenreCard = ({title, imageSrc}) => {
   
     const handleDeleteGenre = (e) => {
         e.preventDefault();
+        
         // add server request to delete category
+        deleteConfirmed(ageCategoryId)
         closeModal2(e)
     }
 
