@@ -6,16 +6,14 @@ import TrashIcon from '@icons/TrashIcon'
 import VideoIcon from '@icons/VideoIcon'
 import ModalDeleteProject2 from '@components/ModalDeleteProject2'
 import {getRandomInteger, getRandomHexColor} from '@services/randomFunctions'
-import axios from 'axios'
 
-const GenreCard = ({title, imageSrc, ageCategoryId, deleteConfirmed}) => {
+const GenreCard = ({title, imageSrc, ageCategoryId, deleteConfirmed, editConfirmed}) => {
 
     const [isModalOpen2, setIsModalOpen2] = useState(false);
   
     const openModal2 = (e) => {
         e.preventDefault()
         setIsModalOpen2(true)
-        console.log('openModal2')
     }
     const closeModal2 = (e) => {
         e.preventDefault();
@@ -25,7 +23,6 @@ const GenreCard = ({title, imageSrc, ageCategoryId, deleteConfirmed}) => {
     const handleDeleteGenre = (e) => {
         e.preventDefault();
         
-        // add server request to delete category
         deleteConfirmed(ageCategoryId)
         closeModal2(e)
     }
@@ -33,6 +30,7 @@ const GenreCard = ({title, imageSrc, ageCategoryId, deleteConfirmed}) => {
     const handleEditGenre = (e) => {
         e.preventDefault()
         
+        editConfirmed(ageCategoryId)
     }
 
   return (
@@ -63,7 +61,13 @@ const GenreCard = ({title, imageSrc, ageCategoryId, deleteConfirmed}) => {
             </div>
         </div>
 
-        <ModalDeleteProject2 title={'Удалить возраст?'} question={'Вы действительно хотите удалить возраст?'} isOpen={isModalOpen2} onClose={closeModal2} confirmDeleteProject={handleDeleteGenre}/>
+        <ModalDeleteProject2 
+            title={'Удалить возраст?'} 
+            question={'Вы действительно хотите удалить возраст?'} 
+            isOpen={isModalOpen2} onClose={closeModal2} 
+            confirmDeleteProject={handleDeleteGenre}
+        />
+        
     </div>
   )
 }

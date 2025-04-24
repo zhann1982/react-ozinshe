@@ -29,19 +29,10 @@ const ModalAddAge = ({ isOpen, onClose, confirmAddAge, title }) => {
                     image: thumbnail,
                 }
             )
-            console.log('ageName', ageName)
-            console.log('thumbnail', thumbnail)
         } else {
             alert('Пожалуйста, заполните все поля')
         }
     }
-
-    // confirmAddAge(
-    //     {
-    //         ageName: ageName+'_check',
-    //         image: thumbnail,
-    //     }
-    // )
 
     return (
         <div className={styles.modalOverlay}>

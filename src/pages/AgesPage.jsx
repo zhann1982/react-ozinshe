@@ -4,40 +4,21 @@ import MainLayout from "@layouts/MainLayout";
 import { isAdminLoggedIn } from "@services/isAdminLoggedIn";
 import NoAdminLoggedIn from "@components/NoAdminLoggedIn";
 import PlusIcon from "@icons/PlusIcon";
-import GenreCard from "../components/GenreCard";
-import ModalAddAge from "../components/ModalAddAge";
+import GenreCard from "@components/GenreCard";
+import ModalAddAge from "@components/ModalAddAge";
 import axios from "axios";
+import { fetchAges } from "@services/server";
+
 
 const AgesPage = () => {
   const [ages, setAges] = useState([]);
-  const [file, setFile] = useState(null);
   const [isModalOpen2, setIsModalOpen2] = useState(false);
-  const [deleted, setDeleted] = useState(false);
-  const [edited, setEdited] = useState(false);
 
   useEffect(() => {
-    const fetchAges = async () => {
-      try {
-        const response = await axios(`http://185.100.67.64/age-category`, {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
-            Authorization: "Bearer " + localStorage.getItem("token"),
-          },
-        });
-        setAges(response.data.result);
-        console.log(response.data.result);
-      } catch (error) {
-        console.error("Error fetching ages:", error);
-      }
-    };
-    fetchAges();
+    fetchAges(setAges);
   }, []);
 
   const confirmedAddNewAge = (obj) => {
-    
-    // Add logic to add ages to list on server
     const formData = new FormData();
     formData.append("name", obj.ageName);
     formData.append("image", obj.image); // `file` should be a File object from an input field
@@ -52,17 +33,14 @@ const AgesPage = () => {
       })
       .then((response) => {
         console.log(response.data)
-        setAges(obj.ageName);
-        setFile(obj.image);
+        fetchAges(setAges);
       })
       .catch((error) => console.error(error));
-    
     closeModal2();
   };
 
   const openModal2 = () => {
     setIsModalOpen2(true);
-    console.log("openModal2");
   };
   const closeModal2 = () => {
     setIsModalOpen2(false);
@@ -83,16 +61,16 @@ const AgesPage = () => {
             Authorization: "Bearer " + localStorage.getItem("token"),
           },
         })
-        .then((response) => {
-          console.log("Deleted successfully!", response.data)
-          setDeleted(true);
-          setAges(ages.filter((age) => age.ageCategoryId !== ageCategoryId));
+        .then(() => {
+          fetchAges(setAges);
         })
         .catch((error) => console.error("Error deleting:", error));
     }
   };
 
-  const handleEditGenre = (e) => {};
+  const handleEditGenre = (ageCategoryId) => {
+
+  };
 
   if (!isAdminLoggedIn()) {
     return <NoAdminLoggedIn />;
@@ -119,7 +97,7 @@ const AgesPage = () => {
             </div>
 
             <div className={styles.cardBox}>
-              {ages.map((age, index) => {
+              {ages.sort((a, b) => a.name - b.name).map((age, index) => {
                 return (
                   <GenreCard
                     key={index}
@@ -141,6 +119,7 @@ const AgesPage = () => {
           onClose={closeModal2}
           confirmAddAge={confirmedAddNewAge}
         />
+
       </MainLayout>
     );
 };
