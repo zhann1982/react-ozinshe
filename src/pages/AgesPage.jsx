@@ -35,20 +35,8 @@ const AgesPage = () => {
     fetchAges();
   }, []);
 
-  const openModal2 = () => {
-    setIsModalOpen2(true);
-    console.log("openModal2");
-  };
-  const closeModal2 = () => {
-    setIsModalOpen2(false);
-  };
-
-  const handleAddNewCategory = (e) => {
-    e.preventDefault();
-    openModal2();
-  };
-
   const confirmedAddNewAge = (obj) => {
+    
     // Add logic to add ages to list on server
     const formData = new FormData();
     formData.append("name", obj.ageName);
@@ -62,11 +50,27 @@ const AgesPage = () => {
           Authorization: "Bearer " + localStorage.getItem("token"),
         },
       })
-      .then((response) => console.log(response.data))
+      .then((response) => {
+        console.log(response.data)
+        setAges(obj.ageName);
+        setFile(obj.image);
+      })
       .catch((error) => console.error(error));
-    setAges([...ages, obj.ageName]);
-    setFile(obj.image);
+    
     closeModal2();
+  };
+
+  const openModal2 = () => {
+    setIsModalOpen2(true);
+    console.log("openModal2");
+  };
+  const closeModal2 = () => {
+    setIsModalOpen2(false);
+  };
+
+  const handleAddNewCategory = (e) => {
+    e.preventDefault();
+    openModal2();
   };
 
   const handleDeleteAge = (ageCategoryId) => {

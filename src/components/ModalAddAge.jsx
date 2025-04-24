@@ -4,38 +4,44 @@ import TimesIcon from '@icons/TimesIcon';
 import DragAndDropUploader from '@components/DragAndDropUploader'
 import InputText from '@components/InputText'
 
-const ModalAddAge = ({ isOpen, onClose, confirmAddAge,title }) => {
+const ModalAddAge = ({ isOpen, onClose, confirmAddAge, title }) => {
     if (!isOpen) return null;
 
-    const [allSelected, setAllSelected] = useState([false, false])
     const [ageName, setAgeName] = useState('')
     const [thumbnail, setThumbnail] = useState(null)
 
     const handleInput = (value) => {
         setAgeName(value)
-        setAllSelected([true, allSelected[1]])
     }
 
     const handleThumbnail = (file) => {
         if (file) {
             setThumbnail(file)
-            setAllSelected([allSelected[0], true])
         }
     }
 
     const handleAddAge = (e) => {
         e.preventDefault()
-        if (allSelected[0] && allSelected[1]) {
+        if (ageName && thumbnail) {
             confirmAddAge(
                 {
                     ageName: ageName,
                     image: thumbnail,
                 }
             )
+            console.log('ageName', ageName)
+            console.log('thumbnail', thumbnail)
         } else {
             alert('Пожалуйста, заполните все поля')
         }
     }
+
+    // confirmAddAge(
+    //     {
+    //         ageName: ageName+'_check',
+    //         image: thumbnail,
+    //     }
+    // )
 
     return (
         <div className={styles.modalOverlay}>
@@ -48,7 +54,7 @@ const ModalAddAge = ({ isOpen, onClose, confirmAddAge,title }) => {
                 </div>
 
                 <div className={styles.inputBox}>
-                    <InputText title={'Название'} onSelected={handleInput}/>
+                    <InputText title={'Название'} onSelected={handleInput} valueOfInput={ageName}/>
                     <DragAndDropUploader onImageUpload={handleThumbnail} id="thumbnail"/>
                 </div>
                 <div className={styles.buttonBox}>
