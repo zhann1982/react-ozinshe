@@ -1,4 +1,4 @@
-import {useState, useContext} from 'react'
+import {useState, useContext, useEffect, useLayoutEffect} from 'react'
 import styles from '@css/ProjectDetails.module.css'
 import MainLayout from '@layouts/MainLayout'
 import { Link, useParams, useNavigate } from 'react-router-dom'
@@ -18,12 +18,19 @@ import ModalDeleteProject from '@components/ModalDeleteProject'
 import { isAdminLoggedIn } from '@services/isAdminLoggedIn'
 import NoAdminLoggedIn from '@components/NoAdminLoggedIn'
 import { AppContext } from '../App'
+import { fetchMovie } from '@services/server'
 
 const ProjectDetails = () => {
-  const {prevPage} = useContext(AppContext)
   const params = useParams();
 
-  const project = filmCards.find(item => item.id == params.id)
+  const {prevPage} = useContext(AppContext)
+  const [project, setProject] = useState(null)
+  const [isModalOpen, setIsModalOpen] = useState(false);
+ 
+  // const project = filmCards.find(item => item.id == params.id)
+  useLayoutEffect(() => {
+    fetchMovie(params.id, setProject)
+  },[])
 
   const navigate = useNavigate();
 
@@ -46,8 +53,6 @@ const ProjectDetails = () => {
     )
   }
 
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
   const openModal = () => {
     setIsModalOpen(true);
   }
@@ -55,9 +60,9 @@ const ProjectDetails = () => {
   const closeModal = () => setIsModalOpen(false);
 
   const handleDeleteProject = () => {
-    const index = filmCards.findIndex(item => item.id == params.id)
-    filmCards.splice(index, 1)
-    navigate('/projects')
+    // const index = filmCards.findIndex(item => item.id == params.id)
+    // filmCards.splice(index, 1)
+    // navigate('/projects')
   }
 
   if (!isAdminLoggedIn()) {
@@ -83,15 +88,15 @@ const ProjectDetails = () => {
                 <div className={styles.stats}>
                   <div className={styles.group}>
                     <EyeIcon width={16} height={16} />
-                    <p>{project.viewsCount}</p>
+                    <p>{project.views}</p>
                   </div>
                   <div className={styles.group}>
                     <StarIcon width={16} height={16} />
-                    <p>{project.chosenFavoriteCount}</p>
+                    <p>{project.isFavorite?'7':'0'}</p>
                   </div>
                   <div className={styles.group}>
                     <ExportIcon width={16} height={16} />
-                    <p>{project.downloadCount}</p>
+                    <p>{project.duration}</p>
                   </div>
                 </div>
               </div>
@@ -108,42 +113,43 @@ const ProjectDetails = () => {
               </div>
               <iframe src="/"></iframe>
             </div>
-            {(project.seasons.length == 0)
-            ?  <FilmSection project={project} />
-            :  <SeasonsSection project={project} />}
+            {(project.seasons)
+              ?  <SeasonsSection project={project} />
+              :  <FilmSection project={project} />
+            }
           </div>
         </div> 
         <div className={styles.aside}>
           <div className={styles.year}>
             <ClockIcon width={16} height={16} />
-            <p>{project.yearProduced}</p>
+            <p>{project.releaseYear}</p>
           </div>
           <div className={styles.category}>
             <TranscriptIcon width={16} height={16} />
-            <p>{project.category}</p>
+            <p>{project.categories.map(category=>category.name).join(', ')}</p>
           </div>
           <div className={styles.seasonInfo}>
             <ClapperboardIcon width={16} height={16} />
-            <p>{project.seasons.length > 0 ?
+            <p>{project.seasons ?
               `${project.seasons.length} сезонов, ${project.seasons[project.seasons.length - 1].series.length} серий, ${project.duration} мин`
               : `${project.duration} мин`
             }</p>
           </div>
-          <div className={styles.bgImage} style={{backgroundImage: `url(/src/assets/images/${project.thumbnail})`}}></div>
+          <div className={styles.bgImage} style={{backgroundImage: `url(/src/assets/${project.imageSrc})`}}></div>
           <div className={styles.grayLine}></div>
 
           <div className={styles.addedInfo}>
             <p>
               <span className={styles.grayText}>Добавил:</span>
-              <span className={styles.normalText}>{project.author}</span>
+              <span className={styles.normalText}>{project.createdBy}</span>
             </p>
             <p>
               <span className={styles.grayText}>Дата добавления:</span>
-              <span className={styles.normalText}>{project.addedToProjects}</span>
+              <span className={styles.normalText}>{project.createdAt}</span>
             </p>
             <p>
               <span className={styles.grayText}>Дата обновления:</span>
-              <span className={styles.normalText}>{project.lastModified}</span>
+              <span className={styles.normalText}>{project.updatedAt}</span>
             </p>
           </div>
           

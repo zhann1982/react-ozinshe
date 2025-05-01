@@ -1,8 +1,9 @@
-import React from 'react'
+import React, {useEffect,useState} from 'react'
 import MainLayout from '@layouts/MainLayout'
 import { useNavigate } from 'react-router-dom'
 import { isAdminLoggedIn } from '@services/isAdminLoggedIn'
 import NoAdminLoggedIn from '@components/NoAdminLoggedIn'
+import axios from 'axios'
 
 import styles from '@css/ProjectsPage.module.css'
 import { 
@@ -11,8 +12,7 @@ import {
   filterType, 
   filterYears 
 } from '@services/filterArrays'
-import { filmCards } from '@services/filmCardBase'
-
+import { fetchMovies } from '@services/server'
 import Plusicon from '@icons/PlusIcon'
 import DropDown from '@components/DropDown'
 import DropDownYear from '@components/DropDownYear'
@@ -20,8 +20,11 @@ import FilmCard from '@components/FilmCard'
 
 const ProjectsPage = () => {
   const navigate = useNavigate()
-  const projectsCount = 113  // will be replaced with server response data
+  const [movies, setMovies] = useState([])
 
+  useEffect(() => {
+    fetchMovies(setMovies)
+  },[])
   const handleSelect1 = (option) => {
     console.log(option)
   }
@@ -45,7 +48,7 @@ const ProjectsPage = () => {
         <div className={styles.titleBox}>
           <h1 className={styles.title}>
             Проекты
-            <span className={styles.projectsCountNumber}>{projectsCount}</span>
+            <span className={styles.projectsCountNumber}>{movies.length}</span>
           </h1>
           
           <button
@@ -65,15 +68,16 @@ const ProjectsPage = () => {
           </div> 
         </div>
         <div className={styles.cardBox}>
-          {filmCards.map(film=>(
+          {movies.map((movie, index)=>(
               <FilmCard 
-                key={film.id}
-                id={film.id}
-                title={film.title}
-                category={film.category}
-                views={film.viewsCount}
-                seriesCount={film.lastSerieAdded}
-                imageSrc={`url(/src/assets/images/${film.thumbnail})`}
+                key={index}
+                id={movie.movieId}
+                title={movie.title}
+                category={movie.categories.map(category=>category.name).join(', ')}
+                type={movie.genres.map(genre=>genre.name).join(', ')}
+                views={movie.views}
+                seriesCount={movie.seriesCount}
+                imageSrc={`url(/src/assets/${movie.imageSrc})`}
               />
           ))}
         </div>

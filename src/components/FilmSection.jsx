@@ -26,7 +26,7 @@ const FilmSection = ({project}) => {
           <h2>Скриншоты</h2>
           <div className={styles.screenshots}>
             {project.screenshots.map((item,index)=>(
-              <img key={index}  src={item} alt="screenshot" />
+              <img key={index}  src={`/src/assets/images/placeholderImage${index+1}.png`} alt="screenshot" />
             ))}
           </div>
         </div>

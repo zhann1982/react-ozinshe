@@ -11,8 +11,41 @@ export const fetchAges = async (setState) => {
       },
     });
     setState(response.data.result);
-    console.log(response.data.result);
+    
   } catch (error) {
     console.error("Error fetching ages:", error);
   }
+};
+
+export const fetchMovies = async (setState) => {
+  try {
+    const response = await axios.get('http://185.100.67.64/movies', {
+      method: 'GET',
+      headers: {
+        Accept: 'application/json',
+        Authorization: "Bearer " + localStorage.getItem("token"),
+      }
+    });
+    setState(response.data.result);
+    console.log(response.data.result);
+  } catch (error) {
+    console.error('Error fetching movies:', error);
+  }
+};
+
+export const fetchMovie = async (id, setState) => {
+  let valueToReturn = null;
+  try {
+    const response = await axios.get('http://185.100.67.64/movie/' + id, {
+      method: 'GET',
+      headers: {
+        Accept: 'application/json',
+        Authorization: "Bearer " + localStorage.getItem("token"),
+      }
+    });
+    setState(response.data.result)
+  } catch (error) {
+    console.error('Error fetching movies:', error);
+  }
+  return valueToReturn
 };

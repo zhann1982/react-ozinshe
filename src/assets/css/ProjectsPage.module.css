@@ -68,4 +68,5 @@
     flex-wrap: wrap;
     gap: 18px;
     margin-top: 40px;
+    align-items: start;
 }
