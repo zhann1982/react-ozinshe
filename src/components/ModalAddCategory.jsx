@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import {useState} from 'react'
 import styles from '@css/ModalAddCategory.module.css'
 import TimesIcon from '@icons/TimesIcon';
 import InputText from '@components/InputText'

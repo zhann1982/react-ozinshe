@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import MainLayout from "@layouts/MainLayout";
 import { isAdminLoggedIn } from "@services/isAdminLoggedIn";
@@ -10,8 +10,6 @@ import UsersCard from "@components/UserCard";
 import ModalShowUser from "@components/ModalShowUser";
 
 const UsersPage = () => {
-  let usersCount = 143; // will be replaced with server response data
-
   const [isModalOpen2, setIsModalOpen2] = useState(false);
   const [user, setUser] = useState(null); 
   const [users, setUsers] = useState([]);
@@ -28,10 +26,9 @@ const UsersPage = () => {
 
   useEffect(() => {
     axios
-      .get("https://www.freetestapi.com/api/v1/users") // API JSONPlaceholder
+      .get("https://jsonplaceholder.org/users") // API JSONPlaceholder
       .then((response) => {
         setUsers(response.data); // Обновляем состояние с полученными данными
-        usersCount = response.data.length; // Обновляем количество пользователей
         setLoading(false);
       })
       .catch((error) => {
@@ -64,7 +61,7 @@ const UsersPage = () => {
             <div className={styles.titleBox}>
               <h1 className={styles.title}>
                 Пользователи
-                <span className={styles.usersCountNumber}>{usersCount}</span>
+                <span className={styles.usersCountNumber}>{users.length}</span>
               </h1>
             </div>
 
@@ -79,7 +76,7 @@ const UsersPage = () => {
             <div className={styles.cardBox}>
               {users.map((user) => (
                 <div key={user.id} onClick={e=>handleClick(e,user)}>
-                  <UsersCard name={user.name} email={user.email} />
+                  <UsersCard name={user.firstname + ' ' + user.lastname} email={user.email} />
                 </div>
               ))}
             </div>

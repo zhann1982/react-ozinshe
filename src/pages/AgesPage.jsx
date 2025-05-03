@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "@css/AgesPage.module.css";
 import MainLayout from "@layouts/MainLayout";
 import { isAdminLoggedIn } from "@services/isAdminLoggedIn";
@@ -69,7 +69,8 @@ const AgesPage = () => {
   };
 
   const handleEditGenre = (ageCategoryId) => {
-
+    // Implement edit functionality here
+    console.log("Edit age category with ID:", ageCategoryId);
   };
 
   if (!isAdminLoggedIn()) {

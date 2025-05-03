@@ -3,7 +3,7 @@ import MainLayout from '@layouts/MainLayout'
 import { useNavigate } from 'react-router-dom'
 import { isAdminLoggedIn } from '@services/isAdminLoggedIn'
 import NoAdminLoggedIn from '@components/NoAdminLoggedIn'
-
+import axios from 'axios'
 import styles from '@css/ProjectsPage.module.css'
 import { 
   filterPopularity,
@@ -27,6 +27,23 @@ const ProjectsPage = () => {
     fetchCategories(setCategories)
     fetchGenres(setGenres)
   },[])
+
+  const handleDeleteProject = (id) => {
+    if (id) {
+      axios
+        .delete(`http://185.100.67.64/movies/${id}`, {
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+            Authorization: "Bearer " + localStorage.getItem("token"),
+          },
+        })
+        .then(() => {
+          fetchMovies(setMovies);
+        })
+        .catch((error) => console.error("Error deleting:", error));
+    }
+  }
 
   const handleSelect1 = (option) => {
     console.log(option)
@@ -64,8 +81,8 @@ const ProjectsPage = () => {
         </div>
         <div className={styles.filterBox}>
           <DropDown title={`Сортировать:`} options={filterPopularity} onSelect={handleSelect1}/>  
-          <DropDown title={`Категория:`} options={categories} onSelect={handleSelect2}/>  
-          <DropDown title={`Тип:`} options={genres} onSelect={handleSelect3}/> 
+          <DropDown title={`Категория:`} options={['Все категории', ...(categories.map(category=>category.name))]} onSelect={handleSelect2}/>  
+          <DropDown title={`Тип:`} options={['Все жанры', ...(genres.map(genre=>genre.name))]} onSelect={handleSelect3}/> 
           <div className={styles.toRight}>
             <DropDownYear options={filterYears} onSelect={handleSelect4}/>  
           </div> 
@@ -81,6 +98,7 @@ const ProjectsPage = () => {
                 views={movie.views}
                 seriesCount={movie.seriesCount}
                 imageSrc={`url(/src/assets/${movie.imageSrc})`}
+                deleteConfirmed={handleDeleteProject}
               />
           ))}
         </div>

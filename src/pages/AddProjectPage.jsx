@@ -1,51 +1,51 @@
-import {useState, useEffect} from 'react'
+import {useState, useEffect, useLayoutEffect} from 'react'
 import MainLayout from '@layouts/MainLayout'
 import styles from '@css/AddProjectPage.module.css'
 import { Link, useNavigate } from 'react-router-dom'
 import  ChevronRight  from '@icons/ChevronRight'
 import  BackArrowIcon  from '@icons/BackArrowIcon'
-import { 
-  filterAgeCategories, 
-  filterCategory, 
-  filterType, 
-  filterYears 
-} from '@services/filterArrays'
 import DropDownSelect from '@components/DropDownSelect'
 import InputText from '@components/InputText'
 import InputNumber from '@components/InputNumber'
 import Textarea from '@components/Textarea'
 import { isAdminLoggedIn } from '@services/isAdminLoggedIn'
 import NoAdminLoggedIn from '@components/NoAdminLoggedIn'
-import { fetchMovies, fetchCategories, fetchGenres, fetchAges } from '@services/server'
+import { fetchCategories, fetchGenres, fetchAges } from '@services/server'
+import axios from 'axios'
 
 
 const AddProjectPage = () => {
-  
-  const navigate = useNavigate()
-
   let checkInputsFilled = new Array(10).fill(false);
+  const navigate = useNavigate()
+  const [categories, setCategories] = useState([])
+  const [genres, setGenres] = useState([])
+  const [ages, setAges] = useState([])
   const [inputsCheck, setInputsCheck] = useState(checkInputsFilled)
   const [hintClass, setHintClass] = useState(styles.hintTextVisible)
   const [submitButtonClass, setSubmitButtonClass] = useState(false)
   const [data, setData] = useState({
     title: '',
-    category: '',
-    type: '',
-    ageCategory: '',
-    yearProduced: '',
+    categoryId: '',
+    genreId: '',
+    ageCategoryId: '',
+    releaseYear : '',
     duration: null,
-    keyTags: [],
+    keyWords: '',
     description:'',
     director: '',
     producer: ''
   })
 
- 
+  useLayoutEffect(() => {
+    fetchAges(setAges),
+    fetchGenres(setGenres),
+    fetchCategories(setCategories)
+  },[])
 
   const handleInputsAllFilled = () => {
     if(inputsCheck.every(item => item === true)){
       setSubmitButtonClass(true)
-      // console.log(data)
+      console.log(data)
     } else {
       setSubmitButtonClass(false) 
     }
@@ -74,7 +74,7 @@ const AddProjectPage = () => {
         break;
 
       case 2:
-        setData({...data, keyTags:value})
+        setData({...data, keyWords:value})
         break;
 
       case 3:
@@ -90,19 +90,19 @@ const AddProjectPage = () => {
         break;
 
       case 6:
-        setData({...data, category:value})
+        setData({...data, categoryId:categories.find(item => item.name === value).categoryId})
         break;
 
       case 7:
-        setData({...data, type:value})
+        setData({...data, genreId:genres.find(item => item.name === value).genreId})
         break;
 
       case 8:
-        setData({...data, ageCategory:value})
+        setData({...data, ageCategoryId:ages.find(item => item.name === value).ageCategoryId})
         break;
 
       case 9:
-        setData({...data, yearProduced:value})
+        setData({...data, releaseYear:value})
         break;
 
       default:
@@ -110,10 +110,33 @@ const AddProjectPage = () => {
     }
   }
 
-  const handleSubmitForm = (e) => {
+  const handleSubmitForm = async (e) => {
     e.preventDefault()
-    // here we can send new project's data to server
-    
+    const formData = new FormData();
+    formData.append('title', data.title);
+    formData.append('description', data.description);
+    formData.append('releaseYear', data.releaseYear);
+    formData.append('ageCategoryId', data.ageCategoryId); // Массив ID возрастных категорий
+    formData.append('genreId', data.genreId); // Массив ID жанров
+    formData.append('categoryId', data.categoryId); // Массив ID категорий
+    formData.append('duration', data.duration);
+    formData.append('director', data.director);
+    formData.append('producer', data.producer);
+    formData.append('keyWords', data.keyWords);
+  
+    try {
+      const response = await axios.post('http://185.100.67.64/movies', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+          'Authorization': `Bearer ${localStorage.getItem('token')}`,
+          'Accept': 'application/json'
+        }
+      });
+      console.log('фильм загружен на сервер', response.data);
+    } catch (error) {
+      console.error('Ошибка при отправке данных:', error);
+    }
+
     if(submitButtonClass){
       navigate('/add-project-2')
     }
@@ -146,10 +169,10 @@ const AddProjectPage = () => {
 
           <div className={styles.flexColumn}>
             <InputText title='Название проекта' onSelected={value=>handleInputChange(value, 0)} valueOfInput={data.title}/>
-            <DropDownSelect title='Категория' options={filterCategory} onSelected={value=>handleInputChange(value, 6)} />
+            <DropDownSelect title='Категория' options={categories.map(item=>item.name)} onSelected={value=>handleInputChange(value, 6)} />
             <div className={styles.row}>
-              <DropDownSelect title='Тип проекта' options={filterType} onSelected={value=>handleInputChange(value, 7)}/>
-              <DropDownSelect title='Возрастная категория' options={filterAgeCategories} onSelected={value=>handleInputChange(value, 8)} />
+              <DropDownSelect title='Тип проекта' options={genres.map(item=>item.name)} onSelected={value=>handleInputChange(value, 7)}/>
+              <DropDownSelect title='Возрастная категория' options={ages.map(item=>item.name)} onSelected={value=>handleInputChange(value, 8)} />
             </div>
             <div className={styles.row}>
               {/* <DropDownSelect title='Год' options={filterYears} onSelected={value=>handleInputChange(value, 9)}/> */}

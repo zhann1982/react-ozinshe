@@ -1,4 +1,3 @@
-import React from 'react'
 import {useState} from 'react'
 import { useNavigate } from 'react-router-dom'
 import styles from '@css/FilmCard.module.css'
@@ -6,9 +5,8 @@ import EditIcon from '@icons/EditIcon'
 import TrashIcon from '@icons/TrashIcon'
 import EyeIcon from '@icons/EyeIcon'
 import ModalDeleteProject from '@components/ModalDeleteProject'
-import { filmCards } from '@services/filmCardBase'
 
-const FilmCard = ({id, title, category, views, seriesCount, imageSrc}) => {
+const FilmCard = ({id, title, category, views, seriesCount, imageSrc, deleteConfirmed}) => {
 
     const navigate = useNavigate();
 
@@ -26,9 +24,7 @@ const FilmCard = ({id, title, category, views, seriesCount, imageSrc}) => {
   
     const handleDeleteProject = (e) => {
         e.preventDefault()
-        const index = filmCards.findIndex(item => item.id == id)
-        filmCards.splice(index, 1)
-        console.log(filmCards.length)
+        deleteConfirmed(id)
         closeModal2(e)
         navigate('/projects')
     }

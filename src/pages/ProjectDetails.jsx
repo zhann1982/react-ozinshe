@@ -1,8 +1,7 @@
-import {useState, useContext, useEffect, useLayoutEffect} from 'react'
+import {useState, useContext, useLayoutEffect} from 'react'
 import styles from '@css/ProjectDetails.module.css'
 import MainLayout from '@layouts/MainLayout'
 import { Link, useParams, useNavigate } from 'react-router-dom'
-import { filmCards } from '@services/filmCardBase'
 import ChevronRight from '@icons/ChevronRight'
 import EyeIcon from '@icons/EyeIcon'
 import StarIcon from '@icons/StarIcon'
@@ -22,7 +21,7 @@ import { fetchMovie } from '@services/server'
 
 const ProjectDetails = () => {
   const params = useParams();
-
+  const navigate = useNavigate();
   const {prevPage} = useContext(AppContext)
   const [project, setProject] = useState(null)
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -32,26 +31,26 @@ const ProjectDetails = () => {
     fetchMovie(params.id, setProject)
   },[])
 
-  const navigate = useNavigate();
 
-  if (project == undefined) {
-    return (
-      <MainLayout>
-        <div className={styles.centered}>
-          <h1 className={styles.header}>Oops!</h1>
-          <h2 className={styles.infoText}>Проект не найден. Возможно он был удален</h2>
-          <div className={styles.actions}>
-              <button 
-                  className={styles.buttonSubmit}
-                  onClick={()=>navigate('/projects')}
-              >
-                  Go Home
-              </button>
-          </div>
-        </div>
-      </MainLayout>
-    )
-  }
+  // if (project == undefined) {
+  //   console.log('project is undefined')
+  //   return (
+  //     <MainLayout>
+  //       <div className={styles.centered}>
+  //         {/* <h1 className={styles.header}>Oops!</h1>
+  //         <h2 className={styles.infoText}>Проект не найден. Возможно он был удален</h2>
+  //         <div className={styles.actions}>
+  //             <button 
+  //                 className={styles.buttonSubmit}
+  //                 onClick={()=>navigate('/projects')}
+  //             >
+  //                 Go Home
+  //             </button>
+  //         </div> */}
+  //       </div>
+  //     </MainLayout>
+  //   )
+  // }
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -67,6 +66,23 @@ const ProjectDetails = () => {
 
   if (!isAdminLoggedIn()) {
     return <NoAdminLoggedIn />
+  } else if (project==undefined) {
+    return (
+      <MainLayout>
+        <div className={styles.centered}>
+          {/* <h1 className={styles.header}>Oops!</h1>
+          <h2 className={styles.infoText}>Проект не найден. Возможно он был удален</h2>
+          <div className={styles.actions}>
+              <button 
+                  className={styles.buttonSubmit}
+                  onClick={()=>navigate('/projects')}
+              >
+                  Go Home
+              </button>
+          </div> */}
+        </div>
+      </MainLayout>
+    )
   } else return (
     <MainLayout>
       <section className={styles.section}>
@@ -160,6 +176,8 @@ const ProjectDetails = () => {
       </section>
     </MainLayout>
   )
+
+  
 }
 
 export default ProjectDetails

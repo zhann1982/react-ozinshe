@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import { useContext, useState } from 'react'
 import styles from '@css/VideosTab.module.css'
 import DropDownSelect from './DropDownSelect'
 import SeasonLoader from './SeasonLoader'

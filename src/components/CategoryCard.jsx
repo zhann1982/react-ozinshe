@@ -1,19 +1,12 @@
-import React from 'react'
 import {useState} from 'react'
-import { useNavigate } from 'react-router-dom'
 import styles from '@css/CategoryCard.module.css'
 import EditIcon from '@icons/EditIcon'
 import TrashIcon from '@icons/TrashIcon'
 import VideoIcon from '@icons/VideoIcon'
 import ModalDeleteProject2 from '@components/ModalDeleteProject2'
-import { filterCategory } from '@services/filterArrays'
 
-const CategoryCard = ({title}) => {
+const CategoryCard = ({title, categoryId, deleteConfirmed, editConfirmed}) => {
 
-    let categories = [...filterCategory]; // will be replaced with server response data
-    categories.shift()
-
-    const navigate = useNavigate();
 
     const [isModalOpen2, setIsModalOpen2] = useState(false);
   
@@ -27,17 +20,20 @@ const CategoryCard = ({title}) => {
         setIsModalOpen2(false);
     }
   
-    const handleDeleteCategory = (e) => {
+    const handleDeleteCategory = (e, bool) => {
         e.preventDefault()
-        let newCategories = categories.filter((category) => category !== title)
-        // filterCategory = [filterCategory[0], ...newCategories]
-        // add server request to delete category
-        closeModal2(e)
+        if (bool) {
+            deleteConfirmed(categoryId)
+            closeModal2(e)
+        }
     }
 
-    const handleEditCategory = (e) => {
+    const handleEditCategory = (e, bool) => {
         e.preventDefault()
-        
+        if (bool) {
+            editConfirmed(categoryId)
+            closeModal2(e)
+        }
     }
 
   return (
@@ -51,7 +47,7 @@ const CategoryCard = ({title}) => {
                 <p>{21}</p>
             </div>
             <div className={styles.actions}>
-                <button onClick={e => handleEditCategory(e)}>
+                <button onClick={e => handleEditCategory(e, true)}>
                     <EditIcon width={16} height={16} />
                 </button>
                 <button  onClick={e => openModal2(e)}>
@@ -60,7 +56,13 @@ const CategoryCard = ({title}) => {
             </div>
         </div>
 
-        <ModalDeleteProject2 title={'Удалить категорию?'} question={'Вы действительно хотите удалить категорию?'} isOpen={isModalOpen2} onClose={closeModal2} confirmDeleteProject={handleDeleteCategory}/>
+        <ModalDeleteProject2 
+            title={'Удалить категорию?'} 
+            question={'Вы действительно хотите удалить категорию?'} 
+            isOpen={isModalOpen2} 
+            onClose={closeModal2} 
+            confirmDeleteProject={handleDeleteCategory}
+        />
     </div>
   )
 }

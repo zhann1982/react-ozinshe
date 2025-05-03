@@ -27,15 +27,19 @@ const AddProjectPage_2 = () => {
     if (activeButton) navigate("/add-project-3");
   }
 
-  useEffect(() => { 
-    let allFilled = []
-    newProject.seasons.forEach((item) => {
-      const allSeries = item.series.every((videoId) => (videoId !== null && videoId !== ""));
-      allFilled.push(allSeries);
-    });
-    allFilled = allFilled.every((item) => item === true);
-    setActiveButton(allFilled);
-  }, [seasonCount]);
+  // useEffect(() => { 
+  //   let allFilled = []
+  //   newProject.seasons.forEach((item) => {
+  //     const allSeries = item.series.every((videoId) => (videoId !== null && videoId !== ""));
+  //     allFilled.push(allSeries);
+  //   });
+  //   allFilled = allFilled.every((item) => item === true);
+  //   setActiveButton(allFilled);
+  // }, [seasonCount]);
+
+  const handleAddedSeasons = (seasons) => {
+    
+  }
 
   if (!isAdminLoggedIn()) {
     return <NoAdminLoggedIn />
@@ -72,7 +76,7 @@ const AddProjectPage_2 = () => {
             </div>
             
             {seasonCount > 0 ? (
-              <SeasonLoader seasonCounter={seasonCount} />
+              <SeasonLoader seasonCounter={seasonCount} addedSeasons={handleAddedSeasons} />
             ) : (
               <div className={styles.hintTextVisible}>
                 <p>Выберите количество сезонов</p>

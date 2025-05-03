@@ -1,5 +1,5 @@
-import {useState, useEffect, useContext} from 'react'
-import { useLocation, useParams } from 'react-router-dom'
+import {useState, useContext, useEffect} from 'react'
+import { useLocation } from 'react-router-dom'
 import { AppContext } from '../App'
 import styles from '@css/SeriesLoader.module.css'
 import TrashIcon from '@icons/TrashIcon'
@@ -7,17 +7,17 @@ import InputText from '@components/InputText'
 // import {filmCards} from '@services/filmCardBase'
 
 
-const SeriesLoader = ({season}) => {
+const SeriesLoader = ({seasonNumber, addedSeries}) => {
     const location = useLocation()
-    const params = useParams()
+    // const params = useParams()
     // let project = filmCards.find((item)=>item.id == params.id)
     
-    const {newProject, setNewProject, editedProject, setEditedProject} = useContext(AppContext)
+    const { editedProject, setEditedProject} = useContext(AppContext)
     
     console.log('seriesload', editedProject)
     let obj
     if (location.pathname.includes('edit-project')) {
-        obj = editedProject?.seasons.find((item)=>item.seasonNumber == season)
+        obj = editedProject?.seasons.find((item)=>item.seasonNumber == seasonNumber)
         setEditedProject(editedProject)
     }
     
@@ -32,7 +32,6 @@ const SeriesLoader = ({season}) => {
         let arr = [...series]
         arr[index] = value
         setSeries([...arr]) 
-        console.log(value)
     }
 
     const handleDelete = (e, index) => {
@@ -41,55 +40,59 @@ const SeriesLoader = ({season}) => {
             let arr = [...series]
             arr.splice(index, 1)
             setSeries([...arr])
-        } else if (series.length = 1) {
+        } else if (series.length == 1) {
             setSeries([''])
         }
     }
 
     useEffect(()=>{
-        if (location.pathname.includes('edit-project')) {
-            let arr = editedProject.seasons.length>0?[...editedProject.seasons]:[]
-            let index = arr.findIndex(item => item.seasonNumber == season)
-            if (index != -1) {
-                arr[index] = {seasonNumber: season, series} 
-            } else {
-             arr.push({seasonNumber: season, series})
-            }
-            setEditedProject({...editedProject, seasons: arr})
-        } else if (location.pathname.includes('add-project')) {
-            let arr = newProject.seasons.length>0?[...newProject.seasons]:[]
-            let index = arr.findIndex(item => item.seasonNumber == season)
-            if (index != -1) {
-                arr[index] = {seasonNumber: season, series} 
-            } else {
-                arr.push({seasonNumber: season, series})
-            }
-            setNewProject({...newProject, seasons: arr})
-        }
-    },[])
-    
-    useEffect(()=>{
-        if (location.pathname.includes('edit-project')) {
-            let arr = editedProject.seasons.length>0?[...editedProject.seasons]:[]
-            let index = arr.findIndex(item => item.seasonNumber == season)
-            if (index != -1) {
-                arr[index] = {seasonNumber: season, series} 
-            } else {
-             arr.push({seasonNumber: season, series})
-            }
-            setEditedProject({...editedProject, seasons: arr})
-        } else if (location.pathname.includes('add-project')) {
-            let arr = newProject.seasons.length>0?[...newProject.seasons]:[]
-            let index = arr.findIndex(item => item.seasonNumber == season)
-            if (index != -1) {
-                arr[index] = {seasonNumber: season, series} 
-            } else {
-                arr.push({seasonNumber: season, series})
-            }
-            setNewProject({...newProject, seasons: arr})
-        }
-        console.log(series)
+        addedSeries(seasonNumber, series)
     },[series])
+
+    // useEffect(()=>{
+    //     if (location.pathname.includes('edit-project')) {
+    //         let arr = editedProject.seasons.length>0?[...editedProject.seasons]:[]
+    //         let index = arr.findIndex(item => item.seasonNumber == season)
+    //         if (index != -1) {
+    //             arr[index] = {seasonNumber: season, series} 
+    //         } else {
+    //          arr.push({seasonNumber: season, series})
+    //         }
+    //         setEditedProject({...editedProject, seasons: arr})
+    //     } else if (location.pathname.includes('add-project')) {
+    //         let arr = newProject.seasons.length>0?[...newProject.seasons]:[]
+    //         let index = arr.findIndex(item => item.seasonNumber == season)
+    //         if (index != -1) {
+    //             arr[index] = {seasonNumber: season, series} 
+    //         } else {
+    //             arr.push({seasonNumber: season, series})
+    //         }
+    //         setNewProject({...newProject, seasons: arr})
+    //     }
+    // },[])
+    
+    // useEffect(()=>{
+    //     if (location.pathname.includes('edit-project')) {
+    //         let arr = editedProject.seasons.length>0?[...editedProject.seasons]:[]
+    //         let index = arr.findIndex(item => item.seasonNumber == season)
+    //         if (index != -1) {
+    //             arr[index] = {seasonNumber: season, series} 
+    //         } else {
+    //          arr.push({seasonNumber: season, series})
+    //         }
+    //         setEditedProject({...editedProject, seasons: arr})
+    //     } else if (location.pathname.includes('add-project')) {
+    //         let arr = newProject.seasons.length>0?[...newProject.seasons]:[]
+    //         let index = arr.findIndex(item => item.seasonNumber == season)
+    //         if (index != -1) {
+    //             arr[index] = {seasonNumber: season, series} 
+    //         } else {
+    //             arr.push({seasonNumber: season, series})
+    //         }
+    //         setNewProject({...newProject, seasons: arr})
+    //     }
+    //     console.log(series)
+    // },[series])
     
     
   return (

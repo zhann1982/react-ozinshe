@@ -1,4 +1,3 @@
-import React from 'react'
 import styles from '@css/NotFoundPage.module.css'
 import { useNavigate } from 'react-router-dom'
 import { isAdminLoggedIn } from '@services/isAdminLoggedIn'

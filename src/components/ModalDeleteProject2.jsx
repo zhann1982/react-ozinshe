@@ -1,8 +1,7 @@
-import React from 'react'
 import styles from '@css/ModalDeleteProject.module.css'
 import TimesIcon from '@icons/TimesIcon';
 
-const ModalDeleteProject2 = ({ isOpen, onClose, confirmDeleteProject,title, question }) => {
+const ModalDeleteProject2 = ({ isOpen, onClose, confirmDeleteProject, title, question }) => {
     if (!isOpen) return null;
 
     return (
@@ -16,7 +15,7 @@ const ModalDeleteProject2 = ({ isOpen, onClose, confirmDeleteProject,title, ques
                 </div>
                 <p>{question}</p>
                 <div className={styles.buttonBox}>
-                    <button className={styles.buttonYes} onClick={e=>confirmDeleteProject(e)}>Да, удалить</button> 
+                    <button className={styles.buttonYes} onClick={e=>confirmDeleteProject(e, true)}>Да, удалить</button> 
                     <button className={styles.buttonCancel} onClick={e=>onClose(e)}>Отмена</button>   
                 </div>    
                 

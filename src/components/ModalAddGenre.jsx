@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import {useState} from 'react'
 import styles from '@css/ModalAddGenre.module.css'
 import TimesIcon from '@icons/TimesIcon';
 import DragAndDropUploader from '@components/DragAndDropUploader'

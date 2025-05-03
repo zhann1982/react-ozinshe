@@ -2,7 +2,7 @@ import React from 'react'
 import styles from '@css/ModalDeleteProject.module.css'
 import TimesIcon from '@icons/TimesIcon';
 
-const ModalDeleteProject = ({ isOpen, onClose, confirmDeleteProject,title }) => {
+const ModalDeleteProject = ({ isOpen, onClose, confirmDeleteProject, title }) => {
     if (!isOpen) return null;
 
     return (

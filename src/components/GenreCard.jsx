@@ -1,4 +1,3 @@
-import React from 'react'
 import {useState} from 'react'
 import styles from '@css/GenreCard.module.css'
 import EditIcon from '@icons/EditIcon'

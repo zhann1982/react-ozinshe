@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import {useState} from 'react'
 import styles from '@css/Header.module.css'
 import LogoImageSVG from '@icons/LogoImageSVG'
 import SearchIcon from '@icons/SearchIcon'

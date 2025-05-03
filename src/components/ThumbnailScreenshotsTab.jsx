@@ -1,4 +1,3 @@
-import React from 'react'
 import styles from '@css/ThumbnailScreenshotsTab.module.css'
 import TrashIcon from '@icons/TrashIcon'
 import { useState, useContext } from 'react'

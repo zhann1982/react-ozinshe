@@ -1,19 +1,21 @@
-import React, {useState} from "react";
+import {useLayoutEffect, useState} from "react";
 import styles from "@css/CategoriesPage.module.css";
 import MainLayout from "@layouts/MainLayout";
 import { isAdminLoggedIn } from "@services/isAdminLoggedIn";
 import NoAdminLoggedIn from "@components/NoAdminLoggedIn";
 import PlusIcon from "@icons/PlusIcon";
 import RoleCard from "../components/RoleCard";
-import { filterRoles } from "@services/filterArrays";
 import ModalAddRole from "../components/ModalAddRole";
+import { fetchRoles } from "../services/server";
 
 const RolesPage = () => {
-  let roles = [...filterRoles]; // will be replaced with server response data
-  
-  const rolesCount = roles.length; // will be replaced with server response data
+  const [roles, setRoles] = useState([])
 
   const [isModalOpen2, setIsModalOpen2] = useState(false);
+
+  useLayoutEffect(() => {
+    fetchRoles(setRoles)
+  },[])
       
   const openModal2 = () => {
       setIsModalOpen2(true)
@@ -46,7 +48,7 @@ const RolesPage = () => {
               <h1 className={styles.title}>
               Роли
                 <span className={styles.projectsCountNumber}>
-                  {rolesCount}
+                  {roles.length}
                 </span>
               </h1>
 

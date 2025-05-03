@@ -1,19 +1,21 @@
-import React, {useState} from "react";
+import {useLayoutEffect, useState} from "react";
 import styles from "@css/CategoriesPage.module.css";
 import MainLayout from "@layouts/MainLayout";
 import { isAdminLoggedIn } from "@services/isAdminLoggedIn";
 import NoAdminLoggedIn from "@components/NoAdminLoggedIn";
 import PlusIcon from "@icons/PlusIcon";
 import CategoryCard from "../components/CategoryCard";
-import { filterCategory } from "@services/filterArrays";
 import ModalAddCategory from "../components/ModalAddCategory";
+import { fetchCategories } from "../services/server";
+import axios from "axios";
 
 const CategoriesPage = () => {
-  let categories = [...filterCategory]; // will be replaced with server response data
-  categories.shift()
-  const categoriesCount = categories.length; // will be replaced with server response data
-
+  const [categories, setCategories] = useState([])
   const [isModalOpen2, setIsModalOpen2] = useState(false);
+
+  useLayoutEffect(() => {
+    fetchCategories(setCategories)
+  },[])
       
   const openModal2 = () => {
       setIsModalOpen2(true)
@@ -28,11 +30,44 @@ const CategoriesPage = () => {
     openModal2();
   }
 
-  const confirmedAddNewCategory = (category) => {
-    // Add logic to add category to list on server
-    categories.push(category)
-    // filterCategory = [filterCategory[0], ...categories]
+  const confirmedAddNewCategory = async (category) => {   
+    try {
+      const response = await axios.post('http://185.100.67.64/category', {
+        name: category
+      }, {
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${localStorage.getItem("token")}`,
+          'Accept': 'application/json',
+        }
+      });
+      console.log('category added' , response.data);
+    } catch (error) {
+      console.error('Error uploading:', error);
+    }
+    fetchCategories(setCategories)
     closeModal2();
+  };
+
+  const handleDeleteCategory = async (categoryId) => {
+    if (categoryId) {
+      axios
+        .delete(`http://185.100.67.64/category/${categoryId}`, {
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+            Authorization: "Bearer " + localStorage.getItem("token"),
+          },
+        })
+        .then(() => {
+          fetchCategories(setCategories)
+        })
+        .catch((error) => console.error("Error deleting:", error));
+    }
+  }
+
+  const handleEditCategory = async (categoryId) => {
+    console.log('edit category', categoryId)
   }
 
   if (!isAdminLoggedIn()) {
@@ -46,7 +81,7 @@ const CategoriesPage = () => {
               <h1 className={styles.title}>
               Категории
                 <span className={styles.projectsCountNumber}>
-                  {categoriesCount}
+                  {categories.length}
                 </span>
               </h1>
 
@@ -65,7 +100,10 @@ const CategoriesPage = () => {
                   return (
                     <CategoryCard
                       key={index}
-                      title={category}
+                      title={category.name}
+                      categoryId={category.categoryId}
+                      deleteConfirmed={handleDeleteCategory}
+                      editConfirmed={handleEditCategory}
                     />
                   );
                 
