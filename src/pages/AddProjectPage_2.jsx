@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react'
+import {useState, useLayoutEffect, useContext} from 'react'
 import MainLayout from "@layouts/MainLayout";
 import styles from "@css/AddProjectPage_2.module.css";
 import { Link, useNavigate } from "react-router-dom";
@@ -8,13 +8,29 @@ import DropDownSelect from "@components/DropDownSelect";
 import SeasonLoader from "@components/SeasonLoader";
 import { isAdminLoggedIn } from "@services/isAdminLoggedIn";
 import NoAdminLoggedIn from "@components/NoAdminLoggedIn";
+import { AppContext } from "../App";
+import axios from "axios";
+import { fetchMovies } from "@services/server";
 
 const AddProjectPage_2 = () => {
-  
+  const { newMovieTitle } = useContext(AppContext);
+  const [movies, setMovies] = useState([]);
   const navigate = useNavigate();
   const [seasonCount, setSeasonCount] = useState(0);
   const [activeButton, setActiveButton] = useState(false);
+  const [seasonsObj, setSeasonsObj] = useState([]);
+  const [id, setId] = useState(null);
   // const [data, setData] = useState([]); // data from SeasonLoader
+  useLayoutEffect(() => {
+    fetchMovies(setMovies)
+  },[])
+  useLayoutEffect(() => {
+    movies.forEach((movie) => {
+      if (movie.title === newMovieTitle) {
+        setId(movie.movieId);
+      }
+    })
+  },[movies])
 
   const handleSelectSeasonCount = (value) => {
     setSeasonCount(value);
@@ -23,7 +39,37 @@ const AddProjectPage_2 = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setActiveButton(false);
-    // data will be sent to the server
+
+    const sendRequestsToPostSeasons = async () => {
+      try {
+        const results = await Promise.all(
+          seasonsObj.map(async (seoson, ii) => {
+            return Promise.all(
+              seoson.series.map(async (serie, jj) => {
+
+                const data = new FormData();
+                data.append("link", serie);
+                const response = await axios.post(`http://185.100.67.64/movies/${id}/season/${ii}/series/${jj}/${serie}`, data, {
+                  headers: {
+                    "Content-Type": "multipart/form-data",
+                    Authorization: `Bearer ${localStorage.getItem("token")}`,
+                    Accept: "application/json",
+                  },
+                });
+                return response.data;
+              })
+            );
+          })
+        );
+    
+        console.log(results);
+      } catch (error) {
+        console.error("Error sending requests:", error);
+      }
+    };
+    
+    sendRequestsToPostSeasons();
+
     if (activeButton) navigate("/add-project-3");
   }
 
@@ -37,8 +83,9 @@ const AddProjectPage_2 = () => {
   //   setActiveButton(allFilled);
   // }, [seasonCount]);
 
-  const handleAddedSeasons = (seasons) => {
-    
+  const handleAddedSeasons = (seasons, isAllFilled) => {
+    setActiveButton(isAllFilled);
+    setSeasonsObj(seasons);
   }
 
   if (!isAdminLoggedIn()) {

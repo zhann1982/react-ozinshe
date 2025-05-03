@@ -46,6 +46,7 @@ const SeriesLoader = ({seasonNumber, addedSeries}) => {
     }
 
     useEffect(()=>{
+        
         addedSeries(seasonNumber, series)
     },[series])
 

@@ -19,13 +19,14 @@ import EditProjectPage from '@pages/EditProjectPage'
 export const AppContext = createContext()
 
 function App() {
+  const [newMovieTitle, setNewMovieTitle] = useState('')
   const [prevPage, setPrevPage] = useState(null)
   const [editedProject, setEditedProject] = useState({})
   const [allFilled, setAllFilled] = useState(true)
 
   return (
     <div className="app">
-      <AppContext.Provider value={{prevPage, setPrevPage, editedProject, setEditedProject,allFilled, setAllFilled}}>
+      <AppContext.Provider value={{newMovieTitle, setNewMovieTitle, prevPage, setPrevPage, editedProject, setEditedProject,allFilled, setAllFilled}}>
         <BrowserRouter>
           <Routes>
             <Route path='/' exact           element={<LoginPage />}         />

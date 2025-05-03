@@ -17,7 +17,13 @@ const SeasonLoader = ({seasonCounter, addedSeasons}) => {
     }
 
     useEffect(()=>{
-        addedSeasons(seasons)
+        let isAllFilled = true
+        seasons.forEach((season) => {
+            if (season.series.some(item => item === "")) {
+                isAllFilled = false
+            }
+        })
+        addedSeasons(seasons, isAllFilled)
         console.log('seasons', seasons)
     },[seasons])
 

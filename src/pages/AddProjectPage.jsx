@@ -1,4 +1,4 @@
-import {useState, useEffect, useLayoutEffect} from 'react'
+import {useState, useEffect, useLayoutEffect, useContext} from 'react'
 import MainLayout from '@layouts/MainLayout'
 import styles from '@css/AddProjectPage.module.css'
 import { Link, useNavigate } from 'react-router-dom'
@@ -12,9 +12,12 @@ import { isAdminLoggedIn } from '@services/isAdminLoggedIn'
 import NoAdminLoggedIn from '@components/NoAdminLoggedIn'
 import { fetchCategories, fetchGenres, fetchAges } from '@services/server'
 import axios from 'axios'
+import { AppContext } from '../App'
+
 
 
 const AddProjectPage = () => {
+  const {setNewMovieTitle} = useContext(AppContext)
   let checkInputsFilled = new Array(10).fill(false);
   const navigate = useNavigate()
   const [categories, setCategories] = useState([])
@@ -137,6 +140,7 @@ const AddProjectPage = () => {
       console.error('Ошибка при отправке данных:', error);
     }
 
+    setNewMovieTitle(data.title)
     if(submitButtonClass){
       navigate('/add-project-2')
     }
