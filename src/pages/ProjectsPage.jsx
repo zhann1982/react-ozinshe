@@ -1,30 +1,33 @@
-import React, {useEffect,useState} from 'react'
+import {useEffect,useState} from 'react'
 import MainLayout from '@layouts/MainLayout'
 import { useNavigate } from 'react-router-dom'
 import { isAdminLoggedIn } from '@services/isAdminLoggedIn'
 import NoAdminLoggedIn from '@components/NoAdminLoggedIn'
-import axios from 'axios'
 
 import styles from '@css/ProjectsPage.module.css'
 import { 
-  filterPopularity, 
-  filterCategory, 
-  filterType, 
+  filterPopularity,
   filterYears 
 } from '@services/filterArrays'
-import { fetchMovies } from '@services/server'
+import { fetchMovies, fetchCategories, fetchGenres } from '@services/server'
 import Plusicon from '@icons/PlusIcon'
 import DropDown from '@components/DropDown'
 import DropDownYear from '@components/DropDownYear'
 import FilmCard from '@components/FilmCard'
 
+
 const ProjectsPage = () => {
   const navigate = useNavigate()
   const [movies, setMovies] = useState([])
+  const [categories, setCategories] = useState([])
+  const [genres, setGenres] = useState([])
 
   useEffect(() => {
     fetchMovies(setMovies)
+    fetchCategories(setCategories)
+    fetchGenres(setGenres)
   },[])
+
   const handleSelect1 = (option) => {
     console.log(option)
   }
@@ -61,8 +64,8 @@ const ProjectsPage = () => {
         </div>
         <div className={styles.filterBox}>
           <DropDown title={`Сортировать:`} options={filterPopularity} onSelect={handleSelect1}/>  
-          <DropDown title={`Категория:`} options={filterCategory} onSelect={handleSelect2}/>  
-          <DropDown title={`Тип:`} options={filterType} onSelect={handleSelect3}/> 
+          <DropDown title={`Категория:`} options={categories} onSelect={handleSelect2}/>  
+          <DropDown title={`Тип:`} options={genres} onSelect={handleSelect3}/> 
           <div className={styles.toRight}>
             <DropDownYear options={filterYears} onSelect={handleSelect4}/>  
           </div> 

@@ -1,5 +1,4 @@
-import React, {useState, useEffect, useContext} from 'react'
-import { AppContext } from '../App'
+import {useState, useEffect} from 'react'
 import MainLayout from "@layouts/MainLayout";
 import styles from "@css/AddProjectPage_2.module.css";
 import { Link, useNavigate } from "react-router-dom";
@@ -11,10 +10,7 @@ import { isAdminLoggedIn } from "@services/isAdminLoggedIn";
 import NoAdminLoggedIn from "@components/NoAdminLoggedIn";
 
 const AddProjectPage_2 = () => {
-  if (!isAdminLoggedIn()) {
-    return <NoAdminLoggedIn />
-  }
-  const {newProject, setNewProject} = useContext(AppContext);
+  
   const navigate = useNavigate();
   const [seasonCount, setSeasonCount] = useState(0);
   const [activeButton, setActiveButton] = useState(false);
@@ -40,6 +36,10 @@ const AddProjectPage_2 = () => {
     allFilled = allFilled.every((item) => item === true);
     setActiveButton(allFilled);
   }, [seasonCount]);
+
+  if (!isAdminLoggedIn()) {
+    return <NoAdminLoggedIn />
+  }
 
   return (
     <MainLayout>

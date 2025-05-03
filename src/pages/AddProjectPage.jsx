@@ -1,5 +1,4 @@
-import React, {useState, useEffect, useContext} from 'react'
-import { AppContext } from '../App'
+import {useState, useEffect} from 'react'
 import MainLayout from '@layouts/MainLayout'
 import styles from '@css/AddProjectPage.module.css'
 import { Link, useNavigate } from 'react-router-dom'
@@ -17,11 +16,11 @@ import InputNumber from '@components/InputNumber'
 import Textarea from '@components/Textarea'
 import { isAdminLoggedIn } from '@services/isAdminLoggedIn'
 import NoAdminLoggedIn from '@components/NoAdminLoggedIn'
+import { fetchMovies, fetchCategories, fetchGenres, fetchAges } from '@services/server'
 
 
 const AddProjectPage = () => {
   
-  const {newProject, setNewProject} = useContext(AppContext)
   const navigate = useNavigate()
 
   let checkInputsFilled = new Array(10).fill(false);
@@ -41,9 +40,7 @@ const AddProjectPage = () => {
     producer: ''
   })
 
-  useEffect(() => {
-    handleInputsAllFilled()
-  }, [inputsCheck])
+ 
 
   const handleInputsAllFilled = () => {
     if(inputsCheck.every(item => item === true)){
@@ -53,6 +50,10 @@ const AddProjectPage = () => {
       setSubmitButtonClass(false) 
     }
   }
+
+  useEffect(() => {
+    handleInputsAllFilled()
+  }, [inputsCheck])
 
   const handleInputChange = (value, number) => { 
     if(value.length > 0){
@@ -112,15 +113,11 @@ const AddProjectPage = () => {
   const handleSubmitForm = (e) => {
     e.preventDefault()
     // here we can send new project's data to server
-    setNewProject({...newProject, ...data, seasons: []})
+    
     if(submitButtonClass){
       navigate('/add-project-2')
     }
   }
-
-  useEffect(() => {
-    console.log('new project 1 part',newProject)
-  }, [newProject])
 
   if (!isAdminLoggedIn()) {
     return <NoAdminLoggedIn />
@@ -155,8 +152,9 @@ const AddProjectPage = () => {
               <DropDownSelect title='Возрастная категория' options={filterAgeCategories} onSelected={value=>handleInputChange(value, 8)} />
             </div>
             <div className={styles.row}>
-              <DropDownSelect title='Год' options={filterYears} onSelected={value=>handleInputChange(value, 9)}/>
-              <InputNumber title='Хронометраж (мин)' onSelected={value=>handleInputChange(value, 1)} valueOfInput={data.duration}/>
+              {/* <DropDownSelect title='Год' options={filterYears} onSelected={value=>handleInputChange(value, 9)}/> */}
+              <InputNumber title='Год' minValue={1991} maxValue={new Date().getFullYear()} onSelected={value=>handleInputChange(value, 9)} valueOfInput={data.yearProduced}/>
+              <InputNumber title='Хронометраж (мин)' minValue={3} maxValue={230}  onSelected={value=>handleInputChange(value, 1)} valueOfInput={data.duration}/>
             </div>
             <InputText title='Ключевые слова' onSelected={value=>handleInputChange(value, 2)}  valueOfInput={data.keyTags}/>
           </div>  

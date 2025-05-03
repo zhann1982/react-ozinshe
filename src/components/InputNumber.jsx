@@ -1,7 +1,7 @@
 import styles from '@css/InputNumber.module.css';
 import { useState } from 'react';
 
-const InputNumber = ({ title, onSelected, valueOfInput}) => {
+const InputNumber = ({ title, onSelected, valueOfInput, minValue, maxValue}) => {
   const [labelClass, setLabelClass] =  useState(valueOfInput?styles.displayLabel:styles.displayNone)
   const [inputClass, setInputClass] = useState(valueOfInput?styles.inputFilled:styles.inputEmpty)
 
@@ -30,13 +30,14 @@ const InputNumber = ({ title, onSelected, valueOfInput}) => {
     <div className={styles.inputWrapper}>
       <label className={labelClass} >{title}</label>
       <input 
-        value={valueOfInput}
+        // value={valueOfInput}
         className={inputClass}
         onChange={((e) =>handleInputChange(e))}
         onFocusCapture={handleFocus}
         onBlurCapture={(e)=>handleBlur(e)}
         placeholder={title}
-        type="number" min={3} max={180} 
+        type="number" min={minValue} max={maxValue} 
+        step={1}
       />
     </div>
   )
