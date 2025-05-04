@@ -26,7 +26,7 @@ function App() {
 
   return (
     <div className="app">
-      <AppContext.Provider value={{newMovieTitle, setNewMovieTitle, prevPage, setPrevPage, editedProject, setEditedProject,allFilled, setAllFilled}}>
+      <AppContext.Provider value={{ newMovieTitle, setNewMovieTitle, prevPage, setPrevPage, editedProject, setEditedProject,allFilled, setAllFilled}}>
         <BrowserRouter>
           <Routes>
             <Route path='/' exact           element={<LoginPage />}         />

@@ -49,7 +49,7 @@ const AddProjectPage_2 = () => {
 
                 const data = new FormData();
                 data.append("link", serie);
-                const response = await axios.post(`http://185.100.67.64/movies/${id}/season/${ii}/series/${jj}/${serie}`, data, {
+                const response = await axios.post(`http://185.100.67.64/movies/${id}/season/${ii}/series/${jj}/videoLink`, data, {
                   headers: {
                     "Content-Type": "multipart/form-data",
                     Authorization: `Bearer ${localStorage.getItem("token")}`,

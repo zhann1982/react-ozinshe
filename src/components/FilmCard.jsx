@@ -34,6 +34,8 @@ const FilmCard = ({id, title, category, views, seriesCount, imageSrc, deleteConf
         navigate(`/edit-project/${id}`)
     }
 
+    console.log('imageSrc', imageSrc)
+
   return (
     <div className={styles.card}>
         <div className={styles.imageBox} style={{backgroundImage: imageSrc}} onClick={()=>navigate(`/details/${id}`)}>

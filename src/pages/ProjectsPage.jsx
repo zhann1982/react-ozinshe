@@ -97,7 +97,7 @@ const ProjectsPage = () => {
                 type={movie.genres.map(genre=>genre.name).join(', ')}
                 views={movie.views}
                 seriesCount={movie.seriesCount}
-                imageSrc={`url(/src/assets/${movie.imageSrc})`}
+                imageSrc={`url(/src/assets/${movie.imageSrc.replace(/[()]/g, "").split(' ').join('')})`}
                 deleteConfirmed={handleDeleteProject}
               />
           ))}

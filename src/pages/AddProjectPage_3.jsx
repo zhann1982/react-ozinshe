@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import {useContext, useEffect, useState, useLayoutEffect} from 'react'
 import MainLayout from '@layouts/MainLayout'
 import styles from '@css/AddProjectPage_3.module.css'
 import { Link, useNavigate } from 'react-router-dom'
@@ -10,6 +10,9 @@ import { isAdminLoggedIn } from '@services/isAdminLoggedIn'
 import NoAdminLoggedIn from '@components/NoAdminLoggedIn'
 import TrashIcon from '@icons/TrashIcon'   
 import ModalSuccess from '@components/ModalSuccess'
+import { AppContext } from '../App'
+import { fetchMovies } from '@services/server'
+import axios from 'axios'
 
 const AddProjectPage_3 = () => {
     const navigate = useNavigate()
@@ -17,8 +20,21 @@ const AddProjectPage_3 = () => {
     const [activeButton, setActiveButton] = useState(false)
     const [thumbnail, setThumbnail] = useState(null)
     const [screenshots, setScreenshots] = useState([])
+    const [isModalOpen, setIsModalOpen] = useState(false)
+    const {newMovieTitle} = useContext(AppContext)
+    const [movies, setMovies] = useState([])
+    const [id, setId] = useState(null);
 
-    const [isModalOpen, setIsModalOpen] = useState(false);
+    useLayoutEffect(() => {
+        fetchMovies(setMovies)
+    },[])
+    useLayoutEffect(() => {
+        movies.forEach((movie) => {
+          if (movie.title === newMovieTitle) {
+            setId(movie.movieId);
+          }
+        })
+    },[movies])
 
     const openModal = () => {
       setIsModalOpen(true);
@@ -52,8 +68,30 @@ const AddProjectPage_3 = () => {
 
     const handleSubmit = (e) => {   
         e.preventDefault()
-        console.log("data 3", thumbnail, screenshots);
-        // data will be sent to the server
+        const handleUpload = async () => {
+            const formData = new FormData();
+            
+            // Append multiple files
+            screenshots.forEach((file) => {
+              formData.append(`screenshots`, file);
+            });
+            // Append single file
+            formData.append('image', thumbnail);
+            try {
+              const response = await axios.post(`http://185.100.67.64/movies/${id}/images`, formData, {
+                headers: {
+                  'Content-Type': 'multipart/form-data',
+                  'Authorization': `Bearer ${localStorage.getItem('token')}` ,
+                  'Accept': 'application/json',
+                }
+              });
+          
+              console.log(response.data);
+            } catch (error) {
+              console.error('Error uploading files:', error);
+            }
+        };
+        handleUpload();
         openModal();
     }
 
